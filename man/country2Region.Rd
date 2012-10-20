@@ -1,0 +1,77 @@
+\name{country2Region}
+\alias{country2Region}
+\title{Produce regional data from country level data}
+\description{
+A function to aggregate country level data into regional data.
+For example finding the total population of Asia, Europe,etc, from country level populations.
+As well as sums, other functions can be used, like mean, median, min, max, etc.
+There are currently 8 choices of region and 4 choices of country code.
+}
+\usage{
+country2Region(regionType, inFile, nameDataColumn, joinCode,
+nameJoinColumn, FUN = 'mean', ...)
+}
+\arguments{
+  \item{regionType}{Must be one of: "GEO3", "GEO3major", "IMAGE24", "GLOCAF", "Stern", "SRES", "SRESmajor" or "GBD"}
+  \item{inFile}{a data frame}
+  \item{nameDataColumn}{The name of the data column to aggregate}
+  \item{joinCode}{The type of code to join with. Must be one of: "ISO2", "ISO3", "Numeric" or "FIPS"}
+  \item{nameJoinColumn}{The name of a column of inFile. Contains joining codes.}
+  \item{FUN}{A function to apply to each region, e.g. 'mean'}
+  \item{\dots}{further arguments to be passed to FUN, e.g. na.rm=TRUE}
+
+}
+\details{
+The user must specify 'nameJoinColumn' from their data which contains country codes, and joinCode which specifies the type of code.
+regionType specifies which regions to aggregate the data to.
+Using FUN='identity' will return the neames of the countries within each region.
+}
+\value{
+If FUN returns a single value, country2Region returns a data frame, with value of FUN for each region.
+ 
+If FUN returns more than one value, country2Region will return a list, with one element for each region.
+}
+\seealso{For producing maps of regional data from aggregated country level data, see \code{\link{mapByRegion}}}
+\examples{
+data(countryExData)
+
+#to report which countries make up regions
+country2Region(regionType="Stern")
+
+#Using country2Region to calculate mean Environmental Health index in Stern regions.
+sternEnvHealth <- country2Region(inFile=countryExData
+		,nameDataColumn="ENVHEALTH"
+		,joinCode="ISO3"
+		,nameJoinColumn="ISO3V10"
+		,regionType="Stern"
+		,FUN='mean'
+		)
+
+print(sternEnvHealth)
+
+#A simple plot of this data.
+#dotchart(sort(sternEnvHealth))
+dotchart(sort(sternEnvHealth[,1]))
+
+#use FUN='identity' to see which countries in your data belong to which region.
+country2Region(inFile=countryExData
+		,nameDataColumn="Country"
+		,joinCode="ISO3"
+		,nameJoinColumn="ISO3V10"
+		,regionType="Stern"
+		,FUN='identity'
+		)
+
+#Change FUN to length, to count the number of countries in each region.
+country2Region(inFile=countryExData
+		,nameDataColumn="Country"
+		,joinCode="ISO3"
+		,nameJoinColumn="ISO3V10"
+		,regionType="Stern"
+		,FUN='length'
+		)
+
+
+}
+\keyword{manip}
+

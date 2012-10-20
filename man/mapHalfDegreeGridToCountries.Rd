@@ -1,0 +1,69 @@
+\name{mapHalfDegreeGridToCountries}
+\alias{mapHalfDegreeGridToCountries}
+
+\title{Maps user half degree gridded data at country level by first aggregating.}
+\description{
+Maps user half degree gridded data at country level by first aggregating.
+}
+\usage{
+mapHalfDegreeGridToCountries(
+      inFile=""
+    , aggregateOption="sum"  
+    , nameCountryColumn = ""
+    , suggestForFailedCodes = FALSE 
+    , projection=NA   
+    , mapResolution="low"                                                 
+    , numCats = 7 
+    , xlim=c(-160,160)
+    , ylim=c(-80,90)
+    , mapRegion = "world"   
+    , catMethod="quantiles"   
+    , colourPalette= "heat" 
+    , addLegend=TRUE 
+    )
+}
+
+
+\arguments{
+  \item{inFile}{ either a gridascii filename or an sp SpatialGridDataFrame object specifying a global half degree grid dataset, if none specified an internal example data is used  }
+  \item{aggregateOption}{ how to aggregate the data ('sum','mean','min','max') }
+  \item{nameCountryColumn}{ optional name of column containing country names (used in reporting of success/failure) }
+  \item{suggestForFailedCodes}{ T/F whether you want system to suggest for failed codes NOT YET WORKING }
+  \item{projection}{ deprecated june 2012 }
+  \item{mapResolution}{options low, medium, only for projection='none' initially}
+  \item{numCats}{ number of categories, may be overided e.g. if catMethod ='pretty' }
+  \item{xlim}{ map extents c(west,east), can be overidden by mapRegion }
+  \item{ylim}{ map extents c(south,north), can be overidden by mapRegion }
+  \item{mapRegion}{ 'world','africa','oceania','eurasia','uk' sets map extents, overrides we,ea etc. }
+  \item{catMethod}{ method for categorisation of data "pretty", any vector defining breaks, "fixedWidth","quantiles"  }
+  \item{colourPalette}{ "heat","white2Black","palette":for current palette }
+  \item{addLegend}{ whether to add a legend or not T/F }
+}
+\details{
+Aggregates half degree gridded data to countries using the option specified in 'aggregateOption'
+then maps at a country level.
+}
+
+\value{
+invisibly returns a list containing the data and main options used for the map, 
+the list can be passed to \code{\link{addMapLegend}} along with additional options
+to allow greater flexibility in legend creation.
+}
+
+\author{ andy south }
+
+\seealso{ \code{\link{aggregateHalfDegreeGridToCountries}} }
+
+\examples{
+
+data(gridExData,envir=environment(),package="rworldmap")
+gridExData <- get("gridExData")
+mapHalfDegreeGridToCountries(gridExData)             
+
+#different aggregate option
+mapHalfDegreeGridToCountries( gridExData, aggregateOption="mean" )
+
+}
+
+\keyword{ aplot }
+

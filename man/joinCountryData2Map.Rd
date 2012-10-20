@@ -1,0 +1,70 @@
+\name{joinCountryData2Map}
+\alias{joinCountryData2Map}
+\title{ Joins user country referenced data to a map }
+\description{
+Joins user data referenced by country codes or names to an internal map, 
+ready for plotting using \code{\link{mapCountryData}}. 
+Reports join successes and failures.
+}
+\usage{
+joinCountryData2Map(dF
+, joinCode = "ISO3" 
+, nameJoinColumn = "ISO3V10"
+, nameCountryColumn = "Country"
+, suggestForFailedCodes = FALSE 
+, mapResolution="coarse" 
+, projection=NA #DEPRECATED
+, verbose = FALSE   
+)
+}
+
+\arguments{
+  \item{dF}{ R data frame with at least one column for country reference and one column of data }
+  \item{joinCode}{ how countries are referenced options "ISO2","ISO3","FIPS","NAME", "UN" = numeric codes }
+  \item{nameJoinColumn}{ name of column containing country referencing }
+  \item{nameCountryColumn}{ optional name of column containing country names (used in reporting of success/failure) }
+  \item{suggestForFailedCodes}{ NOT YET ENABLED T/F whether you want system to suggest for failed codes  }
+  \item{projection}{ DEPRECATED JUNE 2012  }
+  \item{mapResolution}{resolution of the borders in the internal map, only for projection='none' : options 'low', 'medium' }
+  \item{verbose}{if set to FALSE it doesn't print progress messages to console}
+  }
+\details{
+Joins data referenced by country codes to an internally stored map to enable plotting. 
+The user specifies which country code their data are referenced by, and the name of the column in their data containing that referencing data.
+The user can choose from different map resolutions, using the function \code{\link{getMap}} to retrieve the map.
+The function reports on how many countries successfully join to the map.
+Data can then be plotted using \code{\link{mapCountryData}}.
+NEW to version 1.01 Oct 2012 : for joinCode='NAME' alternative country names are matched using \code{\link{countrySynonyms}}.
+
+The projection argument has now been deprecated, you can project maps using package rgdal as shown below and in the FAQ.
+library(rgdal)
+#first get countries excluding Antarctica which crashes spTransform
+sPDF <- getMap()[-which(getMap()$ADMIN=='Antarctica'),]
+#transform to robin for the Robinson projection
+sPDF <- spTransform(sPDF, CRS=CRS("+proj=robin +ellps=WGS84"))        
+mapCountryData( sPDF, nameColumnToPlot="REGION")
+
+}
+\value{
+An R 'SpatialPolygonsDataFrame' [package "sp"] object with the data joined to it 
+}
+
+\author{ andy south }
+
+
+\seealso{ \code{\link{mapCountryData}}, \code{\link{getMap}} }
+\examples{
+data("countryExData",envir=environment(),package="rworldmap")
+
+sPDF <- joinCountryData2Map(countryExData
+              , joinCode = "ISO3"
+              , nameJoinColumn = "ISO3V10"
+              )
+mapCountryData( sPDF
+              , nameColumnToPlot="BIODIVERSITY" 
+              )
+
+}
+
+\keyword{ dplot }
+

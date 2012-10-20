@@ -1,0 +1,11 @@
+Package: rworldmap
+Type: Package
+Title: Mapping global data, vector and raster.
+Version: 1.02
+Date: 2012-10-5
+Author: Andy South, with contributions from Joe Scutt-Phillips, Barry Rowlingson, Roger Bivand & Pru Foster 
+Maintainer: Andy South <southandy@gmail.com>
+Description: Enables mapping of country level and gridded user datasets.
+License: GPL (>= 2)
+Depends: R (>= 2.10.0), sp, maptools, foreign, fields, spam
+Suggests: rgdal, rworldxtra, RColorBrewer, classInt, cshapes, ncdf, raster

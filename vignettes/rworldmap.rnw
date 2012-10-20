@@ -1,0 +1,553 @@
+% -*- mode: noweb; noweb-default-code-mode: R-mode; -*- 
+\documentclass[a4paper]{article}
+\title{rworldmap vignette}
+\author{Andy South\footnote{Centre for Environment, Fisheries and Aquaculture 
+Science (Cefas), Lowestoft, NR33 OHT, UK. {\tt southandy at gmail.com}}}
+
+%\VignetteIndexEntry{rworldmap vignette : examples to get started}
+
+% feb2012 to try to reducesize of pdf outputs
+%% Set PDF 1.5 and compression, including object compression
+%% Needed for MiKTeX -- most other distributions default to this
+\ifx\pdfoutput\undefined
+\else
+  \ifx\pdfoutput\relax
+  \else
+    \ifnum\pdfoutput>0
+      % PDF output
+      \pdfminorversion=5
+      \pdfcompresslevel=9
+      \pdfobjcompresslevel=2
+    \fi
+  \fi
+\fi
+
+
+\SweaveOpts{echo=TRUE,print=FALSE, width=7, height=3.7, eps=FALSE} %default width and height for figures
+
+%trying these SweaveOpts from raster to make vignette smaller - works
+\SweaveOpts{png=TRUE}
+\SweaveOpts{resolution=200}
+\SweaveOpts{keep.source=TRUE}
+
+\usepackage{Sweave}
+\usepackage{a4wide}
+%\usepackage{a4}
+%\usepackage{graphicx}
+\usepackage[colorlinks=true,urlcolor=blue]{hyperref}
+\begin{document}
+\maketitle
+
+%text that is put directly into the document
+\large{rworldmap is a package for visualising global data, concentrating on data 
+referenced by country codes or gridded at half degree resolution.}\newline
+\vspace{1 cm}
+
+%including quest and cefas logos
+Funded by : 
+%\scaledbox{.5}{\includegraphics{questLogo}}
+\vspace{1 cm}
+%\includegraphics{questLogo}
+%\includegraphics{nercLogo}
+%\includegraphics{cefasLogo}
+%\vspace{1 cm}
+\includegraphics[width=4cm]{questLogo}
+\includegraphics[width=4cm]{nercLogo}
+\includegraphics[width=2cm]{cefasLogo}
+%\includegraphics[height=2cm]{questLogo}
+%\includegraphics[height=2cm]{nercLogo}
+%\includegraphics[height=2cm]{cefasLogo}
+
+\vspace{1 cm}
+
+\tableofcontents
+\vspace{0.5 cm}
+\section{Introduction}
+%\vspace{1 cm}
+
+
+Package {\tt rworldmap} is loaded by 
+<<echo=TRUE,print=FALSE>>= 
+library(rworldmap)
+@
+
+\vspace{0.5 cm}
+This vignette shows a few examples of the main rworldmap functions to get you 
+started. To access the full help system, type ?rworldmap in the R console. The 
+functions are designed to operate with few specified parameters in which case 
+default values are used, but can also accept user input to allow flexibility e.g.
+in size, data categorisation, and colour schemes.
+
+%this to ensure R code wraps onto next line
+<<echo=FALSE>>=
+options(width=70)
+@
+
+
+%this code used in setting up all figures later
+<<plotSetup,echo=FALSE>>=
+par(mai=c(0,0,0.2,0),xaxs="i",yaxs="i")
+@
+
+%Here are example output figures for country and gridded data :
+
+%for the first couple of figures don't show the code : echo=FALSE
+\begin{figure}[bthp]
+  \begin{center}
+  
+<<eg1,fig=TRUE,echo=FALSE,results=hide>>=
+<<plotSetup>>
+data("countryExData",envir=environment())
+sPDF <- joinCountryData2Map(countryExData,
+              joinCode = "ISO3",
+              nameJoinColumn = "ISO3V10",
+              mapResolution = "coarse"
+              )
+#map the data with no legend
+mapParams <- mapCountryData( sPDF,
+              nameColumnToPlot="BIODIVERSITY",
+              addLegend=FALSE,
+              oceanCol="lightblue",
+              missingCountryCol="grey"
+              )
+#add a modified legend
+#do.call( addMapLegend, c(mapParams,
+#            legendLabels="all",
+#            legendWidth=0.5,
+#            legendMar = 2
+#            ))
+addMapLegend(colourVector = mapParams[["colourVector"]],
+             cutVector = mapParams[["cutVector"]], 
+             legendLabels="all",
+             legendWidth=0.5,
+             legendMar = 2
+             )
+
+@
+
+    \caption{An example from mapCountryData}
+  \end{center}
+\end{figure}
+
+%<<B,eval=FALSE,echo=TRUE>>=
+%mapGriddedData(oceanCol="lightblue",borderCol=NA,landCol="white")
+%title("Population")
+%@
+
+
+
+\begin{figure}[bthp]
+  \begin{center}
+  
+<<eg2,fig=TRUE,echo=FALSE,results=hide>>=
+<<plotSetup>>
+data("gridExData",envir=environment())
+mapParams <- mapGriddedData(oceanCol="lightblue",borderCol=NA,landCol="white",addLegend=FALSE, colourPalette="topo")
+#do.call( addMapLegend, c(mapParams,legendLabels="all",legendWidth=0.5, legendMar = 2))
+addMapLegend(colourVector = mapParams[["colourVector"]],
+             cutVector = mapParams[["cutVector"]],   
+             legendLabels="all",
+             legendWidth=0.5,
+             legendMar = 2
+             )
+
+title("Population per half degree grid cell")
+@
+
+    \caption{An example from mapGriddedData}
+  \end{center}
+\end{figure}
+
+\pagebreak 
+
+\section{Mapping your own country level data}
+
+To map your own data you will need it in columns with one row per country, 
+one column containing country identifiers, and other columns containing your data.
+
+The mapping process then involves 3 steps (or 2 if your data are already in an 
+R dataframe).
+\begin{enumerate} 
+\item read data into R
+\item join data to a map ( using {\tt joinCountryData2Map()} ) 
+\item display the map ( using {\tt mapCountryData()} ) 
+\end{enumerate} 
+
+There is an example dataset within the package that can be accessed using the 
+data command, and the command below shows how to display a subset of the rows and 
+columns.
+
+<<showExampleCountryData,echo=TRUE>>=
+data(countryExData)
+countryExData[5:10,1:5]
+@
+
+\subsection{Reading data into R}
+To read in your own data from a space or comma delimited text file you will 
+need to use : {\tt read.csv(filename.csv)} or {\tt read.txt(filename.txt)}, type 
+{\tt ?read.table} from the R console to get help on this.
+
+\subsection{Joining data to a country map}
+To join the data to a map use {\tt joinCountryData2Map}, and you will need to specify 
+the name of column containing your country identifiers (nameJoinColumn) and the 
+type of code used (joinCode) e.g. "ISO3" for ISO 3 letter codes or "UN" for 
+numeric country codes. If you only have country names rather than codes use 
+joinCode="NAME", you can expect more mismatches because there is greater variation
+in what a single country may be named.
+
+<<joinCountryData2Map1,echo=TRUE>>=
+data(countryExData)
+sPDF <- joinCountryData2Map( countryExData
+                           , joinCode = "ISO3"
+                           , nameJoinColumn = "ISO3V10")
+@
+\vspace{0.5 cm}
+You can see that a summary of how many countries are successfully  joined is 
+output to the console. You can specify verbose=TRUE to get a full list of 
+countries. The object returned (named sPDF in this case) is of type 
+{\tt SpatialPolygonsDataFrame} from the package {\tt sp}. This object is required 
+for the next step, displaying the map.
+
+\subsection{Displaying a countries map}
+{\tt mapCountryData} requires as a minimum a {\tt SpatialPolygonsDataFrame}
+object and a specification of the name of the column containing the data to plot.
+The first line starting par ... below and in subsequent plots simply ensures 
+the plot fills the available space on the page.
+
+%\begin{figure}[bthp]
+  \begin{center}
+<<mapCountryData1,fig=TRUE,echo=TRUE>>=
+<<plotSetup>>
+mapCountryData( sPDF, nameColumnToPlot="BIODIVERSITY" )
+@              
+%    \caption{ output of mapCountryData() }
+  \end{center}
+%\end{figure}
+
+In this small map the default legend is rather large. This could be fixed by 
+calling the addMapLegend function as in the code below.
+
+<<mapCountryData2,fig=FALSE,echo=TRUE,results=hide>>=
+mapParams <- mapCountryData( sPDF, nameColumnToPlot="BIODIVERSITY"
+                           , addLegend=FALSE )
+do.call( addMapLegend, c(mapParams, legendWidth=0.5, legendMar = 2))
+@ 
+Using {\tt do.call} allows the output from mapCountryData to be used in addMapLegend 
+to ensure the legend matches the map while also allowing easy modification of extra 
+parameters such as {\tt legendWidth}.
+
+%\pagebreak 
+\section{Mapping your own half degree gridded data}
+
+The {\tt mapGriddedData} function can accept either 
+\begin{enumerate} 
+\item an object of type {\tt SpatialGridDataFrame}, as defined in the 
+package {\tt sp}
+\item the name of an ESRI gridAscii file as a character string
+\item a 2D R matrix or array (rows by columns) 
+\end{enumerate}
+
+rworldmap contains an example SpatialGridDataFrame that can be accessed and 
+printed as shown in the code below. 
+
+%\begin{figure}[htpb] %[bthp] trying to see if h will fix its position
+  \begin{center}
+<<mapGriddedData1,fig=TRUE,echo=TRUE>>=
+<<plotSetup>>
+data(gridExData)
+mapGriddedData(gridExData)
+@              
+%    \caption{ output of mapGriddedData() }
+  \end{center}
+%\end{figure}
+
+
+
+\section{Aggregating half degree gridded data to a country level}
+
+mapHalfDegreeGridToCountries() takes a gridded input file, and aggregates, to a 
+country level and plots the map, it accepts most of the same arguments as 
+{\tt mapCountryData()}. In the example below the trick from above of modifying 
+the legend using addMapLegend() is repeated. 
+
+%\begin{figure}[htbp] 
+  \begin{center}
+
+<<mapHalfDegreeGridToCountries1,fig=TRUE,echo=TRUE,results=hide>>= 
+<<plotSetup>>  
+mapParams <- mapHalfDegreeGridToCountries(gridExData, addLegend=FALSE)
+do.call( addMapLegend, c(mapParams, legendWidth=0.5, legendMar = 2))
+@
+%    \caption{ output of mapHalfDegreeGridToCountries() }
+  \end{center}
+%\end{figure} 
+
+\section{Aggregating country level data to global regions}
+
+Country level data can be aggregated to global regions specified by 
+{\tt regionType} in {\tt country2Region} which outputs as text, and {\tt mapByRegion} 
+which produces a map plot. The regional classifications available include SRES,
+GEO3, Stern and GBD.
+
+<<country2Region1,echo=TRUE>>= 
+#Using country2Region to calculate mean ENVHEALTH in Stern regions.
+sternEnvHealth <- country2Region(inFile=countryExData
+                                ,nameDataColumn="ENVHEALTH"
+                                ,joinCode="ISO3"
+                                ,nameJoinColumn="ISO3V10"
+                                ,regionType="Stern"
+                                ,FUN="mean"
+                                )
+
+print(sternEnvHealth)
+@
+
+%\begin{figure}[htpb] %[bthp] trying to see if h will fix its position
+  \begin{center}
+<<mapByRegion1,fig=TRUE,echo=TRUE,results=hide>>= 
+<<plotSetup>>  
+mapByRegion( countryExData
+           , nameDataColumn="CLIMATE"
+           , joinCode="ISO3"
+           , nameJoinColumn="ISO3V10"
+           , regionType="Stern"
+           , FUN="mean"
+           )
+@                        
+%    \caption{ output of mapByRegion() }
+  \end{center}
+%\end{figure}                        
+
+\section{Map display options common across the plotting methods}
+
+The following arguments can be specified to alter the appearance of your plots.
+
+\begin{itemize} 
+\item {\tt catMethod} method for categorisation of data "pretty", "fixedWidth",
+"diverging","logfixedWidth","quantiles","categorical", or a numeric vector 
+defining breaks.
+
+\item {\tt numCats} number of categories to classify the data into, may be modified 
+if that exact number is not possible for the chosen catMethod.  
+
+\item{\tt colourPalette} a string describing the colour palette to use, choice of :
+  \begin{enumerate}
+             \item "palette" for the current palette 
+             \item a vector of valid colours, e.g. c("red","white","blue") 
+             or output from RColourBrewer 
+             \item one of "heat", "diverging", "white2Black", "black2White", 
+             "topo", "rainbow", "terrain", "negpos8", "negpos9" 
+  \end{enumerate}
+
+\item {\tt addLegend} set to TRUE for a default legend, if set to FALSE the 
+function addMapLegend() or addMapLegendBoxes() can be used to create a more flexible legend.
+
+\item {\tt mapRegion} a region to zoom in on, can be set to a country name from 
+getMap()\$NAME or one of "eurasia","africa","latin america","uk","oceania","asia" 
+
+\end{itemize} 
+
+
+\pagebreak 
+\section{Example maps with settings modified}
+
+
+\begin{figure}[bthp]
+  \begin{center}
+  
+<<finalFigure1,fig=TRUE,echo=TRUE,results=hide>>=
+<<plotSetup>>
+
+#joining the data to a map
+sPDF <- joinCountryData2Map(countryExData,
+              joinCode = "ISO3",
+              nameJoinColumn = "ISO3V10"
+              )            
+#creating a user defined colour palette
+op <- palette(c('green','yellow','orange','red')) 
+#find quartile breaks
+cutVector <- quantile(sPDF@data[["BIODIVERSITY"]],na.rm=TRUE)
+#classify the data to a factor
+sPDF@data[["BIOcategories"]] <- cut(sPDF@data[["BIODIVERSITY"]]
+                                   , cutVector
+                                   , include.lowest=TRUE )
+#rename the categories
+levels(sPDF@data[["BIOcategories"]]) <- c('low', 'med', 'high', 'vhigh')
+#mapping
+mapCountryData( sPDF
+              , nameColumnToPlot='BIOcategories'
+              , catMethod='categorical'
+              , mapTitle='Biodiversity categories'
+              , colourPalette='palette'
+              , oceanCol='lightblue'
+              , missingCountryCol='white'
+              )
+@
+
+    \caption{An example of a categorical map produced from mapCountryData}
+  \end{center}
+\end{figure}
+
+This demonstrates how continuous data can be put into categories outside of the 
+rworldmap functions and how a user defined colour palette can be used.
+Because the catMethod="categorical" was used a legend with separate boxes rather 
+than a colour bar is added.
+
+%\linebreak
+%\pagebreak
+\clearpage 
+You can zoom in on a map by specifying mapRegion="Eurasia" (or by specifiying
+xlim and ylim) and the country outlines can be changed by borderCol="black". 
+
+%\begin{figure}[bthp]
+  \begin{center}
+  
+<<finalFigure2,fig=TRUE,echo=TRUE,results=hide>>=
+<<plotSetup>>
+         
+mapCountryData( sPDF
+              , nameColumnToPlot='BIOcategories'
+              , catMethod='categorical'
+              , mapTitle='Biodiversity categories'
+              , colourPalette='palette'
+              , oceanCol='lightblue'
+              , missingCountryCol='white'
+              , mapRegion='Eurasia'
+              , borderCol='black'
+              )
+
+## At end of plotting, reset palette to previous settings:
+palette(op)  
+
+@
+%    \caption{Map zoomed in by adding mapRegion="Eurasia"}
+  \end{center}
+%\end{figure}
+
+
+\pagebreak 
+\section{Bubble plots}
+
+The {\tt mapBubbles} function allows flexible creation of bubble plots on global 
+maps. You can specifiy data columns that will determine the sizing and colouring
+of the bubbles (using {\tt nameZsize} and {\tt nameZColour} ). The function also 
+accepts other spatialDataFrame objects or data frames as long as they contain columns 
+specifiying the x and y coordinates. The interactive function {\tt identifyCountries} 
+allows the user to click on bubbles and the country name and optionally an attribute variable 
+will be printed on the map.  
+
+
+%\begin{figure}[bthp]
+  \begin{center}
+
+<<bubblePlot,fig=TRUE,echo=TRUE,results=hide>>=
+<<plotSetup>>
+
+mapBubbles( dF=getMap()
+          , nameZSize="POP_EST"
+          , nameZColour="GEO3major"
+          , colourPalette='rainbow'
+          , oceanCol='lightblue'
+          , landCol='wheat'
+          ) 
+
+@
+%    \caption{using mapBubbles}
+  \end{center}
+%\end{figure}
+
+
+
+
+
+
+
+\pagebreak 
+\section{Combining rworldmap with other packages classInt and RColorBrewer}
+
+Whilst rworldmap sets many defaults internally there is also an option to use 
+other packages to have greater flexibility. In this example the package 
+classInt is used to create the classification and RColorBrewer to specify the 
+colours. The following page demonstrates how multiple maps can be generated in 
+the same figure and shows a selection of different RColorBrewer palettes. 
+
+%\begin{figure}[bthp]
+  \begin{center}
+
+%I'd like to put keep.source=TRUE to keep comments, but then the R code doesn't wrap  
+%<<classInt_RColorBrewer,fig=TRUE,echo=TRUE,keep.source=TRUE,results=hide>>=
+<<classInt_RColorBrewer,fig=TRUE,echo=TRUE,results=hide>>=
+<<plotSetup>>
+
+library(classInt)
+library(RColorBrewer)
+
+#getting example data and joining to a map
+data("countryExData",envir=environment(),package="rworldmap")
+sPDF <- joinCountryData2Map( countryExData
+                           , joinCode = "ISO3"
+                           , nameJoinColumn = "ISO3V10"
+                           , mapResolution='coarse'
+                           )
+
+#getting class intervals using a 'jenks' classification in classInt package
+classInt <- classIntervals( sPDF[["EPI"]], n=5, style="jenks")
+catMethod = classInt[["brks"]]
+
+#getting a colour scheme from the RColorBrewer package
+colourPalette <- brewer.pal(5,'RdPu')
+
+#calling mapCountryData with the parameters from classInt and RColorBrewer
+mapParams <- mapCountryData( sPDF
+                           , nameColumnToPlot="EPI"
+                           , addLegend=FALSE
+                           , catMethod = catMethod
+                           , colourPalette = colourPalette )
+                           
+do.call( addMapLegend
+       , c( mapParams
+          , legendLabels="all"
+          , legendWidth=0.5
+          , legendIntervals="data"
+          , legendMar = 2 ) )
+@
+%    \caption{Combining rworldmap with packages classInt and RColorBrewer}
+  \end{center}
+%\end{figure}
+
+%an attempt at a multiplot figure
+\begin{figure}[bthp]
+  \begin{center}
+<<multiFrame,fig=TRUE,width=7,height=9,echo=TRUE,results=hide>>=
+
+#uses sPDF from the previous chunk
+
+op <- par(fin=c(7,9),mfcol=c(5,2),mai=c(0,0,0.2,0),xaxs="i",yaxs="i")
+
+brewerList <- c("Greens","Greys","Oranges","OrRd"
+               ,"PuBuGn","Purples","YlGn","YlGnBu","YlOrBr","YlOrRd")
+
+for(i in 1:10)
+   {
+    #getting a colour scheme from the RColorBrewer package
+    colourPalette <- brewer.pal(7,brewerList[i])
+    
+    #calling mapCountryData with the parameters from RColorBrewer
+    mapParams <- mapCountryData( sPDF
+                               , nameColumnToPlot="CLIMATE"
+                               , addLegend=FALSE
+                               , colourPalette=colourPalette
+                               , mapTitle=brewerList[i] )
+    do.call( addMapLegend
+           , c(mapParams,horizontal=FALSE,legendLabels="none",legendWidth=0.7))
+   }
+par(op)   
+@
+    \caption{Different RColorBrewer palettes applied to the same data}
+  \end{center}
+\end{figure}
+
+
+\end{document}
+
+

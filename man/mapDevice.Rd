@@ -1,0 +1,70 @@
+\name{mapDevice}
+\Rdversion{1.1}
+\alias{mapDevice}
+\title{
+Creates a plot device set up for maps
+}
+\description{
+Creates a plot device suited for rworldmap plotting functions. 
+}
+\usage{
+mapDevice(
+            device = "dev.new"
+          , rows = 1
+          , columns = 1
+          , plotOrder="rows"
+          , width = NULL
+          , height = NULL
+          , titleSpace = NULL
+          , mai = c(0, 0, 0.2, 0)
+          , mgp = c(0, 0, 0)
+          , xaxs = "i"
+          , yaxs = "i"
+          , ...)
+}
+
+\arguments{
+  \item{device}{ Character string which controls the type of plot default. 
+The default uses your standard plot device.
+Giving the name of a plotting device function will use that instead. e.g. "pdf", "png", etc.}
+  \item{rows}{ The number of rows. Default 1 }
+  \item{columns}{ The number of columns. Default 1 }
+  \item{plotOrder}{ Option of 'rows' or 'columns'. For multiple plots whether to plot in row or column order.
+However, note that addMapLegend can have the effect of reverting order to rows.}
+  \item{width}{ The width of a single plot. This includes the margins. If you do not specify both width and height, suitable values will be calculated}
+  \item{height}{ The height of a single plot. This includes the margins. If you do not specify both width and height, suitable values will be calculated}
+  \item{titleSpace}{ The height in inches of the gap at the plot.}
+  \item{mai}{ The margin sizes in inches. If titleSpace is given this overrides mai[3].}
+  \item{mgp}{As per par(mgp) in the graphics package}
+  \item{xaxs}{As per par(xaxs) in the graphics package}
+  \item{yaxs}{As per par(yaxs) in the graphics package}
+  \item{\dots}{Further arguments to the device function}
+}
+\value{
+Used for the side effect of creating a plot device, and setting graphical parameters for the device.
+}
+
+\seealso{
+mapCountryData,mapGridAscii
+}
+\examples{
+\dontrun{
+#Basic Usage
+mapDevice()
+mapCountryData()
+
+#2 by 2 plot
+mapDevice(rows=2,columns=2)
+columns<-c("BIODIVERSITY","EPI","ENVHEALTH","Population2005")
+for(i in columns){
+ mapCountryData(nameColumnToPlot=i)
+}
+#Creating a pdf that is 5 inches wide
+mapDevice(device="pdf",width=5,file=tempfile())
+mapCountryData()
+dev.off()
+
+}
+}
+\keyword{device}
+

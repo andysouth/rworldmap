@@ -1,0 +1,71 @@
+rworldmap changelog
+
+05/10/2012 (1.02)
+*rwmGetISO3.r removed test code after function def. that stopped installation, thanks to Brian Ripley
+*countrySynonyms added extra synonyms
+
+01/10/2012 (1.01)
+Changed country polygon boundaries to data derived from Natural Earth
+Added country synonym matching for user data
+*countriesHigh : added access from getMap() to higher resolution vector boundaries in companion package rworldxtra
+*countrySynonyms : added data file to aid in matching countries in user data to those in maps
+*joinCountryData2Map : when using joinCode='NAME' option it matches synonyms
+*joinCountryData2Map : Deprecated use of ‘projection’
+*mapBubbles : now copes with no nameZColour or nameZColour='blue' etc.
+*mapCountryData stopped it crashing when given a categorical dataset
+*mapCountryData added usePolypath=FALSE to plot commands to avoid polypath error, needs sp version >= 0.9-101
+*coastsCoarse added a coasts only vector map from Natural Earth to replace reliance on maps package in mapGriddedData
+Changed vignette figures from pdf to png to reduce size
+Removed small bit of offending code from vignettes following email from Brian Ripley
+Moved this ChangeLog to main package folder and removed .txt from name
+
+
+24/4/2012 (0.1310)
+Added this changelog to the inst/doc folder
+vignette source moved to vignettes folder as suggested at R2.14.0
+in vignettes word wrap issues in R code resolved.
+Added barplotCountryData()
+
+
+26/2/2012 (0.1300)
+Built under R2.14, and using options to compress files
+Polygon holes in country maps fixed using rgeos package (thanks to Karl Ove Hufthammer for outlining how to solve this problem). 
+
+
+14/2/2011 (0.1211)
+removed Rplots.pdf from the inst/doc/ folder
+
+ 
+18/12/2010 (0.121)
+added dependencies for fields, spam & maps
+
+
+13/12/2010 (0.120)
+correcting problem with category colours in mapGriddedData()
+
+ 
+30/8/2010  (0.110)
+There was a problem that eezMap.rda didn’t have a man page, I made the man page but removed both for now until I get permission from VLIZ to use it.
+
+ 
+03/02/2010
+Added option to pass ‘array’ or ‘matrix’ to mapGriddedData 
+Corrected bug in mapGriddedData(addBorders='coasts') 
+
+  
+
+03/01/2010
+Initial submission.
+ 
+
+
+ 
+
+
+
+
+
+
+
+
+
