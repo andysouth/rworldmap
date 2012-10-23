@@ -13,7 +13,9 @@ identifyCountries <- function(dF=""
 #also possible to get centroids from a sPDF
 if (class(dF)=="SpatialPolygonsDataFrame")
    {
-    centroidCoords <- coordinates(getMap())
+    #!9/10/12 BUG correction, don't get coords from internal map if an sPDF is passed
+    #centroidCoords <- coordinates(getMap())
+    centroidCoords <- coordinates(dF)    
     #within this function just need the dF bit of the sPDF
     dF2 <- dF@data
     #adding extra attribute columns to contain centroids (even though such columns may already be there)
@@ -45,7 +47,8 @@ selectedCountryIndices <- identify(x=dF2[[nameX]], y=dF2[[nameY]], labels=labels
 #allowing plotting of the boundaries of the selected countries
 #this is really just an initial test of something I may develop further later
 #!this will only work if the internal or a passed map is used
-if (plotSelected) 
+#!the plots only appear after the locator is stopped
+if (plotSelected & length(selectedCountryIndices)>0 ) 
    {
     if (class(dF)=="SpatialPolygonsDataFrame")
        {
