@@ -49,37 +49,47 @@ if ( class(dF)=="character" && dF=="" )
     dF=getMap()@data
     nameX="LON"
     nameY="LAT"
-    nameZSize="POP_EST"
-    nameZColour="GEO3"
+    if (nameZSize=="") nameZSize="POP_EST"
+    if (nameZColour=="") nameZColour="continent"
    }
 
 #allows just a sPDF to be passed and it will get the label points, so doesn't need nameX & nameY to be specified
 if (class(dF)=="SpatialPolygonsDataFrame")
    {
-    if (!add) 
-      {
-        #use passed sPDF as the background map
-        rwmNewMapPlot(mapToPlot=dF,oceanCol=oceanCol,mapRegion=mapRegion)
-        plot( dF, add=TRUE, border=borderCol, col=landCol )
-      }
+    #10/10/12 moved plotting to after getting & setting centroids
   
     #22/4/10 changing this to get centroid coords from the spdf
     centroidCoords <- coordinates(dF)    
     
-    #within this function just need the dF bit of the sPDF
-    dF <- dF@data
+
     #adding extra attribute columns to contain centroids (even though such columns may already be there)
     dF[['nameX']] <- centroidCoords[,1]
     dF[['nameY']] <- centroidCoords[,2]    
     nameX <- 'nameX'
-    nameY <- 'nameY'  
+    nameY <- 'nameY'
+    
+    if (!add) 
+    {
+      #use passed sPDF as the background map
+      #17/10/12 adding ... to pass xlim & ylim
+      #NO I should specify as an input, causes probs if params for points are passed
+      #rwmNewMapPlot(mapToPlot=dF,oceanCol=oceanCol,mapRegion=mapRegion, ...)
+      rwmNewMapPlot(mapToPlot=dF,oceanCol=oceanCol,mapRegion=mapRegion)
+      #22/10/12 added main=main but doesn't work
+      plot( dF, add=TRUE, border=borderCol, col=landCol, main=main )
+    }
+    
+    #within this function just need the dF bit of the sPDF
+    dF <- dF@data
+    
    } else if (!add) 
    {
     #background map
     #these set the most common params, if user wanted finer control over map
     #they can call rwmNewMapPlot, and then call mapBubbles with add=TRUE     
     rwmNewMapPlot(mapToPlot=getMap(),oceanCol=oceanCol,mapRegion=mapRegion)
-    plot( getMap(), add=TRUE, border=borderCol, col=landCol )
+    #22/10/12 added main=main but doesn't work
+    plot( getMap(), add=TRUE, border=borderCol, col=landCol, main=main )
    }
 
 #a bunch of code here that is repeated from mapCountryData
