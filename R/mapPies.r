@@ -1,8 +1,7 @@
 #mapPies.r
-#v2 20/7/2010
+#v3 15/10/2012
 #to plot pie charts on maps
-#getting it into rworldmap, andy south
-#developed from : andyMapPieGeneric4.r
+#temp version correcting bugs sent to Guarev
 
 
 #### remaining issues to resolve for creating generic method ####
@@ -16,7 +15,7 @@
 # could add an optional param nameZtotal that will only be used if it is specified
 # default for nameZs set to the names for cols 3 & 4 
 `mapPies` <- function( dF
-                        ,nameX="longitude", nameY="latitude" 
+                        ,nameX="LON", nameY="LAT" 
                         ,nameZs=c(names(dF)[3],names(dF)[4])
                         ,zColours=c(1:length(nameZs))
 
@@ -46,29 +45,58 @@
     
     #!!!BEWARE I've got a combination of systems for map extents here
     #need to rationalise mapRegion & we,ea
-    #require(rworldmap)
 
     #perhaps need to replace any na's with zeroes
     #as they will be plotted the same in pies & have a problem in seq with them ?
     #replace all nas in a df
     #31/5/12 removing
     #dF[is.na(dF)] <- 0
-    
+ 
     #20/7/2010 changed option for region to be set from data
     if ( mapRegion == 'data' ) #( (we==0 && so==0) ) # || (we==NA && so==NA)) #caused error with some data not other
-       {
-        xlim <- c( min(dF[,nameX], na.rm=TRUE),max(dF[,nameX], na.rm=TRUE) )
-        ylim <- c( min(dF[,nameY], na.rm=TRUE),max(dF[,nameY], na.rm=TRUE) )
-       }
+    {
+      xlim <- c( min(dF[,nameX], na.rm=TRUE),max(dF[,nameX], na.rm=TRUE) )
+      ylim <- c( min(dF[,nameY], na.rm=TRUE),max(dF[,nameY], na.rm=TRUE) )
+    }    
     
-    #background map
-    #these set the most common params, if user wanted finer control over map
-    #they can call rwmNewMapPlot, and then call this with add=TRUE 
-    if (!add) 
-       {
-        rwmNewMapPlot(mapToPlot=getMap(),oceanCol=oceanCol,xlim=xlim,ylim=ylim,mapRegion=mapRegion)
-        plot( getMap(), add=TRUE, border=borderCol, col=landCol )
-       }
+    
+    #15/10/12 copying code in here from mapBubbles() to cope with sPDF
+    
+    #allows just a sPDF to be passed and it will get the label points, so doesn't need nameX & nameY to be specified
+    if (class(dF)=="SpatialPolygonsDataFrame")
+    {
+      #10/10/12 moved plotting to after getting & setting centroids
+      
+      #22/4/10 changing this to get centroid coords from the spdf
+      centroidCoords <- coordinates(dF)    
+      
+      
+      #adding extra attribute columns to contain centroids (even though such columns may already be there)
+      dF[['nameX']] <- centroidCoords[,1]
+      dF[['nameY']] <- centroidCoords[,2]    
+      nameX <- 'nameX'
+      nameY <- 'nameY'
+      
+      if (!add) 
+      {
+        #use passed sPDF as the background map
+        rwmNewMapPlot(mapToPlot=dF,oceanCol=oceanCol,mapRegion=mapRegion)
+        plot( dF, add=TRUE, border=borderCol, col=landCol )
+      }
+      
+      #within this function just need the dF bit of the sPDF
+      dF <- dF@data
+      
+    } else if (!add) 
+    {
+      #background map
+      #these set the most common params, if user wanted finer control over map
+      #they can call rwmNewMapPlot, and then call mapBubbles with add=TRUE     
+      rwmNewMapPlot(mapToPlot=getMap(),oceanCol=oceanCol,mapRegion=mapRegion)
+      plot( getMap(), add=TRUE, border=borderCol, col=landCol )
+    }    
+    
+    
        
     maxSumValues <- 0
     #go through each circle to plot to find maximum value for scaling
@@ -130,8 +158,9 @@
             #is same as the setting in plot.map above
             #previously was set to radius*1.5, but they were a bit squashed
             #P contains coordinates for the circumference bit of the slice in $x & $y
-            P <- list( x= ratio * radius * cos(2*pi*seq(cumulatProps[sliceNum],cumulatProps[sliceNum+1],length=n,na.rm=TRUE))+ dF[ locationNum, nameX ],
-                       y=         radius * sin(2*pi*seq(cumulatProps[sliceNum],cumulatProps[sliceNum+1],length=n,na.rm=TRUE))+ dF[ locationNum, nameY ] )
+            #15/10/12 removed na.rm from seq() to correct warning
+            P <- list( x= ratio * radius * cos(2*pi*seq(cumulatProps[sliceNum],cumulatProps[sliceNum+1],length=n))+ dF[ locationNum, nameX ],
+                       y=         radius * sin(2*pi*seq(cumulatProps[sliceNum],cumulatProps[sliceNum+1],length=n))+ dF[ locationNum, nameY ] )
             #I wonder if this could be done with vectors rather than geometry ?
             #i.e. specifying an angle and a distance, the distance will alwasys be the same
             #and the angle will just be the proportion of the total angle
