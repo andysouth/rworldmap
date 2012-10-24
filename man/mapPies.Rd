@@ -8,8 +8,8 @@ The size of the circles is determined by the sum of the attribute columns and ea
 }
 \usage{
 mapPies(dF = ""
-       , nameX = "longitude"
-       , nameY = "latitude"
+       , nameX = "LON"
+       , nameY = "LAT"
        , nameZs=c(names(dF)[3],names(dF)[4])
        , zColours=c(1:length(nameZs))         
        , ratio = 1
