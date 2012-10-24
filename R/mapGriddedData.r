@@ -8,7 +8,7 @@ mapGriddedData <- function(
                          , ylim =             c(-80,90) 
                          , mapRegion =        "world"   
                          , addLegend =        TRUE
-                         , addBorders =       'low' 
+                         , addBorders =       'coarse' 
                          , borderCol =        'grey'
                          , oceanCol =         NA
                          , landCol =          NA
@@ -190,8 +190,8 @@ mapGriddedData <- function(
        #30/9/2012 replacing use of maps library
        #library(maps) 
        #map(interior=FALSE,add=TRUE, col=borderCol )
-       coastsCoarse <- NULL #to avoid build warning
-       data(coastsCoarse)
+       data(coastsCoarse,envir=environment(),package="rworldmap")
+       coastsCoarse <- get("coastsCoarse")
        plot(coastsCoarse, add=TRUE, col=borderCol) 
        } else 
     if ( ! addBorders %in% borderOptions){
