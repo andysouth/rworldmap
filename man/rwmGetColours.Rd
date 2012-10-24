@@ -15,8 +15,8 @@ rwmGetColours(colourPalette, numColours)
     \enumerate{
                \item{}"palette" for the current palette 
                \item{}a vector of valid colours, e.g. =c('red','white','blue') or output from RColourBrewer 
-               \item{}one of "heat","diverging","white2Black","black2White","topo","rainbow","terrain","negpos8","negpos9"
-               }}
+               \item{}one of "heat", "diverging", "white2Black", "black2White", "topo", "rainbow", "terrain", "negpos8", "negpos9"
+               }}                                
   \item{numColours}{ the number of colour categories desired }
 }
 

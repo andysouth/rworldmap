@@ -31,12 +31,12 @@ mapCountryData(
   \item{xlim}{ map extents c(west,east), can be overidden by mapRegion }
   \item{ylim}{ map extents c(south,north), can be overidden by mapRegion }
   \item{mapRegion}{ a country name from getMap()[['NAME']] or 'world','africa','oceania','eurasia','uk' sets map extents, overrides xlim,ylim }
-  \item{catMethod}{ method for categorisation of data "pretty", "fixedWidth", "diverging", "logfixedWidth","quantiles","categorical", or a numeric vector defining breaks }
+  \item{catMethod}{ method for categorisation of data "pretty", "fixedWidth", "diverging", "logfixedWidth", "quantiles", "categorical", or a numeric vector defining breaks }
   \item{colourPalette}{ string describing the colour palette to use, choice of:
     \enumerate{
                \item{}"palette" for the current palette 
                \item{}a vector of valid colours, e.g. =c('red','white','blue') or output from RColourBrewer 
-               \item{}one of "heat","diverging","white2Black","black2White","topo","rainbow","terrain","negpos8","negpos9"
+               \item{}one of "heat", "diverging", "white2Black", "black2White", "topo", "rainbow", "terrain", "negpos8", "negpos9"
                }}
   \item{addLegend}{ whether to add a legend or not }
   \item{borderCol}{ the colour for country borders  }

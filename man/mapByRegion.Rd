@@ -23,11 +23,12 @@ nameJoinColumn, regionType, FUN = 'mean', na.rm=TRUE, mapTitle = '', ...)
   \item{\dots}{further arguments to be passed to \code{\link{mapCountryData}}}
 }
 \details{
-The function is very similar to country2Region. The first difference is that the output is a map, rather than statistics. The second is the behaviour of extra arguments.
+The function is very similar to country2Region. The first difference is that the output is a map, rather than statistics. 
+The second is the behaviour of extra arguments.
 In country2Region the extra arguments go to FUN, here they go to mapCountryData.
 
 The na.rm argument is used when FUN has one of the following values:
-"mean","min","max","median","range","var","sd","mad" or "IQR".
+"mean", "min", "max", "median", "range", "var", "sd", "mad" or "IQR".
 This reduces the problem of not being able to supply extra arguments to FUN.
 }
 \value{

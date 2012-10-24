@@ -20,9 +20,10 @@ rwmGetISO3(oddName)
 the ISO3 code (3 letters) corresponding to the country name passed, or NA if one is not found
 }
 \references{
-This was derived and used with permission from the Perl Locale package. Locale::Codes::Country_Codes.
-Thanks to Sullivan Beck for pulling this together.
-Data sources are acknowledged here :
+This was derived and used with permission from the Perl Locale package.  \cr
+Locale::Codes::Country_Codes.                                            \cr
+Thanks to Sullivan Beck for pulling this together.                       \cr
+Data sources are acknowledged here :                                     \cr
 http://search.cpan.org/~sbeck/Locale-Codes-3.23/lib/Locale/Codes/Country.pod
 }
 \author{

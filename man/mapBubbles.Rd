@@ -59,12 +59,12 @@ mapBubbles(dF = ""
   \item{main}{title for the map, set to nameZSize by default}
   
   \item{numCats}{ number of categories to put the data in, may be modified if this number is incompatible with the catMethod chosen}
-  \item{catMethod}{ method for categorisation of data "pretty", "fixedWidth", "diverging", "logfixedWidth","quantiles","categorical", or a numeric vector defining breaks }
+  \item{catMethod}{ method for categorisation of data "pretty", "fixedWidth", "diverging", "logfixedWidth", "quantiles", "categorical", or a numeric vector defining breaks }
   \item{colourPalette}{ a string describing the colour palette to use, choice of :
     \enumerate{
                \item{}{="palette" for the current palette} 
                \item{}{a vector of valid colours, e.g. =c('red','white','blue') or output from RColourBrewer} 
-               \item{}{= one of "heat","diverging","white2Black","black2White","topo","rainbow","terrain","negpos8","negpos9" }
+               \item{}{= one of "heat", "diverging", "white2Black", "black2White", "topo", "rainbow", "terrain", "negpos8", "negpos9" }
                }}
   
   \item{mapRegion}{ a country name from getMap()\$NAME or 'world','africa','oceania','eurasia','uk' sets map extents, overrides xlim,ylim }
