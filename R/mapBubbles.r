@@ -104,8 +104,8 @@ if (class(dF)=="SpatialPolygonsDataFrame")
 ## check that the column name exists in the data frame
 singleColour<-FALSE
 if (nameZColour == "") nameZColour <- 'red' #setting colour to red as default
-if ( is.na(match(nameZColour, names(dF)) )){
-  
+if ( is.na(match(nameZColour, names(dF)) ))
+{  
   #now test whether it is a colour
   if ( is.na(match(nameZColour, colours()) ))
      {  
