@@ -1,0 +1,58 @@
+\name{labelCountries}
+\alias{labelCountries}
+\title{ to print country labels on a world map }
+\description{
+Given no arguments it will print country names stored in the 'NAME' column of \code{\link{getMap}} onto an existing map at the 
+centroids of each country polygon, stored in the 'LAT' and 'LON' columns.  
+Alternatively the user can specifiy 
+a data frame or SpatialPolygonsDataFrame in which case they need to define the column containing the country names 
+(nameCountryColumn) and optionally a 2nd attribute column to print (nameColumnToPlot). 
+First you need to create a map plot, for example using \code{\link{mapCountryData}} or \code{\link{mapBubbles}}. 
+}
+\usage{
+labelCountries(dF = ""
+                 , nameCountryColumn = "NAME"
+                 , nameX = "LON"
+                 , nameY = "LAT"
+                 , nameColumnToPlot = ""
+                 , col = 'grey'
+                 , cex = 0.8
+                 , ...)
+}
+
+\arguments{
+  \item{dF}{ dataframe or SpatialPolygonsDataFrame}
+  
+  \item{nameCountryColumn}{name of column containing country names to be printed on the map (could also be set to any other column in the dataframe) }
+  
+  \item{nameX}{name of column containing the X variable (longitude), not needed if dF is a SpatialPolygonsDataFrame }
+  
+  \item{nameY}{name of column containing the Y variable (lattitude), not needed if dF is a SpatialPolygonsDataFrame }
+  
+  \item{nameColumnToPlot}{ name of an attribute column in the data frame the value 
+  of which will be appended to the country names}
+
+  \item{col}{colour for labels, default 'grey', can be e.g. rgb(1,1,0,alpha=0.5) }  
+
+  \item{cex}{sizing of labels }  
+  
+  \item{\dots}{ other parameters that can be passed to text(), e.g. pos=4 to right, (1=below,2=left,3=above)}
+}
+
+\value{ }
+
+\author{andy south}
+
+
+\seealso{
+\code{\link{identifyCountries}}
+}
+\examples{
+mapCountryData()
+labelCountries()
+
+labelCountries(nameColumnToPlot = "POP_EST")
+
+}
+
+\keyword{ dplot }

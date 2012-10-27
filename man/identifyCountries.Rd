@@ -1,5 +1,4 @@
 \name{identifyCountries}
-\Rdversion{1.1}
 \alias{identifyCountries}
 \title{ a function that will print country name and attribute values when a user clicks on the map}
 \description{
@@ -50,14 +49,13 @@ It uses country centroids, and will give a warning if one is too far away
 
 \seealso{
 identify()
+\code{\link{labelCountries}}
 }
 \examples{
 #mapCountryData()
 #identifyCountries()
 
 #identifyCountries(nameColumnToPlot = "POP_EST", plotSelected = TRUE)
-
-
 }
 
 \keyword{ dplot }

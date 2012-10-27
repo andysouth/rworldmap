@@ -2,7 +2,7 @@
 \alias{mapCountryData}
 \title{Map country-level data.}
 \description{
-  Draw a map of country-level data, allowing countries to be coloured, from an object created in joinCountryData2Map().
+  Draw a map of country-level data, allowing countries to be coloured, from an object created in \code{\link{joinCountryData2Map}}.
 }
 \usage{
 mapCountryData( 
