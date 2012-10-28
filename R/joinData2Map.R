@@ -59,6 +59,9 @@ function( dF = ""
     if ( class(nameMap)=='SpatialPolygonsDataFrame' )
        {
         mapWithData <- nameMap
+       } else if ( nameMap != "" && class(nameMap)=="character" )
+       {
+        mapWithData <- eval(parse(text=nameMap))
        } else
         mapWithData <- getMap(resolution=mapResolution)
     
