@@ -40,6 +40,8 @@ mapBubbles(dF = ""
           , colourLegendTitle = nameZColour
           , add = FALSE
           , plotZeroVals = TRUE
+          , lwd = 0.5
+          , lwdBubbles = 1
           , ...)
 }
 \arguments{
@@ -85,7 +87,8 @@ mapBubbles(dF = ""
   
   \item{add}{whether to add the symbols to an existing map, TRUE/FALSE}
   \item{plotZeroVals}{whether to plot zero values as a cross, TRUE/FALSE}
-  
+  \item{lwd}{line width for country borders}  
+  \item{lwdBubbles}{line width for bubbles}  	  
   \item{\dots}{any extra arguments to points()}
 }
 \details{

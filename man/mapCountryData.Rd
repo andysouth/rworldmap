@@ -22,6 +22,7 @@ mapCountryData(
               , missingCountryCol = NA
               , add =               FALSE
               , nameColumnToHatch = ""
+              , lwd =               0.5
               )   
 }
 \arguments{
@@ -50,7 +51,7 @@ mapCountryData(
                           , highest values will be solid and lower values will
                           have a decreasing density of hatching
                           , new feature more documentation will be added soon}    
-  
+  \item{lwd}{line width for country borders}  
 }
 
 \section{Warning}{will generate unhelpful errors in data categorisation if inappropriate 

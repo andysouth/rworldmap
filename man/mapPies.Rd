@@ -25,6 +25,7 @@ mapPies(dF = ""
        , landCol=NA
        , add=FALSE                                                
        , main=''
+       , lwd = 0.5
        , ...)
 }
 \arguments{
@@ -52,6 +53,7 @@ mapPies(dF = ""
   
   \item{add}{whether to add the symbols to an existing map, TRUE/FALSE} 
   \item{main}{title for the map}
+  \item{lwd}{line width for country borders}    
   \item{\dots}{any extra arguments to points()}
 }
 \details{

@@ -38,7 +38,8 @@
                          , landCol=NA
                          ,add=FALSE                        
                         
-                         ,main=''
+                         ,main=''    
+                         ,lwd = 0.5
                         ,... )
    {                        
     functionName <- as.character(sys.call()[[1]])
@@ -81,7 +82,7 @@
       {
         #use passed sPDF as the background map
         rwmNewMapPlot(mapToPlot=dF,oceanCol=oceanCol,mapRegion=mapRegion)
-        plot( dF, add=TRUE, border=borderCol, col=landCol )
+        plot( dF, add=TRUE, border=borderCol, col=landCol, lwd=lwd )
       }
       
       #within this function just need the dF bit of the sPDF
@@ -93,7 +94,7 @@
       #these set the most common params, if user wanted finer control over map
       #they can call rwmNewMapPlot, and then call mapBubbles with add=TRUE     
       rwmNewMapPlot(mapToPlot=getMap(),oceanCol=oceanCol,mapRegion=mapRegion)
-      plot( getMap(), add=TRUE, border=borderCol, col=landCol )
+      plot( getMap(), add=TRUE, border=borderCol, col=landCol, lwd=lwd )
     }    
     
     

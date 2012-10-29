@@ -36,7 +36,9 @@ mapBubbles <- function( dF=""
                           ,colourLegendTitle = nameZColour                          
                                                     
                           ,add=FALSE
-                          ,plotZeroVals=TRUE
+                          ,plotZeroVals=TRUE    
+                          ,lwd = 0.5
+                          ,lwdBubbles = 1
                           ,... ) #any extra arguments to points
 {
 
@@ -76,7 +78,7 @@ if (class(dF)=="SpatialPolygonsDataFrame")
       #rwmNewMapPlot(mapToPlot=dF,oceanCol=oceanCol,mapRegion=mapRegion, ...)
       rwmNewMapPlot(mapToPlot=dF,oceanCol=oceanCol,mapRegion=mapRegion)
       #22/10/12 added main=main but doesn't work
-      plot( dF, add=TRUE, border=borderCol, col=landCol, main=main )
+      plot( dF, add=TRUE, border=borderCol, col=landCol, main=main, lwd=lwd )
     }
     
     #within this function just need the dF bit of the sPDF
@@ -89,7 +91,7 @@ if (class(dF)=="SpatialPolygonsDataFrame")
     #they can call rwmNewMapPlot, and then call mapBubbles with add=TRUE     
     rwmNewMapPlot(mapToPlot=getMap(),oceanCol=oceanCol,mapRegion=mapRegion)
     #22/10/12 added main=main but doesn't work
-    plot( getMap(), add=TRUE, border=borderCol, col=landCol, main=main )
+    plot( getMap(), add=TRUE, border=borderCol, col=landCol, main=main, lwd=lwd )
    }
 
 #a bunch of code here that is repeated from mapCountryData
@@ -216,7 +218,7 @@ fMult = symbolSize * 4 / sqrt(maxZVal)
 cex= fMult*sqrt(dF[,nameZSize])
 
 #plotting the symbols
-points( dF[,nameX], dF[,nameY],pch=pch,cex=cex,col=col,bg=bg,... )#, 
+points( dF[,nameX], dF[,nameY], pch=pch, cex=cex, col=col, bg=bg, lwd=lwdBubbles )#, 
 
 
 #points( dF[,nameX], dF[,nameY], cex= fMult*sqrt(dF[,nameZ]) )#, col=dF[,nameZCategory], ... ) #@@@

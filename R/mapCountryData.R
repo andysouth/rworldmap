@@ -14,7 +14,8 @@ mapCountryData <- function(
               , aspect =            1
               , missingCountryCol = NA
               , add =               FALSE
-              , nameColumnToHatch = ""                                               
+              , nameColumnToHatch = ""    
+              , lwd =               0.5  
               ){
                            
   functionName <- as.character(sys.call()[[1]])
@@ -114,7 +115,7 @@ mapCountryData <- function(
       if (!add) rwmNewMapPlot(mapToPlot,mapRegion=mapRegion,xlim=xlim,ylim=ylim,oceanCol=oceanCol,aspect=aspect)
       #plotting the map
       #plot(mapToPlot,col=colourVector[dataCatNums],border=borderCol,add=TRUE)#,density=c(20:200))#angle=c(1:360),)
-      plot(mapToPlot,col=colourVector[dataCatNums],border=borderCol,add=TRUE,usePolypath=FALSE)#29/9/2012
+      plot(mapToPlot, col=colourVector[dataCatNums], border=borderCol, add=TRUE, usePolypath=FALSE, lwd=lwd)#29/9/2012
       } else  
     {
     #*HATCHING OPTION*
@@ -134,8 +135,8 @@ mapCountryData <- function(
       #plotting the map
       #plot(mapToPlot,col=colourVector[mapToPlot@data$dataCatNums],border=borderCol,add=TRUE, density=hatchVar, angle=135, lty=1)
       #plot(mapToPlot,col=colourVector[mapToPlot@data$dataCatNums],border=borderCol,add=TRUE, density=hatchVar, angle=45, lty=1)
-      plot(mapToPlot,col=colourVector[dataCatNums],border=borderCol, density=hatchVar, angle=135, lty=1,add=TRUE,usePolypath=FALSE)#29/9/2012
-      plot(mapToPlot,col=colourVector[dataCatNums],border=borderCol, density=hatchVar, angle=45, lty=1,add=TRUE,usePolypath=FALSE)#29/9/2012
+      plot(mapToPlot,col=colourVector[dataCatNums],border=borderCol, density=hatchVar, angle=135, lty=1,add=TRUE,usePolypath=FALSE, lwd=lwd)#29/9/2012
+      plot(mapToPlot,col=colourVector[dataCatNums],border=borderCol, density=hatchVar, angle=45, lty=1,add=TRUE,usePolypath=FALSE, lwd=lwd)#29/9/2012
                  
      }  #end of hatching option
 
