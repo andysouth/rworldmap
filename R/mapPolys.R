@@ -21,7 +21,8 @@ mapPolys <- function(
                            oceanCol=NA,
                            aspect=1,
                            missingCountryCol=NA,
-                           add=FALSE                                                    
+                           add=FALSE, 
+                           lwd=0.5
                            ){
                            
   functionName <- as.character(sys.call()[[1]])
@@ -111,7 +112,7 @@ mapPolys <- function(
   #setting up the map plot
   if (!add) rwmNewMapPlot(mapToPlot,mapRegion=mapRegion,xlim=xlim,ylim=ylim,oceanCol=oceanCol,aspect=aspect)
   #plotting the map
-  plot(mapToPlot,col=colourVector[dataCatNums],border=borderCol,add=TRUE) #,density=c(20:200))#angle=c(1:360),)
+  plot(mapToPlot,col=colourVector[dataCatNums],border=borderCol,add=TRUE,lwd=lwd) #,density=c(20:200))#angle=c(1:360),)
   
   #trying out shading with density & angle
   #plot(mapToPlot,col=colourVector[dataCatNums],border=borderCol,add=TRUE,density=c(20:200))#angle=c(1:360),)

@@ -30,6 +30,8 @@
                          ,add=FALSE                        
 
                         ,main=''
+                        ,lwd=0.5
+                        ,lwdSymbols=1
                         ,... )
    {                        
     functionName <- as.character(sys.call()[[1]])
@@ -58,7 +60,7 @@
        {
         rwmNewMapPlot(mapToPlot=getMap(),oceanCol=oceanCol,xlim=xlim,ylim=ylim,mapRegion=mapRegion)
         #rwmNewMapPlot(mapToPlot=getMap(),oceanCol=oceanCol,mapRegion=mapRegion)
-        plot( getMap(), add=TRUE, border=borderCol, col=landCol )
+        plot( getMap(), add=TRUE, border=borderCol, col=landCol, lwd=lwd )
        }
        
     maxSumValues <- 0
@@ -127,7 +129,7 @@
                 ytop <- dF[ locationNum, nameY ] + ( radius * cumulatProps[sliceNum+1] )  
                }                         
             
-            rect( xleft, ybottom, xright, ytop, col=zColours[sliceNum] )
+            rect( xleft, ybottom, xright, ytop, col=zColours[sliceNum],lwd=lwdSymbols )
             #number of points on the circumference, minimum of 2
             #difference between next cumulative prop & this
  

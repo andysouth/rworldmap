@@ -6,6 +6,7 @@ function(inFile, nameDataColumn
        , FUN = "mean"
        , na.rm=TRUE
        , mapTitle = ''
+       , lwd=0.5   
        ,...)
 {
 dF<-inFile
@@ -70,7 +71,7 @@ dF[[paste(FUN,nameDataColumn,'by',regionType,sep='')]] <- summaryStats[classifie
 
 #andy 28/9/09, need to add joinCountryData2Map in here
 #not going to offer the user all of the functionality from here
-sPDF <- sPDF <- joinCountryData2Map(dF
+sPDF <- joinCountryData2Map(dF
               , joinCode = "ISO3"
               , nameJoinColumn = nameJoinColumn
               , mapResolution = 'coarse'
@@ -79,7 +80,7 @@ sPDF <- sPDF <- joinCountryData2Map(dF
 if (mapTitle == '') mapTitle=paste(FUN,nameDataColumn,'by',regionType,'regions')
 
 #mapping the final column
-mapParams <- mapCountryData(sPDF,names(dF)[ncol(dF)],mapTitle=mapTitle, ...)
+mapParams <- mapCountryData(sPDF,names(dF)[ncol(dF)],mapTitle=mapTitle, lwd=lwd, ...)
 
 #returning mapParams so they can be used by addMapLegend()
 invisible(mapParams)

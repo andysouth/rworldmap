@@ -8,8 +8,16 @@ As well as sums, other functions can be used, like mean, median, min, max, etc.
 There are currently 8 choices of region and 4 choices of country code.
 }
 \usage{
-mapByRegion(inFile, nameDataColumn, joinCode,
-nameJoinColumn, regionType, FUN = 'mean', na.rm=TRUE, mapTitle = '', ...)
+mapByRegion(inFile
+           , nameDataColumn
+					 , joinCode
+					 , nameJoinColumn
+					 , regionType
+					 , FUN = 'mean'
+					 , na.rm=TRUE
+					 , mapTitle = ''
+					 , lwd = 0.5
+					 , ...)
 }
 \arguments{
   \item{inFile}{a data frame}
@@ -20,6 +28,7 @@ nameJoinColumn, regionType, FUN = 'mean', na.rm=TRUE, mapTitle = '', ...)
   \item{FUN}{A function to apply to each region}
   \item{na.rm}{Only used for certain values of FUN. See details section below.}
   \item{mapTitle}{a title to be printed above the map}
+  \item{lwd}{line width for country borders}   
   \item{\dots}{further arguments to be passed to \code{\link{mapCountryData}}}
 }
 \details{

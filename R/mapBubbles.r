@@ -38,7 +38,7 @@ mapBubbles <- function( dF=""
                           ,add=FALSE
                           ,plotZeroVals=TRUE    
                           ,lwd = 0.5
-                          ,lwdBubbles = 1
+                          ,lwdSymbols = 1
                           ,... ) #any extra arguments to points
 {
 
@@ -218,7 +218,7 @@ fMult = symbolSize * 4 / sqrt(maxZVal)
 cex= fMult*sqrt(dF[,nameZSize])
 
 #plotting the symbols
-points( dF[,nameX], dF[,nameY], pch=pch, cex=cex, col=col, bg=bg, lwd=lwdBubbles )#, 
+points( dF[,nameX], dF[,nameY], pch=pch, cex=cex, col=col, bg=bg, lwd=lwdSymbols )#, 
 
 
 #points( dF[,nameX], dF[,nameY], cex= fMult*sqrt(dF[,nameZ]) )#, col=dF[,nameZCategory], ... ) #@@@

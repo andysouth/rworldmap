@@ -20,6 +20,7 @@ mapHalfDegreeGridToCountries(
     , catMethod="quantiles"   
     , colourPalette= "heat" 
     , addLegend=TRUE 
+    , lwd=0.5
     )
 }
 
@@ -38,6 +39,7 @@ mapHalfDegreeGridToCountries(
   \item{catMethod}{ method for categorisation of data "pretty", any vector defining breaks, "fixedWidth","quantiles"  }
   \item{colourPalette}{ "heat","white2Black","palette":for current palette }
   \item{addLegend}{ whether to add a legend or not T/F }
+  \item{lwd}{line width for country borders}  
 }
 \details{
 Aggregates half degree gridded data to countries using the option specified in 'aggregateOption'

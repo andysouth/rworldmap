@@ -14,6 +14,7 @@ mapGriddedData <- function(
                          , landCol =          NA
                          , plotData =         TRUE
                          , aspect =           1
+                         , lwd =              1  
                          )
    {
 
@@ -158,7 +159,7 @@ mapGriddedData <- function(
     #to fill in any countries with NA values in the grid
     if(!is.na(landCol))
        {
-        plot( getMap(), add=TRUE, border=borderCol, col=landCol )
+        plot( getMap(), add=TRUE, border=borderCol, col=landCol, lwd=lwd )
        }
 
     #only plot ascii data if plotData=T (allows legend to be plotted on its own by setting plotData=F)
@@ -181,10 +182,10 @@ mapGriddedData <- function(
        
     borderOptions = c('low','coarse','coasts',NA,'','none')
     if (addBorders=='low'){
-       plot( getMap(resolution='low'), add=TRUE, border=borderCol )
+       plot( getMap(resolution='low'), add=TRUE, border=borderCol, lwd=lwd )
        } else
     if (addBorders=='coarse'){
-       plot( getMap(resolution='coarse'), add=TRUE, border=borderCol )
+       plot( getMap(resolution='coarse'), add=TRUE, border=borderCol, lwd=lwd )
        } else
     if (addBorders=='coasts'){
        #30/9/2012 replacing use of maps library
@@ -192,7 +193,7 @@ mapGriddedData <- function(
        #map(interior=FALSE,add=TRUE, col=borderCol )
        data(coastsCoarse,envir=environment(),package="rworldmap")
        coastsCoarse <- get("coastsCoarse")
-       plot(coastsCoarse, add=TRUE, col=borderCol) 
+       plot(coastsCoarse, add=TRUE, col=borderCol, lwd=lwd ) 
        } else 
     if ( ! addBorders %in% borderOptions){
        warning("unrecognised addBorders = ",addBorders, "none plotted, choose one of",paste(borderOptions,""))

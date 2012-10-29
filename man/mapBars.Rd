@@ -30,6 +30,8 @@ mapBars(dF = ""
         , landCol=NA
         , add=FALSE                        
         , main=''
+        , lwd=0.5
+        , lwdSymbols=1
         ,... )          
           
 }
@@ -62,6 +64,9 @@ mapBars(dF = ""
   \item{add}{whether to add the symbols to an existing map, TRUE/FALSE}
   
   \item{main}{title for the map}
+  \item{lwd}{line width for country borders}  
+  \item{lwdSymbols}{line width for symbols} 
+	  
   \item{\dots}{any extra arguments to points()}
 }
 \details{

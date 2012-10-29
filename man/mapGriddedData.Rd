@@ -18,7 +18,8 @@ mapGriddedData(  dataset =          ""
                , oceanCol =         NA
                , landCol =          NA
                , plotData =         TRUE
-               , aspect =           1   
+               , aspect =           1  
+							 , lwd =							1 
                )         
 }
 
@@ -48,6 +49,7 @@ mapGriddedData(  dataset =          ""
   \item{landCol}{a colour to fill countries if the grid values are NA over land}
   \item{plotData}{ whether to plotData, if FALSE a legend can be added on its own  }
   \item{aspect}{aspect for the map, defaults to 1, if set to 'variable' uses same method as plot.Spatial in sp }
+  \item{lwd}{line width for country borders}  
   %\item{\dots}{ extra args }
 }
 
