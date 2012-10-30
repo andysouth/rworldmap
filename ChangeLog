@@ -1,5 +1,17 @@
 rworldmap changelog
 
+30/10/12 (1.02-1) temporary development version
+
+Added line width option (lwd) for country boundaries to mapCountryData, mapBubbles, mapPies, mapBars, mapGriddedData, mapByRegion, mapHalfDegreeGridToCountries
+Added line width option (lwdSymbols) for symbols in mapBubbles and mapBars
+*labelCountries() new function added to plot country names on a worldmap
+South Sudan ISO3 code changed to SSD from SDS in countries* data files
+*countrySynonyms.rda added 13 new country synonyms used in world bank data
+*mapGriddedData corrected bug with addBorders='coasts'
+*mapGriddedData changed default borders to 'coarse'
+* mapBubbles changes to default values to fit with Natural Earth Data
+* mapPies bugs corrected and now copes with sPDF
+
 05/10/2012 (1.02)
 *rwmGetISO3.r removed test code after function def. that stopped installation, thanks to Brian Ripley
 *countrySynonyms added extra synonyms
