@@ -41,7 +41,7 @@ mapBubbles(dF = ""
           , add = FALSE
           , plotZeroVals = TRUE
           , lwd = 0.5
-          , lwdBubbles = 1
+          , lwdSymbols = 1
           , ...)
 }
 \arguments{
