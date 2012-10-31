@@ -16,6 +16,8 @@ mapBubbles <- function( dF=""
                          , catMethod="categorical"   
                          , colourPalette= "heat" 
                          
+                         , xlim =              NA
+                         , ylim =              NA
                          , mapRegion = "world"   #sets map extents, overrides we,ea etc.                                                    
                          , borderCol = "grey"
                          , oceanCol=NA
@@ -73,10 +75,7 @@ if (class(dF)=="SpatialPolygonsDataFrame")
     if (!add) 
     {
       #use passed sPDF as the background map
-      #17/10/12 adding ... to pass xlim & ylim
-      #NO I should specify as an input, causes probs if params for points are passed
-      #rwmNewMapPlot(mapToPlot=dF,oceanCol=oceanCol,mapRegion=mapRegion, ...)
-      rwmNewMapPlot(mapToPlot=dF,oceanCol=oceanCol,mapRegion=mapRegion)
+      rwmNewMapPlot(mapToPlot=dF,oceanCol=oceanCol,mapRegion=mapRegion, xlim=xlim, ylim=ylim)
       #22/10/12 added main=main but doesn't work
       plot( dF, add=TRUE, border=borderCol, col=landCol, main=main, lwd=lwd )
     }
@@ -89,7 +88,7 @@ if (class(dF)=="SpatialPolygonsDataFrame")
     #background map
     #these set the most common params, if user wanted finer control over map
     #they can call rwmNewMapPlot, and then call mapBubbles with add=TRUE     
-    rwmNewMapPlot(mapToPlot=getMap(),oceanCol=oceanCol,mapRegion=mapRegion)
+    rwmNewMapPlot(mapToPlot=getMap(),oceanCol=oceanCol,mapRegion=mapRegion, xlim=xlim, ylim=ylim)
     #22/10/12 added main=main but doesn't work
     plot( getMap(), add=TRUE, border=borderCol, col=landCol, main=main, lwd=lwd )
    }

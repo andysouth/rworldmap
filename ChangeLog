@@ -2,6 +2,7 @@ rworldmap changelog
 
 30/10/12 (1.02-1) temporary development version
 
+*mapBubbles added xlim, ylim args
 French Guiana added to countries maps by taking the polygon out of France (thanks to Rob Salguero-Gomez & Gordon Holtgrieve for spotting)
 French Guiana added to countryRegions
 Added line width option (lwd) for country boundaries to mapCountryData, mapBubbles, mapPies, mapBars, mapGriddedData, mapByRegion, mapHalfDegreeGridToCountries
