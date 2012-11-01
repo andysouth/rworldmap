@@ -1,7 +1,12 @@
 rworldmap changelog
 
-30/10/12 (1.02-1) temporary development version
 
+
+1/11/12 (1.02-2) temporary development version
+*isoToName for getting country names from iso codes
+
+
+30/10/12 (1.02-1) 
 *mapBubbles added xlim, ylim args
 French Guiana added to countries maps by taking the polygon out of France (thanks to Rob Salguero-Gomez & Gordon Holtgrieve for spotting)
 French Guiana added to countryRegions
@@ -15,9 +20,11 @@ South Sudan ISO3 code changed to SSD from SDS in countries* data files
 * mapBubbles changes to default values to fit with Natural Earth Data
 * mapPies bugs corrected and now copes with sPDF
 
+
 05/10/2012 (1.02)
 *rwmGetISO3.r removed test code after function def. that stopped installation, thanks to Brian Ripley
 *countrySynonyms added extra synonyms
+
 
 01/10/2012 (1.01)
 Changed country polygon boundaries to data derived from Natural Earth

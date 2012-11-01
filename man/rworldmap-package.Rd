@@ -12,8 +12,8 @@ Enables mapping of country level and gridded user datasets by facilitating joini
 \tabular{ll}{
 Package: \tab rworldmap\cr
 Type: \tab Package\cr
-Version: \tab 1.02-1\cr
-Date: \tab 2012-10-23\cr
+Version: \tab 1.02-2\cr
+Date: \tab 2012-11-01\cr
 License: \tab GPL (>= 2)\cr
 }
 
