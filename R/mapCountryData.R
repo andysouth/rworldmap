@@ -39,7 +39,7 @@ mapCountryData <- function(
     message(paste("using example data because no file specified in",functionName))
     mapToPlot <- getMap(resolution="coarse")
 
-    ## also setting a defsult nameColumnToPlot if it isn't set
+    ## also setting a default nameColumnToPlot if it isn't set
     if ( nameColumnToPlot == "" ) nameColumnToPlot <- "POP_EST" #
   } else {
     #warning(inFile," seems not to be a valid file name or data frame, exiting ",functionName,"\n")
@@ -97,10 +97,8 @@ mapCountryData <- function(
   mapToPlot@data[[colNameCat]] <- dataCategorised     
   
   ## how many colours : numCats may be overriden (e.g. for 'pretty') 	
-  #* 5/11/12 problem here
-  #numCOlours is got from the data
-  #so when you try to keep it constant between plots
-  #it can get over-ridden 
+  #5/11/12 issue that numCOlours got from the data
+  #so difficult to keep constant between plots
   #move it further up so I can control it
   #numColours <- length(levels(dataCategorised))
   
@@ -176,10 +174,7 @@ mapCountryData <- function(
     title( mapTitle )
   }
    
-  ##29/10/09 returning parameter list that can be used by do.call(addMapLegend,*)  
-  #sys.call()[[2]] gets the name of the first argument
-        
-  #invisible(list(plottedData=eval( parse(text=paste(sys.call()[[2]],"[['",nameColumnToPlot,"']]",sep='')))
+  ##returning parameter list that can be used by do.call(addMapLegend,*)  
   invisible(list(colourVector=colourVector
                 ,cutVector=cutVector
                 ,plottedData=mapToPlot[[nameColumnToPlot]]
