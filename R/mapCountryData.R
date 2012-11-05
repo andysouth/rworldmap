@@ -68,18 +68,26 @@ mapCountryData <- function(
     { 
       dataCategorised <- as.factor( dataCategorised )
       cutVector <- levels(dataCategorised) #doesn't do cutting but is passed for use in legend
+      numColours <- length(levels(dataCategorised))
     }else
     { 
-      if(is.character(catMethod)==TRUE)
+      if( is.numeric(catMethod) ) #if catMethod is numeric it is already a vector of breaks	 
     	{	
-    		cutVector <- rwmGetClassBreaks( dataCategorised, catMethod=catMethod, numCats=numCats, verbose=TRUE )
-    	} else if(is.numeric(catMethod)==TRUE)
-    	#if catMethod is numeric it is already a vector of breaks	
+        cutVector <- catMethod
+        #set numColours from the passed breaks
+        numColours <- -1 + length(catMethod)
+        #Categorising the data, using a vector of breaks.	
+        dataCategorised <- cut( dataCategorised, cutVector, include.lowest=TRUE)          
+        
+    	} else if( is.character(catMethod) )
     	{
-    		cutVector <- catMethod
+    	  cutVector <- rwmGetClassBreaks( dataCategorised, catMethod=catMethod, numCats=numCats, verbose=TRUE )
+    	  #Categorising the data, using a vector of breaks.	
+    	  dataCategorised <- cut( dataCategorised, cutVector, include.lowest=TRUE)   
+    	  #set numColours from the classified data
+        numColours <- length(dataCategorised)
     	}
-  	#Categorising the data, using a vector of breaks.	
-  	dataCategorised <- cut( dataCategorised, cutVector, include.lowest=TRUE)    	
+      
 	  } #end of if data are not categorical
  
   
@@ -89,7 +97,12 @@ mapCountryData <- function(
   mapToPlot@data[[colNameCat]] <- dataCategorised     
   
   ## how many colours : numCats may be overriden (e.g. for 'pretty') 	
-  numColours <- length(levels(dataCategorised))
+  #* 5/11/12 problem here
+  #numCOlours is got from the data
+  #so when you try to keep it constant between plots
+  #it can get over-ridden 
+  #move it further up so I can control it
+  #numColours <- length(levels(dataCategorised))
   
   ## get vector of the colours to be used in map (length=num categories)    
   colourVector <- rwmGetColours(colourPalette,numColours)
