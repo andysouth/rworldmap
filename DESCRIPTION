@@ -1,8 +1,8 @@
 Package: rworldmap
 Type: Package
 Title: Mapping global data, vector and raster.
-Version: 1.02-2
-Date: 2012-11-01
+Version: 1.02-3
+Date: 2012-11-07
 Author: Andy South 
 Maintainer: Andy South <southandy@gmail.com>
 Description: Enables mapping of country level and gridded user datasets.

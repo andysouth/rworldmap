@@ -92,11 +92,14 @@ par(mai=c(0,0,0.2,0),xaxs="i",yaxs="i")
 %Here are example output figures for country and gridded data :
 
 %for the first couple of figures don't show the code : echo=FALSE
+%7/11/12 TEMP test set results to TRUE  
+%<<eg1,fig=TRUE,echo=FALSE,results=hide>>=
 \begin{figure}[bthp]
   \begin{center}
   
-<<eg1,fig=TRUE,echo=FALSE,results=hide>>=
+<<eg1,fig=TRUE,echo=FALSE>>=
 <<plotSetup>>
+
 data("countryExData",envir=environment())
 sPDF <- joinCountryData2Map(countryExData,
               joinCode = "ISO3",
@@ -116,6 +119,18 @@ mapParams <- mapCountryData( sPDF,
 #            legendWidth=0.5,
 #            legendMar = 2
 #            ))
+
+#colourVector = mapParams[["colourVector"]]
+#cutVector = mapParams[["cutVector"]]
+#warning(paste("length colourVector=",length(mapParams$colourVector),"\n"
+#             ,"length cutVector=",length(mapParams$cutVector),"\n"
+#						 ,"length plottedData=",length(mapParams$plottedData),"\n"
+#						 ,"catMethod=",mapParams$catMethod,"\n"
+#						 ,"colourPalette=",mapParams$colourPalette,"\n"
+#						 ))						 
+#warning(paste("length colourVector=",length(colourVector),"length cutVector=",length(cutVector),"\n"))
+
+#6/11/12 problem here
 addMapLegend(colourVector = mapParams[["colourVector"]],
              cutVector = mapParams[["cutVector"]], 
              legendLabels="all",

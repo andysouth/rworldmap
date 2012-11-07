@@ -69,27 +69,26 @@ mapCountryData <- function(
       dataCategorised <- as.factor( dataCategorised )
       cutVector <- levels(dataCategorised) #doesn't do cutting but is passed for use in legend
       numColours <- length(levels(dataCategorised))
-    }else
-    { 
-      if( is.numeric(catMethod) ) #if catMethod is numeric it is already a vector of breaks	 
-    	{	
-        cutVector <- catMethod
-        #set numColours from the passed breaks
-        numColours <- -1 + length(catMethod)
-        #Categorising the data, using a vector of breaks.	
-        dataCategorised <- cut( dataCategorised, cutVector, include.lowest=TRUE)          
-        
-    	} else if( is.character(catMethod) )
-    	{
-    	  cutVector <- rwmGetClassBreaks( dataCategorised, catMethod=catMethod, numCats=numCats, verbose=TRUE )
-    	  #Categorising the data, using a vector of breaks.	
-    	  dataCategorised <- cut( dataCategorised, cutVector, include.lowest=TRUE)   
-    	  #set numColours from the classified data
-        numColours <- length(dataCategorised)
-    	}
+    
+    }else if( is.numeric(catMethod) ) 	 
+    {	
+      #if catMethod is numeric it is already a vector of breaks
+      cutVector <- catMethod
+      #set numColours from the passed breaks
+      numColours <- -1 + length(catMethod)
+      #Categorising the data, using a vector of breaks.	
+      dataCategorised <- cut( dataCategorised, cutVector, include.lowest=TRUE)          
       
-	  } #end of if data are not categorical
- 
+  	} else if( is.character(catMethod) )
+  	{
+  	  cutVector <- rwmGetClassBreaks( dataCategorised, catMethod=catMethod, numCats=numCats, verbose=TRUE )
+  	  #Categorising the data, using a vector of breaks.	
+  	  dataCategorised <- cut( dataCategorised, cutVector, include.lowest=TRUE)   
+  	  #set numColours from the classified data
+      #numColours <- length(dataCategorised) #!*! BUG 7/11/12
+  	  numColours <- length(levels(dataCategorised))
+  	}
+      
   
   ## add extra column to map attribute data
   colNameRaw <- nameColumnToPlot

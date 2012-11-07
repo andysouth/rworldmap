@@ -1,8 +1,12 @@
 rworldmap changelog
 
 
+7/11/12 (1.02-3) temporary development version
+*mapCountryData corrected bug introduced in 1.02-2
 
-1/11/12 (1.02-2) temporary development version
+
+1/11/12 (1.02-2) 
+*mapCountryData changed so that if you pass it a vector of breaks (e.g. catMethod=c(1:6)) it doesn't change the number of colours even if all the values don't occur in the data
 *isoToName for getting country names from iso codes
 French Guiana, correcting.
 
