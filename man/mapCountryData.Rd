@@ -32,7 +32,12 @@ mapCountryData(
   \item{xlim}{ map extents c(west,east), can be overidden by mapRegion }
   \item{ylim}{ map extents c(south,north), can be overidden by mapRegion }
   \item{mapRegion}{ a country name from getMap()[['NAME']] or 'world','africa','oceania','eurasia','uk' sets map extents, overrides xlim,ylim }
-  \item{catMethod}{ method for categorisation of data "pretty", "fixedWidth", "diverging", "logfixedWidth", "quantiles", "categorical", or a numeric vector defining breaks }
+  \item{catMethod}{ method for categorisation of data :
+    \enumerate{
+               \item{}"categorical" - each unique value is treated as a separate category
+               \item{}for numeric data : "pretty", "fixedWidth", "diverging", "logfixedWidth", "quantiles"
+               \item{}a numeric vector defining breaks e.g. c(0:5), note that a value of 2 goes into 1-2 not 2-3, uses cut(include.lowest=TRUE)
+               }}
   \item{colourPalette}{ string describing the colour palette to use, choice of:
     \enumerate{
                \item{}"palette" for the current palette 
