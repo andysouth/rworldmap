@@ -4,6 +4,7 @@ rworldmap changelog
 10/12/12 (1.02-3) temporary development version
 *mapCountryData corrected bug introduced in 1.02-2
 *countrySynonyms added 13 synonyms found in IARC globocan data
+*getMap() changed ISO3 for Western Sahara in all maps from SAH to ESH
 
 
 1/11/12 (1.02-2) 
