@@ -37,16 +37,16 @@ Data can then be plotted using \code{\link{mapCountryData}}.
 NEW to version 1.01 Oct 2012 : for joinCode='NAME' alternative country names are matched using \code{\link{countrySynonyms}}.
 
 The projection argument has now been deprecated, you can project maps using package rgdal as shown below and in the FAQ.
-library(rgdal)
-#first get countries excluding Antarctica which crashes spTransform
-sPDF <- getMap()[-which(getMap()$ADMIN=='Antarctica'),]
-#transform to robin for the Robinson projection
-sPDF <- spTransform(sPDF, CRS=CRS("+proj=robin +ellps=WGS84"))        
-mapCountryData( sPDF, nameColumnToPlot="REGION")
+\cr library(rgdal)
+\cr #first get countries excluding Antarctica which crashes spTransform
+\cr sPDF <- getMap()[-which(getMap()$ADMIN=='Antarctica'),]
+\cr #transform to robin for the Robinson projection
+\cr sPDF <- spTransform(sPDF, CRS=CRS("+proj=robin +ellps=WGS84"))        
+\cr mapCountryData( sPDF, nameColumnToPlot="REGION")
 
 }
 \value{
-An R 'SpatialPolygonsDataFrame' [package "sp"] object with the data joined to it 
+An R 'SpatialPolygonsDataFrame' [package "sp"] object with the passed data joined to it 
 }
 
 \author{ andy south }

@@ -51,7 +51,7 @@ Stable version :
 http://cran.r-project.org/web/packages/rworldmap
 \cr 
 Development version :
-http://code.google.com/p/rworld
+https://r-forge.r-project.org/projects/rworldmap/
 
 }
 
