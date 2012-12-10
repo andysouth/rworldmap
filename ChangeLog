@@ -1,8 +1,9 @@
 rworldmap changelog
 
 
-7/11/12 (1.02-3) temporary development version
+10/12/12 (1.02-3) temporary development version
 *mapCountryData corrected bug introduced in 1.02-2
+*countrySynonyms added 13 synonyms found in IARC globocan data
 
 
 1/11/12 (1.02-2) 
