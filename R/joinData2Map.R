@@ -3,28 +3,18 @@
 
 #to create a flexible function for joining column data to polygons
 #it can have a companion function : mapPolys()
-
 #it should accept :
-
 ## nameMap
 # either
 # 1 named internal options, e.g. countries, EEZs, highSeasAreas, china
 # 2 the filename of an esri polygons shapefile
 # 3 a spatialPolygonsDataFrame 
-
 ## nameJoinColumnData
 ## nameNameColumnData
 ## nameJoinIDMap
 
-#!pseudocode
-#~open map
-#~check whether nameJoinIDMap exists in the map
-#~open data(dF), check that nameJoinColumnData occurs in the data
-#~~join data to the map
-
 #(joinData2Map could then be called by joinCountryData2Map, specifying nameJoinIDMap=joinCode)
 
-#try to get it to work on country option as a start
 #add new maps to the getMap() function
 
 `joinData2Map` <-
@@ -90,15 +80,17 @@ function( dF = ""
            
     #copy the users nameJoinColumn to a new column named the same as the column in the map for the join code
     #e.g if user has ISO3166_3 it will be copied to ISO3
-    dF[[nameJoinIDMap]] <- dF[[nameJoinColumnData]]
+    #6/2/13 not sure why I did this
+    #can't I just remove & use nameJoinColumnData below
+    #dF[[nameJoinIDMap]] <- dF[[nameJoinColumnData]]
     
     
-    matchPosnsInLookup <- match(as.character(dF[[nameJoinIDMap]])
+    matchPosnsInLookup <- match(as.character(dF[[nameJoinColumnData]])
                               , as.character(mapWithData@data[[nameJoinIDMap]]))
 
 
     #count the NAs to find user countries that have failed to match
-    failedCodes <- dF[[nameJoinIDMap]][is.na(matchPosnsInLookup)]
+    failedCodes <- dF[[nameJoinColumnData]][is.na(matchPosnsInLookup)]
     numFailedCodes <- length(failedCodes) 
     
     #count num successful matches
@@ -132,7 +124,7 @@ function( dF = ""
        }
     #can also get at countries in the lookup that don't appear in user data, by reversing match arguments
     matchPosnsInUserData <- match(as.character(mapWithData@data[[nameJoinIDMap]])
-                                , as.character(dF[[nameJoinIDMap]])) 
+                                , as.character(dF[[nameJoinColumnData]])) 
                                 
     #these are the codes in lookup that aren't found in user data
     codesMissingFromUserData <- as.character( mapWithData@data[[nameJoinIDMap]][is.na(matchPosnsInUserData)] )                            
@@ -154,10 +146,13 @@ function( dF = ""
     ###############################################################
     #merging lookup table onto user data for those codes that match
     #dF2 <- cbind(dFlookupCodes[matchPosnsInLookup,],dF)    
-    #the other way around to before, i.e. joining data onto map
-    
-    mapWithData@data <- cbind(mapWithData@data, dF[matchPosnsInUserData,])
+    #the other way around to before, i.e. joining data onto map    
+    #mapWithData@data <- cbind(mapWithData@data, dF[matchPosnsInUserData,])
 
+    #6/2/13 to avoid having the join column repeated
+    dF2 <- dF[,-which(names(dF)==nameJoinColumnData), drop=FALSE] #drop=FALSE stops it from converting from dF if just 1 column
+    mapWithData@data <- cbind(mapWithData@data, dF2[matchPosnsInUserData,,drop=FALSE], deparse.level = 0) #deparse stops R creating new column label when just 1 column    
+    
 
     #test colouring map by region & subregion seems to show order has been retained
     #plot(mapWithData,col=mapWithData@data$REGION)
@@ -168,26 +163,3 @@ function( dF = ""
    
    } #end of joinData2Map()
 
-#generates an error that dF not specified
-#joinData2Map()
-
-#this just tries joining some map data back onto the same map
-#joinData2Map(getMap()@data,getMap(),nameJoinColumnData='ISO3')
-# a good test because it should give 0 mismatches like this
-#246 codes from your data successfully matched countries in the map
-#0 codes from your data failed to match with a country code in the map
-#0 codes from the map weren't represented in your data
-
-
-
-# dF
- #       , nameMap
-#        , nameJoinIDMap = "ISO3"
-#        #, joinCode = "ISO3" #options "ISO2","ISO3","FIPS","NAME","UN"
-#        , nameJoinColumnData = "ISO3V10"
-#        , nameNameColumnData = "Country"
-#        , suggestForFailedCodes = FALSE 
-#        , projection="none"  #options "none", "EqualArea"
-#        , mapResolution="low" #options low, medium, only for projection='none' initially
-#        , verbose = FALSE #if set to FALSE it doesn't print progress messages to console                         
-#        )
