@@ -19,7 +19,8 @@ barplotCountryData( dF
                    , toPDF = FALSE
                    , outFile = ""
                    , decreasing = TRUE
-                   , na.last = TRUE                   
+                   , na.last = TRUE
+                   , cex = 0.7
                    , ...
                )   
 }
@@ -43,6 +44,7 @@ barplotCountryData( dF
   \item{outFile}{ output filename if toPDF=TRUE  }
   \item{decreasing}{ logical. Should the sort order be increasing or decreasing?  }
   \item{na.last}{ for controlling the treatment of NAs. If TRUE, missing values in the data are put last; if FALSE, they are put first; if NA, they are removed. }    
+  \item{cex}{sizing of labels, default = 0.7 } 
   \item{\dots}{ other arguments to pass to barplot }    
   
 }

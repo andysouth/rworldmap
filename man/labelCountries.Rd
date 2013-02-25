@@ -34,7 +34,7 @@ labelCountries(dF = ""
 
   \item{col}{colour for labels, default 'grey', can be e.g. rgb(1,1,0,alpha=0.5) }  
 
-  \item{cex}{sizing of labels }  
+  \item{cex}{sizing of labels, default = 0.8 }  
   
   \item{\dots}{ other parameters that can be passed to text(), e.g. pos=4 to right, (1=below,2=left,3=above)}
 }

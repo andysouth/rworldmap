@@ -34,7 +34,8 @@ barplotCountryData <- function( dF=""
                          , toPDF = FALSE
                          , outFile = ""
                          , decreasing = TRUE
-                         , na.last = TRUE
+                         , na.last = TRUE    
+                         , cex = 0.7        
                          , ... #allow extra params to barplot
                         )
 {
@@ -136,7 +137,7 @@ for( i in 1:numPanels )
     #could try to add tick marks in the higher plots at each of the lower maximums
     
     #adds country name labels
-    text( x=0,y=axisPoints[,1], labels=dF[[nameCountryColumn]][limits], cex=0.7, pos=4) #pos=4 puts label to right
+    text( x=0,y=axisPoints[,1], labels=dF[[nameCountryColumn]][limits], cex=cex, pos=4) #pos=4 puts label to right
     
     #previous attempt to add ranks using text didn't work, now done in barplot instead
     #text( x=axisPoints, labels=limits, cex=0.7, pos=4, offset=-5 ) #pos=2 puts label to left

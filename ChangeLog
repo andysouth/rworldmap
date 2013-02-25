@@ -1,7 +1,8 @@
 rworldmap changelog
 
 
-10/12/12 (1.02-3) temporary development version
+22/2/13 (1.02-3) temporary development version
+*barplotCountryData added cex argument to change text size
 *mapCountryData corrected bug introduced in 1.02-2
 *countrySynonyms added 13 synonyms found in IARC globocan data
 *getMap() changed ISO3 for Western Sahara in all maps from SAH to ESH
