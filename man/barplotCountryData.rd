@@ -32,7 +32,7 @@ barplotCountryData( dF
   \item{scaleSameInPanels}{whether to set the scale the same in each panel TRUE/FALSE, default=FALSE allowing more of the variability in the data to be viewed}
   \item{main}{title for the plot}
   \item{numCats}{ number of categories to put the data in, may be modified if this number is incompatible with the catMethod chosen}
-  \item{catMethod}{ method for categorisation of data "pretty", "fixedWidth", "diverging", "logfixedWidth","quantiles","categorical", or a numeric vector defining breaks }
+  \item{catMethod}{ method for categorisation of data "pretty", "fixedWidth", "diverging", "logFixedWidth","quantiles","categorical", or a numeric vector defining breaks }
   \item{colourPalette}{ a string describing the colour palette to use, choice of :
     \enumerate{
                \item{}{="palette" for the current palette} 

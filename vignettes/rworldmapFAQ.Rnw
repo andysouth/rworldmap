@@ -238,7 +238,7 @@ The following arguments can be specified to alter the appearance of your plots.
 
 \begin{itemize} 
 \item {\tt catMethod} method for categorisation of data "pretty", "fixedWidth",
-"diverging", "logfixedWidth", "quantiles", "categorical", or a numeric vector 
+"diverging", "logFixedWidth", "quantiles", "categorical", or a numeric vector 
 defining breaks.
 
 \item {\tt numCats} number of categories to classify the data into, may be modified 

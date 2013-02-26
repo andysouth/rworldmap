@@ -32,7 +32,7 @@ mapGriddedData(  dataset =          ""
                }}
   \item{nameColumnToPlot}{ name of column containing the data to plot }
   \item{numCats}{ number of categories to put the data in, may be overidden if catMethod ='pretty' }
-  \item{catMethod}{ method for categorisation of data "pretty", "fixedWidth","diverging", "logfixedWidth","quantiles","categorical", or a numeric vector defining breaks } 
+  \item{catMethod}{ method for categorisation of data "pretty", "fixedWidth","diverging", "logFixedWidth","quantiles","categorical", or a numeric vector defining breaks } 
   \item{colourPalette}{ a string describing the colour palette to use, choice of :
     \enumerate{
                \item{}"palette" for the current palette 

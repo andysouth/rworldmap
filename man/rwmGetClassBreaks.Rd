@@ -14,7 +14,7 @@ rwmGetClassBreaks(dataColumn, catMethod, numCats, verbose=TRUE, midpoint=0)
 
 \arguments{
   \item{dataColumn}{ the data vector to be classified, must be numeric }
-  \item{catMethod}{ the method to use to classify the data into categories, choice of "pretty", "fixedWidth", "diverging", "logfixedWidth","quantiles","categorical" or a numeric vector defining breaks   }
+  \item{catMethod}{ the method to use to classify the data into categories, choice of "pretty", "fixedWidth", "diverging", "logFixedWidth","quantiles","categorical" or a numeric vector defining breaks   }
   \item{numCats}{ number of categories to put the data in, may be overidden if not possible under some classification methods }
   \item{verbose}{ whether to print information messages to console TRUE/FALSE }
   \item{midpoint}{ the midpoint to use if catMethod='diverging', default=0 }

@@ -35,7 +35,7 @@ mapCountryData(
   \item{catMethod}{ method for categorisation of data :
     \enumerate{
                \item{}"categorical" - each unique value is treated as a separate category
-               \item{}for numeric data : "pretty", "fixedWidth", "diverging", "logfixedWidth", "quantiles"
+               \item{}for numeric data : "pretty", "fixedWidth", "diverging", "logFixedWidth", "quantiles"
                \item{}a numeric vector defining breaks e.g. c(0:5), note that a value of 2 goes into 1-2 not 2-3, uses cut(include.lowest=TRUE)
                }}
   \item{colourPalette}{ string describing the colour palette to use, choice of:
