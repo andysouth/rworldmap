@@ -41,21 +41,19 @@ function( inFile=""
     if ( gridparameters(sGDF)$cellsize[1]!=0.5 )
         warning(inFile," seems not to be a half degree grid, in aggregateHalfDegreeGridToCountries()\n")
      
-
     #prompting user for file to open
     #if ( inFile == "" ) inFile <- tclvalue(tkgetOpenFile(title="choose a data file to plot"))
 
-    
-    #??? how can I get at the countries grid file from within the package
-    #inFileGridCountries <- "M:\\Quest\\questCountryData\\IIASA\\country.asc"
-    #sGDFcountries <- readAsciiGrid(fname=inFileGridCountries) #readAsciiGrid is a maptools method
 
     #getting data from within package
-    data("gridCountriesNumeric",envir=environment(),package="rworldmap")
-    #temporary solution copying it
-    sGDFcountries <- get("gridCountriesNumeric")
-
-            
+    #data("gridCountriesNumeric",envir=environment(),package="rworldmap")
+    #sGDFcountries <- get("gridCountriesNumeric")
+    
+    #25/03/2013 replacing grid file with updated countries
+    data(gridCountriesDegreesHalf,envir=environment(),package="rworldmap")
+    sGDFcountries <- get("gridCountriesDegreesHalf")
+    #sGDFcountries <- gridCountriesDegreesHalf      
+    
     #getting the names of the columns containing the data
     attrNameGrid <- names(sGDF)[1]
     attrNameGridCountries <- names(sGDFcountries)[1]

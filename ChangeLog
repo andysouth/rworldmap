@@ -1,7 +1,10 @@
 rworldmap changelog
 
+25/3/13 (1.02-4) temporary development version
+*improving country to grid conversions
 
-22/2/13 (1.02-3) temporary development version
+
+22/2/13 (1.02-3) 
 *barplotCountryData added cex argument to change text size
 *mapCountryData corrected bug introduced in 1.02-2
 *countrySynonyms added 13 synonyms found in IARC globocan data

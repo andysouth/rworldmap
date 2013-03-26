@@ -6,7 +6,7 @@
 Aggregates global half degree gridded data to countries (options for sum, mean, min, max ).
 Uses a very simple grid map defining a single country identity for each half degree cell. 
 (other more sophisticated approaches dividing cells between multiple countries will be investigated in future).
-The country identity at each cell is specified in data(gridCountriesNumeric). 
+The country identity at each cell is specified in data(gridCountriesDegreesHalf). 
 }
 \usage{
 aggregateHalfDegreeGridToCountries(inFile = "", aggregateOption = "sum")
