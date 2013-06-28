@@ -1,4 +1,3 @@
-#! still in development, andy south 11/11/09
 mapBubbles <- function( dF=""
                           ,nameX="longitude"
                           ,nameY="latitude"

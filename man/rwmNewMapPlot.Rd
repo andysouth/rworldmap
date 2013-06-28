@@ -20,6 +20,10 @@ rwmNewMapPlot(mapToPlot, oceanCol, mapRegion, xlim, ylim, aspect)
   \item{aspect}{aspect for the map, defaults to 1, if set to 'variable' uses same default as plot.Spatial in sp }
 }
 
+\value{
+a dataframe containing xlim and ylim
+}
+
 \details{
 Called by mapCountryData() and mapGriddedData()
 }

@@ -22,8 +22,8 @@ mapBars(dF = ""
         , symbolSize = 1 
         , maxZVal=NA
 
-        , xlim=c(-160,160)
-        , ylim=c(-80,90)                        
+        , xlim=NA
+        , ylim=NA                        
         , mapRegion = "world"                                                      
         , borderCol = "grey"
         , oceanCol=NA

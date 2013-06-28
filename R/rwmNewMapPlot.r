@@ -34,4 +34,10 @@ function(mapToPlot=getMap(),
   #rect(xlim[1],ylim[1],xlim[2],ylim[2],col=oceanCol,border=oceanCol)
   #making the rectangle as big as the whole map should ensure it fills
   rect(mapToPlot@bbox[1],mapToPlot@bbox[2],mapToPlot@bbox[3],mapToPlot@bbox[4],col=oceanCol,border=oceanCol)
+
+  #26/3/13 returning xlim & ylim so it can be used elsewhere
+  lims <- data.frame(xlim,ylim)
+  invisible(lims)
+  
+  
 }

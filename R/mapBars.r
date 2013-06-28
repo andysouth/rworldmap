@@ -1,10 +1,3 @@
-#mapBars.r
-#v2 20/7/2010
-#to plot bar charts on maps
-#andy south
-#almost identical to mapPies
-
-
 `mapBars` <- function( dF
                         ,nameX="longitude", nameY="latitude" 
                         ,nameZs=c(names(dF)[3],names(dF)[4])
@@ -21,8 +14,9 @@
                         ,symbolSize = 1 #multiplier relative to the default
                         ,maxZVal=NA
 
-                         , xlim=c(-160,160)
-                         , ylim=c(-80,90)                        
+                       , xlim=NA
+                       , ylim=NA   
+                       
                          , mapRegion = "world"   #sets map extents, overrides we,ea etc.                                                    
                          , borderCol = "grey"
                          , oceanCol=NA
@@ -58,8 +52,13 @@
     #they can call rwmNewMapPlot, and then call this with add=TRUE 
     if (!add) 
        {
-        rwmNewMapPlot(mapToPlot=getMap(),oceanCol=oceanCol,xlim=xlim,ylim=ylim,mapRegion=mapRegion)
-        #rwmNewMapPlot(mapToPlot=getMap(),oceanCol=oceanCol,mapRegion=mapRegion)
+        #rwmNewMapPlot(mapToPlot=getMap(),oceanCol=oceanCol,xlim=xlim,ylim=ylim,mapRegion=mapRegion)
+
+        lims <- rwmNewMapPlot(mapToPlot=dF,oceanCol=oceanCol,mapRegion=mapRegion, xlim=xlim, ylim=ylim)
+        #26/3/13
+        xlim <- lims$xlim
+        ylim <- lims$ylim
+        
         plot( getMap(), add=TRUE, border=borderCol, col=landCol, lwd=lwd )
        }
        

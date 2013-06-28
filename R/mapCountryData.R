@@ -28,24 +28,35 @@ mapCountryData <- function(
   
   require(sp)
 
- 
- if ( class(mapToPlot)=="SpatialPolygonsDataFrame" ) {
-    ## checking if there is any data in the dataFrame
-    if ( length(mapToPlot@data[,1]) < 1 ){
-      stop("seems to be no data in your chosen file or dataframe in ",functionName) 
-      return(FALSE)
+  #28/6/2013 refactoring
+  new <- TRUE
+  if (new)
+  {
+    mapToPlot <- rwmCheckAndLoadInput( mapToPlot, requireSPDF = TRUE, callingFunction=functionName )    
+  } else
+  {
+    if ( class(mapToPlot)=="SpatialPolygonsDataFrame" ) {
+      ## checking if there is any data in the dataFrame
+      if ( length(mapToPlot@data[,1]) < 1 ){
+        stop("seems to be no data in your chosen file or dataframe in ",functionName) 
+        return(FALSE)
+      } 
+    } else if ( mapToPlot == "" ) {
+      message(paste("using example data because no file specified in",functionName))
+      mapToPlot <- getMap(resolution="coarse")
+      
+      ## also setting a default nameColumnToPlot if it isn't set
+      if ( nameColumnToPlot == "" ) nameColumnToPlot <- "POP_EST" #
+    } else {
+      stop(functionName," requires a SpatialPolygonsDataFrame object created by the joinCountryData2Map() function \n")
+      return(FALSE) 
     } 
-  } else if ( mapToPlot == "" ) {
-    message(paste("using example data because no file specified in",functionName))
-    mapToPlot <- getMap(resolution="coarse")
-
-    ## also setting a default nameColumnToPlot if it isn't set
-    if ( nameColumnToPlot == "" ) nameColumnToPlot <- "POP_EST" #
-  } else {
-    #warning(inFile," seems not to be a valid file name or data frame, exiting ",functionName,"\n")
-    stop(functionName," requires a SpatialPolygonsDataFrame object created by the joinCountryData2Map() function \n")
-    return(FALSE) 
-  }
+       
+  } #end of replaced bit 28/6/2013
+  
+  ## setting a default nameColumnToPlot if it isn't set
+  # moved out of above loop replaced by rwmCheckAndLoadInput
+  if ( nameColumnToPlot == "" ) nameColumnToPlot <- "POP_EST" #  
   
   ## check that the column name exists in the data frame
   if ( is.na(match(nameColumnToPlot, names(mapToPlot@data)) )){

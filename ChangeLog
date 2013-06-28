@@ -1,7 +1,8 @@
 rworldmap changelog
 
 25/3/13 (1.02-4) temporary development version
-*improving country to grid conversions
+Improving country to grid conversions
+*mapPies() fixed xlim ylim, thanks to Jean-Baka Domelevo Entfellner for spotting
 
 
 22/2/13 (1.02-3) 

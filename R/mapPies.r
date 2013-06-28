@@ -1,16 +1,3 @@
-#mapPies.r
-#v3 15/10/2012
-#to plot pie charts on maps
-#temp version correcting bugs sent to Guarev
-
-
-#### remaining issues to resolve for creating generic method ####
-# would be good to protect against misnamed columns
-
-# a function to plot pie charts on a map from column data in a dataframe
-# PARAMETERS
-# nameX, nameY : names of columns containing longitude & latitude
-# nameZs : a list of the names of the columns containing data to plot as slices
 # assumes that the total value is obtained by adding nameZs
 # could add an optional param nameZtotal that will only be used if it is specified
 # default for nameZs set to the names for cols 3 & 4 
@@ -29,8 +16,8 @@
                         ,symbolSize = 1 #multiplier relative to the default
                         ,maxZVal=NA
                         
-                         , xlim=c(-160,160)
-                         , ylim=c(-80,90)                         
+                         , xlim=NA
+                         , ylim=NA                         
                         
                          , mapRegion = "world"   #sets map extents, overrides we,ea etc.                                                    
                          , borderCol = "grey"
@@ -43,9 +30,6 @@
                         ,... )
    {                        
     functionName <- as.character(sys.call()[[1]])
-    
-    #!!!BEWARE I've got a combination of systems for map extents here
-    #need to rationalise mapRegion & we,ea
 
     #perhaps need to replace any na's with zeroes
     #as they will be plotted the same in pies & have a problem in seq with them ?
@@ -77,12 +61,16 @@
       dF[['nameY']] <- centroidCoords[,2]    
       nameX <- 'nameX'
       nameY <- 'nameY'
-      
+
       if (!add) 
       {
         #use passed sPDF as the background map
-        rwmNewMapPlot(mapToPlot=dF,oceanCol=oceanCol,mapRegion=mapRegion)
-        plot( dF, add=TRUE, border=borderCol, col=landCol, lwd=lwd )
+        lims <- rwmNewMapPlot(mapToPlot=dF,oceanCol=oceanCol,mapRegion=mapRegion, xlim=xlim, ylim=ylim)
+        #26/3/13
+        xlim <- lims$xlim
+        ylim <- lims$ylim
+        #22/10/12 added main=main but doesn't work
+        plot( dF, add=TRUE, border=borderCol, col=landCol, main=main, lwd=lwd )
       }
       
       #within this function just need the dF bit of the sPDF
@@ -93,9 +81,13 @@
       #background map
       #these set the most common params, if user wanted finer control over map
       #they can call rwmNewMapPlot, and then call mapBubbles with add=TRUE     
-      rwmNewMapPlot(mapToPlot=getMap(),oceanCol=oceanCol,mapRegion=mapRegion)
-      plot( getMap(), add=TRUE, border=borderCol, col=landCol, lwd=lwd )
-    }    
+      lims <- rwmNewMapPlot(mapToPlot=getMap(),oceanCol=oceanCol,mapRegion=mapRegion, xlim=xlim, ylim=ylim)
+      #26/3/13
+      xlim <- lims$xlim
+      ylim <- lims$ylim      
+      #22/10/12 added main=main but doesn't work
+      plot( getMap(), add=TRUE, border=borderCol, col=landCol, main=main, lwd=lwd )
+    }        
     
     
        
