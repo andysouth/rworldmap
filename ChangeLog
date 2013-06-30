@@ -1,6 +1,10 @@
 rworldmap changelog
 
-25/3/13 (1.02-4) temporary development version
+30/6/13 (1.02-5) temporary development version
+Refactoring input data checking for vector mapping functions.
+
+
+25/3/13 (1.02-4) 
 Improving country to grid conversions
 *mapPies() fixed xlim ylim, thanks to Jean-Baka Domelevo Entfellner for spotting
 

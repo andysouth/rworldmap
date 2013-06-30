@@ -12,8 +12,8 @@ Enables mapping of country level and gridded user datasets by facilitating joini
 \tabular{ll}{
 Package: \tab rworldmap\cr
 Type: \tab Package\cr
-Version: \tab 1.02-4\cr
-Date: \tab 2013-04-17\cr
+Version: \tab 1.02-5\cr
+Date: \tab 2013-06-30\cr
 License: \tab GPL (>= 2)\cr
 }
 
@@ -53,6 +53,9 @@ http://cran.r-project.org/web/packages/rworldmap
 \cr 
 Development version :
 https://r-forge.r-project.org/projects/rworldmap/
+
+Discussion group :
+http://groups.google.com/group/rworldmap
 
 }
 
