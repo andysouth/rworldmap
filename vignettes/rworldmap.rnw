@@ -1,8 +1,7 @@
 % -*- mode: noweb; noweb-default-code-mode: R-mode; -*- 
 \documentclass[a4paper]{article}
 \title{rworldmap vignette}
-\author{Andy South\footnote{Centre for Environment, Fisheries and Aquaculture 
-Science (Cefas), Lowestoft, NR33 OHT, UK. {\tt southandy at gmail.com}}}
+\author{Andy South\footnote{Norwich, UK. {\tt southandy at gmail.com}}}
 
 %\VignetteIndexEntry{rworldmap vignette : examples to get started}
 

@@ -30,15 +30,16 @@
    {                        
     functionName <- as.character(sys.call()[[1]])
 
-    #!!!BEWARE I've got a combination of systems for map extents here
+    #30/6/2013 refactoring
+    #mapToPlot <- rwmCheckAndLoadInput( mapToPlot, requireSPDF = FALSE, callingFunction=functionName ) 
+    
+    #BUT I want to allow a dF with coords in to be plotted on top of a worldmap
+    #not quite the same as the mapPolys example
+    
+    
+    #?is this still the case ?
+    #!BEWARE I've got a combination of systems for map extents here
     #need to rationalise mapRegion & we,ea
-    #require(rworldmap)
-
-    #perhaps need to replace any na's with zeroes
-    #as they will be plotted the same in pies & have a problem in seq with them ?
-    #replace all nas in a df
-    #31/5/12 removing
-    #dF[is.na(dF)] <- 0
     
     #20/7/2010 changed option for region to be set from data
     if ( mapRegion == 'data' ) #( (we==0 && so==0) ) # || (we==NA && so==NA)) #caused error with some data not other

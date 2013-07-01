@@ -2,7 +2,9 @@
 #andy south 30/6/13
 
 # Export all names
-exportPattern(".")
+#exportPattern(".")
+# Export all names not starting with .
+exportPattern("^[^\\.]")
 
 # Import all packages listed as Imports or Depends
 import(

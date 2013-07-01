@@ -32,7 +32,8 @@ mapCountryData <- function(
   new <- TRUE
   if (new)
   {
-    mapToPlot <- rwmCheckAndLoadInput( mapToPlot, requireSPDF = TRUE, callingFunction=functionName )    
+    #mapToPlot <- rwmCheckAndLoadInput( mapToPlot, requireSPDF = TRUE, callingFunction=functionName )    
+    mapToPlot <- rwmCheckAndLoadInput( mapToPlot, inputNeeded="sPDF", callingFunction=functionName )  
   } else
   {
     if ( class(mapToPlot)=="SpatialPolygonsDataFrame" ) {

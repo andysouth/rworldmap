@@ -21,7 +21,8 @@
 rwmCheckAndLoadInput <- function(
     inputData =         ""
   #, nameColumnToPlot =  ""
-  , requireSPDF =       TRUE
+  #, requireSPDF =       TRUE
+  , inputNeeded =       "sPDF" #options "sPDF", "dF", "sPDF or dF"    
   , callingFunction = "" #currently optional may be useful later  
 ){
   
@@ -31,29 +32,43 @@ rwmCheckAndLoadInput <- function(
   
   #browser()  #n to enter the step through debugger, Q to exit
   
-  #if (requireSPDF) 
+  #if (requireSPDF)
+  if (inputNeeded == "sPDF")
+    {
+    if ( class(inputData)=="SpatialPolygonsDataFrame" ) 
+    {
+      ## checking if there is any data in the dataFrame
+      if ( length(inputData@data[,1]) < 1 ){
+        stop("seems to be no data in your chosen input in ",functionName, "from", callingFunction) 
+        return(FALSE)
+      } 
+    } else if ( inputData == "" ) 
+    {
+      message(paste("using example data because no file specified in",functionName))
+      
+      inputData <- getMap(resolution="coarse")
+      
+      ## also setting a default nameColumnToPlot if it isn't set
+      #can't have this here because not passed
+      #if ( nameColumnToPlot == "" ) nameColumnToPlot <- "POP_EST" #
+    } else 
+    {
+      stop(callingFunction," requires a SpatialPolygonsDataFrame object created by the joinCountryData2Map() or joinData2Map() functions \n")
+      return(FALSE) 
+    }
+     
+  } else (inputNeeded == "sPDF or dF") 
+  {
+    #   =="" : get example sPDF
+    #   is SPDF : return it
+    #   is DF : use it
+    #   is something else : error    
+   
+    
+    
+  } #end of ! if (requireSPDF)
   
-  if ( class(inputData)=="SpatialPolygonsDataFrame" ) 
-  {
-    ## checking if there is any data in the dataFrame
-    if ( length(inputData@data[,1]) < 1 ){
-      stop("seems to be no data in your chosen input in ",functionName, "from", callingFunction) 
-      return(FALSE)
-    } 
-  } else if ( inputData == "" ) 
-  {
-    message(paste("using example data because no file specified in",functionName))
-    
-    inputData <- getMap(resolution="coarse")
-    
-    ## also setting a default nameColumnToPlot if it isn't set
-    #can't have this here because not passed
-    #if ( nameColumnToPlot == "" ) nameColumnToPlot <- "POP_EST" #
-  } else 
-  {
-    stop(callingFunction," requires a SpatialPolygonsDataFrame object created by the joinCountryData2Map() or joinData2Map() functions \n")
-    return(FALSE) 
-  }
+
   
   
   #later may add this here or put in another function
