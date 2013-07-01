@@ -1,10 +1,11 @@
-`mapBars` <- function( dF
+`mapBars` <- function( dF = ""
                         ,nameX="longitude", nameY="latitude" 
                         ,nameZs=c(names(dF)[3],names(dF)[4])
                         ,zColours=c(1:length(nameZs))
 
                         ,barWidth = 1
                         ,barOrient = 'vert' ## orientation of bars 'vert' as default or 'horiz'
+                        ,barRelative = TRUE
 
                         ,ratio = 1
                         #,we=0, ea=0, so=0, no=0
@@ -30,39 +31,108 @@
    {                        
     functionName <- as.character(sys.call()[[1]])
 
-    #30/6/2013 refactoring
-    #mapToPlot <- rwmCheckAndLoadInput( mapToPlot, requireSPDF = FALSE, callingFunction=functionName ) 
+    #for example data need to put in here before example dF loaded
+    if (dF == "")
+    {
+      nameZs <- c('POP_EST','GDP_MD_EST')
+    }
     
-    #BUT I want to allow a dF with coords in to be plotted on top of a worldmap
-    #not quite the same as the mapPolys example
+    
+    #1/7/2013 refactoring
+    #this returns either a dF or sPDF
+    dF <- rwmCheckAndLoadInput( dF, inputNeeded = "sPDF or dF", callingFunction=functionName ) 
+    
+    #if sPDF
+    #  sPDF <- dF
+    #  dF[nameX & nameY] <- coordinates(SPDF)
+    #  dF <- dF@data
+    
+    #else if dF
+    #  xlimylim <- max dF[nameX & nameY]
+    #  sPDF <- getMap()
+
+
+
+    
+    # *shared*
+    # plot map using sPDF
+    # do bars using dF
     
     
-    #?is this still the case ?
-    #!BEWARE I've got a combination of systems for map extents here
-    #need to rationalise mapRegion & we,ea
+    #if rwmCheckAndLoadInput returns a sPDF get the dF bit add columns for centroid coords & set nameX & nameY
+    if ( class(dF)=="SpatialPolygonsDataFrame" ) #################################
+    {
+      #copying map to sPDF to use later
+      sPDF <- dF
+      
+      nameX <- "rwmX"
+      nameY <- "rwmY"
+      coords <- coordinates(dF)
+      #fill columns in dF with centroid coords
+      dF[[nameX]] <- coords[,1]
+      dF[[nameY]] <- coords[,2]
+      #dF bit to be used for bars
+      dF <- dF@data
+      
+    } else if( class(dF)=="data.frame"  ) #######################################
+    {   
+      #to be used for background map if !add
+      sPDF <- getMap()
+      
+    } else
+    {
+      stop(functionName," requires a dataFrame or spatialPolygonsDataFrame for the first argument or dF=\n")
+      return(FALSE)       
+    }
     
-    #20/7/2010 changed option for region to be set from data
-    if ( mapRegion == 'data' ) #( (we==0 && so==0) ) # || (we==NA && so==NA)) #caused error with some data not other
-       {
+    
+    #debugging
+    #browser()
+    
+
+    #background map
+    #if user wants finer control they can call rwmNewMapPlot, and then this with add=TRUE 
+    if (!add) 
+    {
+      #option for region to be set from data
+      if ( mapRegion == 'data' ) #( (we==0 && so==0) ) # || (we==NA && so==NA)) #caused error with some data not other
+      {
         xlim <- c( min(dF[,nameX], na.rm=TRUE),max(dF[,nameX], na.rm=TRUE) )
         ylim <- c( min(dF[,nameY], na.rm=TRUE),max(dF[,nameY], na.rm=TRUE) )
-       }
-    
-    #background map
-    #these set the most common params, if user wanted finer control over map
-    #they can call rwmNewMapPlot, and then call this with add=TRUE 
-    if (!add) 
-       {
-        #rwmNewMapPlot(mapToPlot=getMap(),oceanCol=oceanCol,xlim=xlim,ylim=ylim,mapRegion=mapRegion)
+      } else
+      {
+        xlim <- ylim <- NA #then they are set from bbox of map in rwmNewMapPlot
+      }    
+      
+      lims <- rwmNewMapPlot(sPDF, oceanCol=oceanCol, mapRegion=mapRegion, xlim=xlim, ylim=ylim)
+      xlim <- lims$xlim #!!! these lims are used later to set symbol sizes
+      ylim <- lims$ylim
+      plot( sPDF, add=TRUE, border=borderCol, col=landCol, lwd=lwd )
+    }    
 
-        lims <- rwmNewMapPlot(mapToPlot=dF,oceanCol=oceanCol,mapRegion=mapRegion, xlim=xlim, ylim=ylim)
-        #26/3/13
-        xlim <- lims$xlim
-        ylim <- lims$ylim
+    
+    #**BEWARE what happens with symbolMaxSize if add=TRUE ???
+    
+    #Warning message:
+    #  In max(xlim[2] - xlim[1], (ylim[2] - ylim[1]) * ratio) :
+    #  no non-missing arguments to max; returning -Inf
+    
+    
+    #1/7/13 adding a relative option so that all bars can be scaled 0-1
+    #partly to make it easier to produce an example plot
+    if (barRelative)
+    {
+      for( numZ in 1:length(nameZs))
+      {
+        #TEMPORARY FIX TO REPLACE -99 with NA for pop & gdp
+        dF[nameZs][numZ][ which(dF[nameZs][numZ]=="-99"),1 ] <- NA
         
-        plot( getMap(), add=TRUE, border=borderCol, col=landCol, lwd=lwd )
-       }
-       
+        dF[nameZs][numZ] <- dF[nameZs][numZ] / max(dF[nameZs][numZ],na.rm=TRUE)
+      }
+    }
+    
+    #browser()
+    
     maxSumValues <- 0
     #go through each circle to plot to find maximum value for scaling
     for (locationNum in 1:length(dF[,nameZs[1]]))
@@ -75,7 +145,7 @@
     #symbolMaxSize <- 0.05*max( ea-we, (no-so)*ratio )
     #but seemed to big ? set to 2% instead  
     #symbolMaxSize <- 0.02*max( ea-we, (no-so)*ratio )
-    symbolMaxSize <- 0.02*max( xlim[2]-xlim[1], (ylim[2]-ylim[1])*ratio )    
+    symbolMaxSize <- 0.02*max( xlim[2]-xlim[1], (ylim[2]-ylim[1])*ratio, na.rm=TRUE )    
         
     #symbol size
     #maxZVal & symbolSize can be set by user
@@ -85,9 +155,10 @@
     #cex= fMult*sqrt(dF[,nameZSize])
     
     #so want maxSumValues to equate to maxSize (and remember they scale by square root)
-    symbolScale <- symbolMaxSize / sqrt( maxSumValues )
+    #symbolScale <- symbolMaxSize / sqrt( maxSumValues )
     #tried removing sqrt for bars
-    #symbolScale <- symbolMaxSize / maxSumValues 
+    #1/7/2013 re-enabled this
+    symbolScale <- symbolMaxSize / maxSumValues 
     
     cat("symbolMaxSize=",symbolMaxSize," maxSumValues=",maxSumValues," symbolScale=",symbolScale,"\n")
     
@@ -104,8 +175,10 @@
        cumulatProps <- c(0,cumsum(sliceValues)/sum(sliceValues, na.rm=TRUE))
        #cat("cumulative proportions", cumulatProps,"\n")
     
-       #radius <- sqrt(sum(sliceValues))*0.006
-       radius <- sqrt(sum(sliceValues, na.rm=TRUE))*symbolScale
+       #radius <- sqrt(sum(sliceValues, na.rm=TRUE))*symbolScale
+       #1/7/2013 removing sqrt
+       radius <- sum(sliceValues, na.rm=TRUE)*symbolScale       
+       
        radius <- radius*symbolSize
        
        #for each slice
@@ -115,14 +188,14 @@
             
             if ( barOrient == 'horiz' )
                {
-                cat('horiz')
+                #cat('horiz')
                 xleft <- dF[ locationNum, nameX ] + ( radius * cumulatProps[sliceNum] )
                 ybottom <- dF[ locationNum, nameY ]  
                 xright <- dF[ locationNum, nameX ] + ( radius * cumulatProps[sliceNum+1] ) 
                 ytop <- dF[ locationNum, nameY ] + barWidth  
                } else
                {
-                cat('vert')
+                #cat('vert')
                 xleft <- dF[ locationNum, nameX ] 
                 ybottom <- dF[ locationNum, nameY ] + ( radius * cumulatProps[sliceNum] ) 
                 xright <- dF[ locationNum, nameX ] + barWidth 
@@ -163,22 +236,22 @@
     #par('usr'), returns extents of plot, so can use to put components in specific places relative to it
     #[1] -7.161063 -1.689103 48.424150 50.899516
     
-    plotExtents <- par('usr')
-    plotS <- plotExtents[3]  
-    plotW <- plotExtents[1] 
-    plotN <- plotExtents[4]  
-    plotE <- plotExtents[2] 
+    #plotExtents <- par('usr')
+    #plotS <- plotExtents[3]  
+    #plotW <- plotExtents[1] 
+    #plotN <- plotExtents[4]  
+    #plotE <- plotExtents[2] 
     #top left
-    centreE <- plotW + radius*2*ratio
-    centreN <- plotN - radius*2
-    #bottom right
-    #centreE <- plotE - radius*2*ratio
-    #centreN <- plotS + radius*2
-    t <- seq(0,2*pi,length=100)
-    P <- list( x= ratio * radius * cos(t)+ centreE,
-               y=         radius * sin(t)+ centreN )
+    #centreE <- plotW + radius*2*ratio
+    #centreN <- plotN - radius*2
+    ##bottom right
+    ##centreE <- plotE - radius*2*ratio
+    ##centreN <- plotS + radius*2
+    #t <- seq(0,2*pi,length=100)
+    #P <- list( x= ratio * radius * cos(t)+ centreE,
+    #           y=         radius * sin(t)+ centreN )
     
-    str(P)
+    #str(P)
     
     # LEGEND FOR THE SIZE OF CIRCLES
     

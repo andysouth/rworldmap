@@ -14,6 +14,7 @@ mapBars(dF = ""
   
         , barWidth = 1
         , barOrient = 'vert' 
+        , barRelative = TRUE
   
         , ratio = 1
         , addCatLegend = TRUE
@@ -44,6 +45,7 @@ mapBars(dF = ""
   
   \item{barWidth}{multiple for the width of bar symbols, relative to barOrient see below}
   \item{barOrient}{orientation of bars, options 'horiz' and 'vert'} 
+  \item{barRelative}{default is TRUE, each variable (column) is scaled to it's maximum value} 
   
   \item{ratio}{ the ratio of Y to N in the output map, set to 1 as default} 
   \item{addCatLegend}{whether to add a legend for categories}

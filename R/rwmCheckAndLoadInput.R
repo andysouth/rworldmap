@@ -34,7 +34,7 @@ rwmCheckAndLoadInput <- function(
   
   #if (requireSPDF)
   if (inputNeeded == "sPDF")
-    {
+  {
     if ( class(inputData)=="SpatialPolygonsDataFrame" ) 
     {
       ## checking if there is any data in the dataFrame
@@ -57,18 +57,38 @@ rwmCheckAndLoadInput <- function(
       return(FALSE) 
     }
      
-  } else (inputNeeded == "sPDF or dF") 
+  } else if (inputNeeded == "sPDF or dF") 
   {
     #   =="" : get example sPDF
     #   is SPDF : return it
     #   is DF : use it
     #   is something else : error    
-   
-    
-    
-  } #end of ! if (requireSPDF)
-  
-
+    if ( length(inputData)==1 && inputData == "" ) 
+    {
+      message(paste("using example data because no file specified in",functionName))
+      
+      inputData <- getMap(resolution="coarse")
+      
+      ## also setting a default nameColumnToPlot if it isn't set
+      #can't have this here because not passed
+      #if ( nameColumnToPlot == "" ) nameColumnToPlot <- "POP_EST" #
+    } else if ( class(inputData)=="SpatialPolygonsDataFrame" ) 
+    {
+      ## checking if there is any data in the dataFrame
+      if ( length(inputData@data[,1]) < 1 ){
+        stop("seems to be no data in your chosen input in ",functionName, "from", callingFunction) 
+        return(FALSE)
+      } 
+    } else  
+    {
+      stop(callingFunction," requires a dataFrame or spatialPolygonsDataFrame for the first argument or dF=\n")
+      return(FALSE) 
+    }   
+     
+  } else
+  {
+    stop("internal rworldmap error inputNeeded should be sPDF, sPDF or dF, dF, here it is:",inputNeede,"in",functionName, "from", callingFunction)     
+  }
   
   
   #later may add this here or put in another function
