@@ -117,6 +117,7 @@
     #  In max(xlim[2] - xlim[1], (ylim[2] - ylim[1]) * ratio) :
     #  no non-missing arguments to max; returning -Inf
     
+    #browser()
     
     #1/7/13 adding a relative option so that all bars can be scaled 0-1
     #partly to make it easier to produce an example plot
@@ -125,9 +126,11 @@
       for( numZ in 1:length(nameZs))
       {
         #TEMPORARY FIX TO REPLACE -99 with NA for pop & gdp
-        dF[nameZs][numZ][ which(dF[nameZs][numZ]=="-99"),1 ] <- NA
+        #if ( length(which(dF[nameZs][numZ]=="-99") ))
+        #  dF[nameZs][numZ][ which(dF[nameZs][numZ]=="-99"),1 ] <- NA  
         
         dF[nameZs][numZ] <- dF[nameZs][numZ] / max(dF[nameZs][numZ],na.rm=TRUE)
+        
       }
     }
     
@@ -141,6 +144,9 @@
        if ( sumValues > maxSumValues ) maxSumValues <- sumValues
       }
       
+    
+    #browser()    
+    
     #should set radius to 5% of max extent (diam will be 10%)  
     #symbolMaxSize <- 0.05*max( ea-we, (no-so)*ratio )
     #but seemed to big ? set to 2% instead  
