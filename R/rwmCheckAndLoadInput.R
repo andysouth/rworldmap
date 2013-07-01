@@ -79,6 +79,13 @@ rwmCheckAndLoadInput <- function(
         stop("seems to be no data in your chosen input in ",functionName, "from", callingFunction) 
         return(FALSE)
       } 
+    } else if ( class(inputData)=="data.frame" ) 
+    {
+      ## checking if there is any data in the dataFrame
+      if ( length(inputData[,1]) < 1 ){
+        stop("seems to be no data in your chosen input in ",functionName, "from", callingFunction) 
+        return(FALSE)
+      }       
     } else  
     {
       stop(callingFunction," requires a dataFrame or spatialPolygonsDataFrame for the first argument or dF=\n")
@@ -87,7 +94,7 @@ rwmCheckAndLoadInput <- function(
      
   } else
   {
-    stop("internal rworldmap error inputNeeded should be sPDF, sPDF or dF, dF, here it is:",inputNeede,"in",functionName, "from", callingFunction)     
+    stop("internal rworldmap error inputNeeded should be sPDF, sPDF or dF, dF, here it is:",inputNeeded,"in",functionName, "from", callingFunction)     
   }
   
   

@@ -9,7 +9,7 @@ rwmCheckAndLoadInput(
 						    inputData =         ""
 						  #, nameColumnToPlot =  ""
 						  #, requireSPDF =       TRUE
-              , inputNeeded = ""
+              , inputNeeded = "sPDF"
 						  , callingFunction = "" #currently optional may be useful later
               )
               
