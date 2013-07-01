@@ -42,7 +42,7 @@ rwmCheckAndLoadInput <- function(
         stop("seems to be no data in your chosen input in ",functionName, "from", callingFunction) 
         return(FALSE)
       } 
-    } else if ( inputData == "" ) 
+    } else if ( length(inputData)==1 && inputData == "" ) 
     {
       message(paste("using example data because no file specified in",functionName))
       

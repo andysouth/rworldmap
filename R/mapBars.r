@@ -32,7 +32,7 @@
     functionName <- as.character(sys.call()[[1]])
 
     #for example data need to put in here before example dF loaded
-    if (dF == "")
+    if (length(dF)==1 && dF == "")
     {
       nameZs <- c('POP_EST','GDP_MD_EST')
     }

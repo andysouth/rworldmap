@@ -8,15 +8,15 @@ Internal function checking and loading dFs or sPDFs to \code{\link{mapCountryDat
 rwmCheckAndLoadInput(
 						    inputData =         ""
 						  #, nameColumnToPlot =  ""
-						  , requireSPDF =       TRUE
+						  #, requireSPDF =       TRUE
+              , inputNeeded = ""
 						  , callingFunction = "" #currently optional may be useful later
               )
               
 }
 \arguments{
   \item{inputData}{ a dF, sPDF or "", for latter an internal example data is used }
-  #\item{nameColumnToPlot}{ name of column containing the data you want to plot }
-  \item{requireSPDF}{ whether calling function requires a sPDF, if not a dF is accepted}
+  \item{inputNeeded}{ "sPDF", "sPDF or dF", "dF"}
   \item{callingFunction}{ name of the calling function }
 }
 

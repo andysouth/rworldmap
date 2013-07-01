@@ -493,8 +493,8 @@ the same figure and shows a selection of different RColorBrewer palettes.
 <<classInt_RColorBrewer,fig=TRUE,echo=TRUE,results=hide>>=
 <<plotSetup>>
 
-library(classInt)
 library(RColorBrewer)
+library(classInt)
 
 #getting example data and joining to a map
 data("countryExData",envir=environment(),package="rworldmap")
@@ -536,12 +536,16 @@ do.call( addMapLegend
 
 #uses sPDF from the previous chunk
 
-op <- par(fin=c(7,9),mfcol=c(5,2),mai=c(0,0,0.2,0),xaxs="i",yaxs="i")
+#10 frames July 2013 started getting unableto allocate bitmap error
+#op <- par(fin=c(7,9),mfcol=c(5,2),mai=c(0,0,0.2,0),xaxs="i",yaxs="i")
+#reducing to 8 frames to try to avoid memory error
+op <- par(fin=c(7,9),mfcol=c(4,2),mai=c(0,0,0.2,0),xaxs="i",yaxs="i")
 
 brewerList <- c("Greens","Greys","Oranges","OrRd"
                ,"PuBuGn","Purples","YlGn","YlGnBu","YlOrBr","YlOrRd")
 
-for(i in 1:10)
+#for(i in 1:10)
+for(i in 1:8)
    {
     #getting a colour scheme from the RColorBrewer package
     colourPalette <- brewer.pal(7,brewerList[i])
