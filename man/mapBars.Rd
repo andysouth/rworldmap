@@ -83,7 +83,8 @@ currently doesn't return anything
 \examples{
 
 #getting example data
-dF <- getMap()@data  
+#dF <- getMap()@data  
+sPDF <- getMap()
   
 ## these examples repeat the same column in 'nameZs' to show that equal sized bars are created 
 
@@ -97,11 +98,16 @@ dF <- getMap()@data
 #mapBars( dF,nameX="LON", nameY="LAT"
 #       , nameZs=c('POP_EST','POP_EST','POP_EST','POP_EST'),mapRegion='africa',symbolSize=2 )
 
-mapBars( dF, nameX="LON", nameY="LAT"
-       , nameZs=c('POP_EST','POP_EST','POP_EST','POP_EST')
+mapBars( sPDF, 
+       , nameZs=c('POP_EST','GDP_MD_EST')
        , mapRegion='africa'
-       , symbolSize=2
-       , barOrient = 'horiz' )
+       , symbolSize=4 )
+
+# this does work too
+#mapBars( dF,nameX="LON", nameY="LAT" 
+#       , nameZs=c('POP_EST','GDP_MD_EST')
+#       , mapRegion='africa'
+#       , symbolSize=4 )       
 
   
 
