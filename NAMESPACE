@@ -1,10 +1,7 @@
 #NAMESPACE
 #andy south 30/6/13
 
-# Export all names
-#exportPattern(".")
-# Export all names not starting with .
-exportPattern("^[^\\.]")
+#importFrom("RJSONIO", "toJSON")
 
 # Import all packages listed as Imports or Depends
 import(
@@ -14,3 +11,28 @@ import(
   fields,
   spam
 )
+
+
+# Export all names
+#exportPattern(".")
+# Export all names not starting with .
+#exportPattern("^[^\\.]")
+
+##functions
+export(addMapLegend, addMapLegendBoxes, aggregateHalfDegreeGridToCountries)
+export(barplotCountryData)
+export(country2Region)
+export(getMap)
+export(identifyCountries, isoToName)
+export(joinCountryData2Map, joinData2Map)
+export(labelCountries)
+export(mapBars, mapBubbles, mapByRegion, mapCountryData, mapDevice, mapGriddedData, mapHalfDegreeGridToCountries, mapPies, mapPolys)
+export(rwmGetISO3)
+export(setMapExtents)
+
+
+
+
+
+
+
