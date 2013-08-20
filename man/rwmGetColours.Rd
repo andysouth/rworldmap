@@ -33,7 +33,7 @@ A vector specifiying a number of colours.
 \seealso{ RColorBrewer }
 
 \examples{
-rwmGetColours(colourPalette='topo', numColours=10)
+#rwmGetColours(colourPalette='topo', numColours=10)
 }
 
 

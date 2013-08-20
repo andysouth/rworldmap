@@ -7,6 +7,6 @@ Author: Andy South
 Maintainer: Andy South <southandy@gmail.com>
 Description: Enables mapping of country level and gridded user datasets. 
 License: GPL (>= 2)
-Depends: R (>= 2.10.0) 
-Imports: sp, maptools, foreign, fields, spam
+Depends: R (>= 2.10.0), sp 
+Imports: maptools, foreign, fields, spam
 Suggests: rgdal, rworldxtra, RColorBrewer, classInt, cshapes, ncdf, raster

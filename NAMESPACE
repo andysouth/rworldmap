@@ -3,12 +3,15 @@
 
 #importFrom("RJSONIO", "toJSON")
 
+
+importFrom("fields", "image.plot")
+
 # Import all packages listed as Imports or Depends
 import(
   sp,
   maptools,
   foreign,
-  fields,
+#  fields,
   spam
 )
 
