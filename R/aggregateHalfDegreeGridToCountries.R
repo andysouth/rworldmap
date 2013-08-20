@@ -8,9 +8,9 @@ function( inFile=""
     #based upon a grid country file obtained from IIASA
     #returns a dataframe with numeric country code & aggregated values
     #can do sum, mean, max or min        
-    require(maptools)
+    #require(maptools)
     #can fail to load data without this
-    require(sp)
+    #require(sp)
 
     #sGDF <- readAsciiGrid(fname=inFile) 
 

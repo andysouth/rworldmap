@@ -40,7 +40,6 @@ barplotCountryData <- function( dF=""
                         )
 {
 
-#library(rworldmap)
 
 if (outFile == "") outFile <- "barplotCountryDataOut"
 
@@ -166,6 +165,5 @@ par(op)
 } # end of barplotCountryData
 
 #testing
-#library(rworldmap)
 #barplotCountryData()
 #barplotCountryData(toPDF=TRUE,outFile="C:\\rWorldMapNotes\\functionsInDevelopment\\barplotCountryData\\barplot1")

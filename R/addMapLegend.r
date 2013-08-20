@@ -22,7 +22,7 @@ function(
                     #,missingCountryCol="white"    #not used yet but maybe in future                    
                                         
                     ){
-require(fields)
+#require(fields)
 
 #BEWARE image.plot from fields package at end modifies the par settings
 #seemingly not possible to stop this, e.g. can't query whether mfrow or mfcol

@@ -29,7 +29,7 @@ mapPolys <- function(
                            
   #browser()  #n to enter the step through debugger, Q to exit
   
-  require(sp)
+  #require(sp)
   
   #28/6/2013 refactoring
   new <- TRUE
@@ -132,7 +132,9 @@ mapPolys <- function(
    
   if (addLegend){
       
-      if((length(catMethod)==1 && catMethod=="categorical") || !require("spam") || !require("fields")){
+      #if((length(catMethod)==1 && catMethod=="categorical") || !require("spam") || !require("fields")){
+      #20/8/13 removed require bits
+			if((length(catMethod)==1 && catMethod=="categorical") ){
       
         # simpler legend for categorical data OR if you don't have packages spam or fields.
         addMapLegendBoxes(colourVector=colourVector,cutVector=cutVector,catMethod=catMethod) #,plottedData=dataCategorised)          

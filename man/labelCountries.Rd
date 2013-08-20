@@ -39,7 +39,7 @@ labelCountries(dF = ""
   \item{\dots}{ other parameters that can be passed to text(), e.g. pos=4 to right, (1=below,2=left,3=above)}
 }
 
-\value{ }
+\value{nothing}
 
 \author{andy south}
 

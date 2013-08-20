@@ -23,8 +23,8 @@ mapGriddedData <- function(
 
     functionName <- as.character(sys.call()[[1]])
 
-    require(maptools)
-    require(sp)
+    #require(maptools)
+    #require(sp)
     
     ## filename or nothing ##
     if (class(dataset)=='character')
@@ -202,8 +202,9 @@ mapGriddedData <- function(
     ## adding a default legend, can be modified by calling addMapLegend() independently  
     if (addLegend){
     
-      ## simpler legend for categorical data OR if you don't have packages spam or fields.
-      if((length(catMethod)==1 && catMethod=="categorical") || !require("spam") || !require("fields")){
+      #if((length(catMethod)==1 && catMethod=="categorical") || !require("spam") || !require("fields")){
+      #20/8/13 removed require bits
+			if((length(catMethod)==1 && catMethod=="categorical") ){
         
         #legend(x='bottomleft', legend=c(rev(levels(dataCategorised)),"no data"), pch = 22, pt.cex=2, col=borderCol,pt.bg=c(coloursForMap[numColours:1],"white"), title="category",bg="white" )
         addMapLegendBoxes(colourVector=colourVector,cutVector=cutVector,plottedData=dataCategorised,catMethod=catMethod)          
