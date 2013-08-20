@@ -1,6 +1,10 @@
 rworldmap changelog
 
-30/6/13 (1.02-5) temporary development version
+20/8/13 (1.02-6) temporary development version
+modernising DESCRIPTION & NAMESPACE
+
+
+30/6/13 (1.02-5) 
 Refactoring input data checking for vector mapping functions.
 
 

@@ -5,15 +5,16 @@
 
 
 importFrom("fields", "image.plot")
+importFrom("maptools", "readAsciiGrid")
 
 # Import all packages listed as Imports or Depends
-import(
-  sp,
-  maptools,
-  foreign,
+import(sp)
+
+#  maptools,
+#  foreign
 #  fields,
-  spam
-)
+#  spam
+#)
 
 
 # Export all names
