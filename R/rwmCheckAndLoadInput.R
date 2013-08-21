@@ -28,7 +28,7 @@ rwmCheckAndLoadInput <- function(
   
   functionName <- as.character(sys.call()[[1]])
   
-  message(paste("In", functionName, "called by", callingFunction))  
+  #message(paste("In", functionName, "called by", callingFunction))  
   
   #browser()  #n to enter the step through debugger, Q to exit
   
