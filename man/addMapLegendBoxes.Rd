@@ -93,13 +93,15 @@ mapParams <- mapCountryData(nameColumnToPlot='GEO3major'
               , colourPalette=c('white','green','red','yellow','blue','black') 
               )
 #changing legendText
-mapParams$legendText <- c('antarctic','africa','oceania','americas','s.asia','eurasia')              
+mapParams$legendText <- c('antarctic','africa','oceania'
+                         ,'americas','s.asia','eurasia')              
 do.call( addMapLegendBoxes, c(mapParams,x='bottom',title="Region",horiz=TRUE))
 
 #or this way
 #do.call( addMapLegendBoxes
 #        , c(mapParams
-#           ,list(legendText=c('antarctic','africa','oceania','americas','s.asia','eurasia')
+#           ,list(legendText=c('antarctic','africa','oceania'
+#                              ,'americas','s.asia','eurasia')
 #                ,x='bottom',title="Region",horiz=TRUE)))
 
 

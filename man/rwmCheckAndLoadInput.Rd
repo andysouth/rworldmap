@@ -7,10 +7,8 @@ Internal function checking and loading dFs or sPDFs to \code{\link{mapCountryDat
 \usage{
 rwmCheckAndLoadInput(
 						    inputData =         ""
-						  #, nameColumnToPlot =  ""
-						  #, requireSPDF =       TRUE
               , inputNeeded = "sPDF"
-						  , callingFunction = "" #currently optional may be useful later
+						  , callingFunction = "" #currently optional
               )
               
 }

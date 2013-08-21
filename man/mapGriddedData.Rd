@@ -11,15 +11,15 @@ mapGriddedData(  dataset =          ""
                , colourPalette =    "heat"  
                , xlim =             c(-180,180)
                , ylim =             c(-80,90) 
-               , mapRegion =        "world"   
-               , addLegend =        TRUE
-               , addBorders =       'coarse' 
-               , borderCol =        'grey'
-               , oceanCol =         NA
-               , landCol =          NA
-               , plotData =         TRUE
-               , aspect =           1  
-							 , lwd =							1 
+               , mapRegion =  "world"   
+               , addLegend =  TRUE
+               , addBorders = 'coarse' 
+               , borderCol =  'grey'
+               , oceanCol =   NA
+               , landCol =    NA
+               , plotData =   TRUE
+               , aspect =     1  
+							 , lwd =				1 
                )         
 }
 

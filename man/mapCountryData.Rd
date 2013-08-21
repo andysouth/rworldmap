@@ -2,7 +2,8 @@
 \alias{mapCountryData}
 \title{Map country-level data.}
 \description{
-  Draw a map of country-level data, allowing countries to be coloured, from an object created in \code{\link{joinCountryData2Map}}.
+  Draw a map of country-level data, allowing countries to be coloured, from an 
+	object created in \code{\link{joinCountryData2Map}}.
 }
 \usage{
 mapCountryData( 
@@ -101,7 +102,8 @@ mapParams <- mapCountryData(nameColumnToPlot='GEO3major'
               , colourPalette=c('white','green','red','yellow','blue','black') 
               )
 #changing legendText
-mapParams$legendText <- c('antarctic','africa','oceania','americas','s.asia','eurasia')              
+mapParams$legendText <- c('antarctic','africa','oceania'
+                         ,'americas','s.asia','eurasia')              
 do.call( addMapLegendBoxes, c(mapParams,x='bottom',title="Region",horiz=TRUE))
 
 ##showing how rworldmap can be used with the classInt and RColorBrewer packages
