@@ -36,7 +36,7 @@ labelCountries(dF = ""
 
   \item{cex}{sizing of labels, default = 0.8 }  
   
-  \item{\dots}{ other parameters that can be passed to text(), e.g. pos=4 to right, (1=below,2=left,3=above)}
+  \item{\dots}{ other parameters that can be passed to text(), e.g. pos=4 to right, (1=below, 2=left, 3=above)}
 }
 
 \value{nothing}

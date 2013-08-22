@@ -6,16 +6,16 @@ Internal function checking and loading dFs or sPDFs to \code{\link{mapCountryDat
 }
 \usage{
 rwmCheckAndLoadInput(
-						    inputData =         ""
-              , inputNeeded = "sPDF"
-						  , callingFunction = "" #currently optional
+                      inputData = ""
+                    , inputNeeded = "sPDF"
+                    , callingFunction = "" 
               )
               
 }
 \arguments{
   \item{inputData}{ a dF, sPDF or "", for latter an internal example data is used }
   \item{inputNeeded}{ "sPDF", "sPDF or dF", "dF"}
-  \item{callingFunction}{ name of the calling function }
+  \item{callingFunction}{ optional : name of the calling function }
 }
 
 \details{

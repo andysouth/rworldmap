@@ -18,8 +18,8 @@ mapGriddedData(  dataset =          ""
                , oceanCol =   NA
                , landCol =    NA
                , plotData =   TRUE
-               , aspect =     1  
-							 , lwd =				1 
+               , aspect =     1
+               , lwd =        1
                )         
 }
 
@@ -37,7 +37,7 @@ mapGriddedData(  dataset =          ""
     \enumerate{
                \item{}"palette" for the current palette 
                \item{}a vector of valid colours, e.g. =c('red','white','blue') or output from RColourBrewer 
-               \item{}one of "heat","diverging","white2Black","black2White","topo","rainbow","terrain","negpos8","negpos9"
+               \item{}one of "heat", "diverging", "white2Black", "black2White", "topo", "rainbow", "terrain", "negpos8", "negpos9"
                }}
   \item{xlim}{ map extents c(west,east), can be overidden by mapRegion }
   \item{ylim}{ map extents c(south,north), can be overidden by mapRegion } 

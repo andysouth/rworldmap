@@ -53,7 +53,7 @@ addMapLegend(
   
   \item{plottedData}{Numeric vector. The data which was plotted}
   \item{catMethod}{Controls the classification scheme. Usual options of "pretty", "quantiles", "fixedWidth", "logFixedWidth" or a vector of breaks.}
-  \item{colourPalette}{Controls the colour scheme. Usual options of "palette","heat","topo",...}
+  \item{colourPalette}{Controls the colour scheme. Usual options of "palette", "heat", "topo", ...}
 
 }
 \details{

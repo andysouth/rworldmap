@@ -37,7 +37,7 @@ barplotCountryData( dF
     \enumerate{
                \item{}{="palette" for the current palette} 
                \item{}{a vector of valid colours, e.g. =c('red','white','blue') or output from RColourBrewer} 
-               \item{}{= one of "heat","diverging","white2Black","black2White","topo","rainbow","terrain","negpos8","negpos9" }
+               \item{}{= one of "heat", "diverging", "white2Black", "black2White", "topo", "rainbow", "terrain", "negpos8", "negpos9" }
                }}
   \item{addLegend}{ NOT YET WORKING whether to add a legend or not, TRUE/FALSE }
   \item{toPDF}{ whether to output the plot to a pdf rather than the screen, TRUE/FALSE  }
