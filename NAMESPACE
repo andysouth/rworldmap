@@ -6,6 +6,8 @@
 
 importFrom("fields", "image.plot")
 importFrom("maptools", "readAsciiGrid")
+#not used but useful & mentioned in examples
+importFrom("maptools", "readShapePoly")
 
 # Import all packages listed as Imports or Depends
 import(sp)
