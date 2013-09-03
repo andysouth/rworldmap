@@ -1,10 +1,14 @@
 rworldmap changelog
 
-22/8/13 (1.3-1) CRAN submission
+3/9/13 (1.3-2) temporary development version
+
+
+
+22/8/13 (1.3-1) current CRAN version
 added links to Google discussion group : http://groups.google.com/group/rworldmap
 
 
-20/8/13 (1.02-6) temporary development version
+20/8/13 (1.02-6) 
 modernising DESCRIPTION & NAMESPACE
 
 
