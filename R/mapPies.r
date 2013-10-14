@@ -1,6 +1,3 @@
-# assumes that the total value is obtained by adding nameZs
-# could add an optional param nameZtotal that will only be used if it is specified
-# default for nameZs set to the names for cols 3 & 4 
 `mapPies` <- function( dF
                         ,nameX="LON", nameY="LAT" 
                         ,nameZs=c(names(dF)[3],names(dF)[4])

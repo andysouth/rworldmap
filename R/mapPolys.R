@@ -1,10 +1,3 @@
-#mapPolys.r
-#andy south 29/07/2010
-
-#to plot filled polygons
-#a generic version of mapCountryData
-#companion function to joinData2Map()
-
 mapPolys <- function(
                            mapToPlot = "",
                            nameColumnToPlot = "",
@@ -28,8 +21,6 @@ mapPolys <- function(
   functionName <- as.character(sys.call()[[1]])
                            
   #browser()  #n to enter the step through debugger, Q to exit
-  
-  #require(sp)
   
   #28/6/2013 refactoring
   new <- TRUE
