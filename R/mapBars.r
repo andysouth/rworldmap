@@ -108,7 +108,7 @@
       xlim <- lims$xlim #!!! these lims are used later to set symbol sizes
       ylim <- lims$ylim
       plot( sPDF, add=TRUE, border=borderCol, col=landCol, lwd=lwd )
-    }    
+    } #end of if (!add)    
 
     
     #**BEWARE what happens with symbolMaxSize if add=TRUE ???
