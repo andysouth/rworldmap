@@ -95,16 +95,19 @@
     if (!add) 
     {
       #option for region to be set from data
-      if ( mapRegion == 'data' ) #( (we==0 && so==0) ) # || (we==NA && so==NA)) #caused error with some data not other
-      {
-        xlim <- c( min(dF[,nameX], na.rm=TRUE),max(dF[,nameX], na.rm=TRUE) )
-        ylim <- c( min(dF[,nameY], na.rm=TRUE),max(dF[,nameY], na.rm=TRUE) )
-      } else
-      {
-        xlim <- ylim <- NA #then they are set from bbox of map in rwmNewMapPlot
-      }    
+      #!2014 this shouldn't be needed, dealt with in rwmNewMapPlot
+      #if ( mapRegion == 'data' ) 
+      #{  
+      #  xlim <- c( min(dF[,nameX], na.rm=TRUE),max(dF[,nameX], na.rm=TRUE) )
+      #  ylim <- c( min(dF[,nameY], na.rm=TRUE),max(dF[,nameY], na.rm=TRUE) )  
+      #  
+      #} else
+      #{
+      #  xlim <- ylim <- NA #then they are set from bbox of map in rwmNewMapPlot
+      #}    
       
       lims <- rwmNewMapPlot(sPDF, oceanCol=oceanCol, mapRegion=mapRegion, xlim=xlim, ylim=ylim)
+      
       xlim <- lims$xlim #!!! these lims are used later to set symbol sizes
       ylim <- lims$ylim
       plot( sPDF, add=TRUE, border=borderCol, col=landCol, lwd=lwd )

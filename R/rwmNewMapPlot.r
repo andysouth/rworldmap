@@ -15,7 +15,7 @@ function(mapToPlot=getMap(),
     ylim <- c(dFwesn$so, dFwesn$no)
   }
 
-  #2/10/12 getting xlim & ylim from bbox of the map
+  #getting xlim & ylim from bbox of map if they haven't been specified
   if (length(xlim)<2) xlim <- bbox(mapToPlot)['x',]  
   if (length(ylim)<2) ylim <- bbox(mapToPlot)['y',]
   
