@@ -32,9 +32,11 @@
     #as they will be plotted the same in pies & have a problem in seq with them ?
     #replace all nas in a df
     #31/5/12 removing
+    #201403 re-enabling but moving later
     #dF[is.na(dF)] <- 0
  
     #20/7/2010 changed option for region to be set from data
+    #201403 should be able to remove this same as mapBars
     if ( mapRegion == 'data' ) #( (we==0 && so==0) ) # || (we==NA && so==NA)) #caused error with some data not other
     {
       xlim <- c( min(dF[,nameX], na.rm=TRUE),max(dF[,nameX], na.rm=TRUE) )
@@ -86,7 +88,9 @@
       plot( getMap(), add=TRUE, border=borderCol, col=landCol, main=main, lwd=lwd )
     }        
     
-    
+ 
+    #201403 re-enabling but moving later to avoid entanglement with sPDF
+    dF[is.na(dF)] <- 0   
        
     maxSumValues <- 0
     #go through each circle to plot to find maximum value for scaling
