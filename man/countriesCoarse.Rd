@@ -6,6 +6,10 @@
 A 'SpatialPolygonsDataFrame' [package "sp"] object containing a simplified world map. 
 Polygons are attributed with country codes.
 244 countries. Based on Natural Earth data.
+
+Derived from version 1.4.0 of Natural Earth data 1:110 m data.      
+Missing countries at this resolution are added in from the higher resolution 1:50 m data so that these countries are included e.g. in \code{\link{mapBubbles}}.
+
 }
 \usage{data(countriesCoarse)}
 \format{
@@ -14,9 +18,6 @@ Formal class 'SpatialPolygonsDataFrame' [package "sp"] with 5 slots
 
 }
 \details{
-Derived fron version 1.4.0 of Natural Earth data 1:110 m data.      
-Added in countries from the higher resolution data.
-
 The different country boundaries in rworldmap are processed from Natural Earth Data as follows : \cr
 All :                                                                                            \cr
 ~ rename any non-ASCII country names that cause R trouble                                        \cr

@@ -5,6 +5,7 @@
 \description{
 A 'SpatialPolygonsDataFrame' [package "sp"] object containing country boundaries derived from Natural Earth data. 
 Polygons are attributed with country codes.
+Derived from version 1.4.0 of Natural Earth data 1:50 m data.   
 }
 \usage{data(countriesLow)}
 \format{
@@ -12,8 +13,6 @@ Polygons are attributed with country codes.
 Formal class 'SpatialPolygonsDataFrame' [package "sp"] with 5 slots
 }
 \details{
-Derived fron version 1.4.0 of Natural Earth data 1:50 m data.      
-
 The different country boundaries in rworldmap are processed from Natural Earth Data as follows : \cr
 All :                                                                                            \cr
 ~ rename any non-ASCII country names that cause R trouble                                        \cr

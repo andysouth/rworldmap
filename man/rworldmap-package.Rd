@@ -12,19 +12,16 @@ Enables mapping of country level and gridded user datasets by facilitating joini
 \tabular{ll}{
 Package: \tab rworldmap\cr
 Type: \tab Package\cr
-Version: \tab 1.3-3\cr
-Date: \tab 2014-07-24\cr
+Version: \tab 1.3-4\cr
+Date: \tab 2014-11-11\cr
 License: \tab GPL (>= 2)\cr
 }
 
 
-Version 1.01 October 2012 newly used updated Natural Earth Data for country boundaries 
-e.g. \code{\link{countriesLow}}. Higher resolution boundaries are provided in a companion package rworldxtra.
-It also added country synonym matching in \code{\link{joinCountryData2Map}}.
-
 Country Level Data can be joined to a map using  \code{\link{joinCountryData2Map}}, 
-then mapped using \code{\link{mapCountryData}}.
-Gridded data can be mapped using \code{\link{mapGriddedData}}.
+then mapped using \code{\link{mapCountryData}}. These functions can cope with a range of country names and country codes.
+
+Country boundaries are derived from version 1.4.0 of Natural Earth data as described in \code{\link{countriesCoarse}}. Higher resolution boundaries are provided in a companion package rworldxtra.
 
 More generic functions allow the user to provide their own polygon map 
 using \code{\link{joinData2Map}} and \code{\link{mapPolys}}.
@@ -35,6 +32,8 @@ Try the new method \code{\link{barplotCountryData}} for producing a ranked bar p
 provide a useful companion to maps. 
 
 Options are provided for categorising data, colouring maps and symbols, and adding legends.
+
+Gridded data can be mapped using \code{\link{mapGriddedData}}, but the raster package is much more comprehensive.
 
 Type vignette('rworldmap') to access a short document showing a few examples of 
 the main rworldmap functions to get you started.

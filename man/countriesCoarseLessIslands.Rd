@@ -5,7 +5,7 @@
 \description{
 A 'SpatialPolygonsDataFrame' [package "sp"] object containing a simplified world map. 
 Polygons are attributed with country codes.
-177 countries. Based on Natural Earth data.
+177 countries. Derived fronm version 1.4.0 of Natural Earth data 1:110 m data.  
 }
 \usage{data(countriesCoarseLessIslands)}
 \format{
@@ -13,7 +13,7 @@ Polygons are attributed with country codes.
 Formal class 'SpatialPolygonsDataFrame' [package "sp"] with 5 slots
 }
 \details{
-Derived fron version 1.4.0 of Natural Earth data 1:110 m data.    
+  
 
 The different country boundaries in rworldmap are processed from Natural Earth Data as follows : \cr
 All :                                                                                            \cr
