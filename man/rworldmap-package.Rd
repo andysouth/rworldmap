@@ -6,7 +6,7 @@
 For mapping global data.
 }
 \description{
-Enables mapping of country level and gridded user datasets by facilitating joining to modern world maps and offering visualisation options.  
+Enables mapping of country level and gridded user datasets by facilitating joining to modern world maps and offering visualisation options. Country borders are derived from Natural Earth data v 1.4.0.  
 }
 \details{
 \tabular{ll}{
