@@ -16,14 +16,8 @@ function( dF
 		   warning('the projection argument has been deprecated, returning Lat Lon, use spTransform from package rgdal as shown in help details or the FAQ')
     
     #test whether user joinCode is one of permitted
-    
-    #23/5/12 allow some extras
     #natural earth data has : "ISO_A2","ISO_A3","FIPS_10_","ADMIN","ISO_N3",  #*beware that "NAME" in nat earth has abbreviations that don't match  
-    #i think i should leave them stored as is
-    #as joinCode is the name of the column in the maps in rworldmap
-    #I could either copy the columns
-    #or just change joinCode here 
-    #try just changing to start
+    #here I allow Nat Earth codes or my original codes
     
     listJoinCodesNew <- c("ISO_A2","ISO_A3","FIPS_10_","ADMIN","ISO_N3" )
     listJoinCodesOld <- c("ISO2","ISO3","FIPS","NAME","UN" )
@@ -57,8 +51,6 @@ function( dF
            
     #copy the users nameJoinColumn to a new column named the same as the column in the map for the join code
     #e.g if user has ISO3166_3 it will be copied to ISO3
-    #dF[[joinCode]] <- dF[[nameJoinColumn]]
-    #22/5/12 changed to make changing to synonyms easier
     dF[[joinCode]] <- as.character(dF[[nameJoinColumn]])
     
     #this removes any trailing spaces from the user data which could be a problem
@@ -67,8 +59,7 @@ function( dF
     #[:space:] is a pre-defined character class that matches space characters in your locale. 
     #* says to repeat the match zero or more times and $ says to match the end of the string.
     
-    #23/5/12
-    #if using NAME I could convert to ISO3 first using synonyms and match based on that
+    #23/5/12 if using NAME I could convert to ISO3 first using synonyms and match based on that
     #and set nameCountryColumn to what the join column was
     #but does everything become a bit hidden then ?
     #not really keeps it fairly simple
@@ -133,12 +124,10 @@ function( dF
     matchPosnsInUserData <- match(as.character(mapWithData@data[[joinCode]])
                                 , as.character(dF[[joinCode]])) 
     
-    #23/5/12 decided no very useful printing this out
-    
     #these are the codes in lookup that aren't found in user data
     codesMissingFromUserData <- as.character( mapWithData@data[[joinCode]][is.na(matchPosnsInUserData)] )                            
     countriesMissingFromUserData <- as.character( mapWithData@data[["NAME"]][is.na(matchPosnsInUserData)] )
-    #  
+      
     numMissingCodes <- length(codesMissingFromUserData) 
     
     #printing info to console
@@ -152,13 +141,11 @@ function( dF
     #   } # 
 
 
-    ###############################################################
     #merging lookup table onto user data for those codes that match
     #dF2 <- cbind(dFlookupCodes[matchPosnsInLookup,],dF)    
     #the other way around to before, i.e. joining data onto map
     
     mapWithData@data <- cbind(mapWithData@data, dF[matchPosnsInUserData,])
-
 
     #test colouring map by region & subregion seems to show order has been retained
     #plot(mapWithData,col=mapWithData@data$REGION)

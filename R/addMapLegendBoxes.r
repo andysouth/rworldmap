@@ -1,4 +1,3 @@
-#! addMapLegendBoxes : still in development
 `addMapLegendBoxes`<- function(
                     cutVector=""    # the categories or breaks used in the map
                     ,colourVector = "" #colours used in the map
@@ -22,9 +21,6 @@
                     ){
                     
 #function for categorical legend or if user doesn't have fields package
-
-#this is how it was previously done in mapCountryData
-#legend(x='bottomleft', legend=c(levels(dataCategorised),"no data"), pch = 22, pt.cex=2, col=borderCol,pt.bg=c(coloursForMap[1:numColours],missingCountryCol), title="category",bg="white" )
 
 #!? deal with what happens if non categorical data get through
 if ( catMethod!="categorical" )

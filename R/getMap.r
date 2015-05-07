@@ -1,11 +1,7 @@
-#
-
 `getMap` <-
 
 function(resolution="coarse",projection=NA){
   
-  #23/5/12 3 new resolutions
-  #deprecated projection option
   
   resolutionOptions <- c("coarse","low","less islands","li","high") 
   
@@ -45,11 +41,6 @@ function(resolution="coarse",projection=NA){
     mapWithData <- get("countriesHigh", envir = environment(), inherits=FALSE)    
   }  
 
-  
-#  else if (projection == "EqualArea" || projection == "equalArea") {
-#    data("wrld_simpl_Mollweide", envir = environment(), package = "rworldmap")
-#    mapWithData <- get("wrld_simpl_Mollweide")
-#  }
  
   #trying eez map : does work - temporarily removed 31/8 to get permission
   #if (resolution == "eez") {

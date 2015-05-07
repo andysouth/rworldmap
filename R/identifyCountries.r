@@ -6,15 +6,11 @@ identifyCountries <- function(dF=""
                              ,plotSelected=FALSE
                              ,...){
 
-#! ANDY TO DO 11/11/09
-#add checks that the input parameters are valid
-
 
 #also possible to get centroids from a sPDF
 if (class(dF)=="SpatialPolygonsDataFrame")
    {
-    #!9/10/12 BUG correction, don't get coords from internal map if an sPDF is passed
-    #centroidCoords <- coordinates(getMap())
+    #get coords from sPDF if it is passed
     centroidCoords <- coordinates(dF)    
     #within this function just need the dF bit of the sPDF
     dF2 <- dF@data

@@ -20,12 +20,6 @@ mapCountryData <- function(
                            
   functionName <- as.character(sys.call()[[1]])
                            
-  #browser()  #n to enter the step through debugger, Q to exit
-  
-  #29/9/2012 to avoid a polypath error, needs sp version >= 0.9-101 
-  #added usePolypath=FALSE in plot calls because safer and should work now
-  #set_Polypath(FALSE)
-  
 
   #28/6/2013 refactoring
   new <- TRUE
@@ -55,7 +49,6 @@ mapCountryData <- function(
   } #end of replaced bit 28/6/2013
   
   ## setting a default nameColumnToPlot if it isn't set
-  # moved out of above loop replaced by rwmCheckAndLoadInput
   if ( nameColumnToPlot == "" ) nameColumnToPlot <- "POP_EST" #  
   
   ## check that the column name exists in the data frame
@@ -67,7 +60,7 @@ mapCountryData <- function(
   ##classify data into categories   
   dataCategorised <- mapToPlot@data[[nameColumnToPlot]]
 
-  #30/5/12 if the data are not numerical then set catMethod to categorical
+  #if data are not numeric then set catMethod to categorical
   if ( ! is.numeric(dataCategorised) && catMethod != "categorical" )
      {
      catMethod = "categorical"
@@ -107,11 +100,6 @@ mapCountryData <- function(
   mapToPlot@data[[colNameCat]] <- dataCategorised     
   
   ## how many colours : numCats may be overriden (e.g. for 'pretty') 	
-  #5/11/12 issue that numCOlours got from the data
-  #so difficult to keep constant between plots
-  #move it further up so I can control it
-  #numColours <- length(levels(dataCategorised))
-  
   ## get vector of the colours to be used in map (length=num categories)    
   colourVector <- rwmGetColours(colourPalette,numColours)
   
@@ -126,8 +114,6 @@ mapCountryData <- function(
     dataCatNums[is.na(dataCatNums)]<-length(colourVector)
   }
 
-  #!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-  #need to check this
   #Scale hatching variable (and invert). Then threshold above a certain value to secure solid status
   hatchVar = NULL
   if (nameColumnToHatch=='')
@@ -135,12 +121,10 @@ mapCountryData <- function(
       #setting up the map plot
       if (!add) rwmNewMapPlot(mapToPlot,mapRegion=mapRegion,xlim=xlim,ylim=ylim,oceanCol=oceanCol,aspect=aspect)
       #plotting the map
-      #plot(mapToPlot,col=colourVector[dataCatNums],border=borderCol,add=TRUE)#,density=c(20:200))#angle=c(1:360),)
       plot(mapToPlot, col=colourVector[dataCatNums], border=borderCol, add=TRUE, usePolypath=FALSE, lwd=lwd)#29/9/2012
       } else  
     {
     #*HATCHING OPTION*
-    #setting up the map plot    
      
       hatchVar = mapToPlot@data[[nameColumnToHatch]]
       
@@ -154,8 +138,6 @@ mapCountryData <- function(
       #setting up the map plot
       if(!add)  rwmNewMapPlot(mapToPlot,mapRegion=mapRegion,xlim=xlim,ylim=ylim,oceanCol=oceanCol,aspect=aspect)
       #plotting the map
-      #plot(mapToPlot,col=colourVector[mapToPlot@data$dataCatNums],border=borderCol,add=TRUE, density=hatchVar, angle=135, lty=1)
-      #plot(mapToPlot,col=colourVector[mapToPlot@data$dataCatNums],border=borderCol,add=TRUE, density=hatchVar, angle=45, lty=1)
       plot(mapToPlot,col=colourVector[dataCatNums],border=borderCol, density=hatchVar, angle=135, lty=1,add=TRUE,usePolypath=FALSE, lwd=lwd)#29/9/2012
       plot(mapToPlot,col=colourVector[dataCatNums],border=borderCol, density=hatchVar, angle=45, lty=1,add=TRUE,usePolypath=FALSE, lwd=lwd)#29/9/2012
                  
@@ -165,8 +147,7 @@ mapCountryData <- function(
 
   if (addLegend){
       
-      #if((length(catMethod)==1 && catMethod=="categorical") || !require("spam") || !require("fields")){
-      #20/8/13 removed require bits
+
 			if((length(catMethod)==1 && catMethod=="categorical") ){
       
         # simpler legend for categorical data OR if you don't have packages spam or fields.

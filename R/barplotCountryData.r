@@ -164,6 +164,3 @@ par(op)
 
 } # end of barplotCountryData
 
-#testing
-#barplotCountryData()
-#barplotCountryData(toPDF=TRUE,outFile="C:\\rWorldMapNotes\\functionsInDevelopment\\barplotCountryData\\barplot1")

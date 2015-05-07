@@ -22,7 +22,6 @@ function(
                     #,missingCountryCol="white"    #not used yet but maybe in future                    
                                         
                     ){
-#require(fields)
 
 #BEWARE image.plot from fields package at end modifies the par settings
 #seemingly not possible to stop this, e.g. can't query whether mfrow or mfcol
@@ -44,7 +43,7 @@ tidyPlotBreaks <- signif(colourBarBreaks,sigFigs) #
 #The image.plot zlim argument only requires the min and max
 zlim <- range(colourBarBreaks,na.rm=TRUE)
 
-#27/10/09 andy, adding in equal scale intervals options
+# adding in equal scale intervals options
 if ( legendIntervals == 'page' )
    {
     colourBarBreaks <- colourBarBreaks[1] + (colourBarBreaks[length(colourBarBreaks)]-colourBarBreaks[1])* seq(from=0,to=1,length.out=length(colourBarBreaks))

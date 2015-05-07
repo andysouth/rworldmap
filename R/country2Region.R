@@ -71,7 +71,6 @@ if ( !is.data.frame(inFile) && inFile == '' && nameDataColumn == '' && joinCode 
     
     output <- tapply(dF[,nameDataColumn],classified,FUN,...)
     
-    ###########
     #looking at returning in a more useful format
     idString <- paste(FUN,nameDataColumn,'by',regionType,sep='')
     dFout <- data.frame( x=output )
@@ -85,9 +84,6 @@ if ( !is.data.frame(inFile) && inFile == '' && nameDataColumn == '' && joinCode 
     
     #write.csv(output,'test.csv') #to output to a csv file
     
-    #FUN='summary' outputs summary stats as a list which is tricky to deal with
-    #perhaps can modify output ?
-    #how to get from list to dataframe
     
     
    } #end of if inFile etc. are specified
