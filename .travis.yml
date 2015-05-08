@@ -24,3 +24,12 @@ notifications:
   email:
     on_success: change
     on_failure: change
+
+#to avoid travis fail & load faster
+r_binary_packages :
+ - rgdal
+ - ncdf
+ - sp
+ - fields
+ - maptools
+  
