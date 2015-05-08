@@ -2,6 +2,9 @@
 
 language: r
 
+before_install:
+  - sudo apt-get install libv8-dev
+
 warnings_are_errors: true
 
 r_binary_packages:
