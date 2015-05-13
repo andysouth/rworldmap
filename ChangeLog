@@ -1,6 +1,10 @@
 rworldmap changelog
 
-19/3/14 (1.3-2) temporary development version
+7/5/15 (1.3-5) temporary development version
+*migrated to Github (at last!)
+
+
+19/3/14 (1.3-2) 
 *mapBars corrected longstanding bug allowing xlim,ylim to be set
 *mapPies NAs are converted to zero to avoid errors
 
@@ -61,7 +65,7 @@ Added country synonym matching for user data
 *countriesHigh : added access from getMap() to higher resolution vector boundaries in companion package rworldxtra
 *countrySynonyms : added data file to aid in matching countries in user data to those in maps
 *joinCountryData2Map : when using joinCode='NAME' option it matches synonyms
-*joinCountryData2Map : Deprecated use of ‘projection’
+*joinCountryData2Map : Deprecated use of ?projection?
 *mapBubbles : now copes with no nameZColour or nameZColour='blue' etc.
 *mapCountryData stopped it crashing when given a categorical dataset
 *mapCountryData added usePolypath=FALSE to plot commands to avoid polypath error, needs sp version >= 0.9-101
@@ -86,7 +90,7 @@ Polygon holes in country maps fixed using rgeos package (thanks to Karl Ove Huft
 14/2/2011 (0.1211)
 removed Rplots.pdf from the inst/doc/ folder
 
- 
+?
 18/12/2010 (0.121)
 added dependencies for fields, spam & maps
 
@@ -94,23 +98,23 @@ added dependencies for fields, spam & maps
 13/12/2010 (0.120)
 correcting problem with category colours in mapGriddedData()
 
- 
-30/8/2010  (0.110)
-There was a problem that eezMap.rda didn’t have a man page, I made the man page but removed both for now until I get permission from VLIZ to use it.
+?
+30/8/2010 ?(0.110)
+There was a problem that eezMap.rda didn?t have a man page, I made the man page but removed both for now until I get permission from VLIZ to use it.
 
- 
+?
 03/02/2010
-Added option to pass ‘array’ or ‘matrix’ to mapGriddedData 
+Added option to pass ?array? or ?matrix? to mapGriddedData 
 Corrected bug in mapGriddedData(addBorders='coasts') 
 
-  
+??
 
 03/01/2010
 Initial submission.
- 
+?
 
 
- 
+?
 
 
 
