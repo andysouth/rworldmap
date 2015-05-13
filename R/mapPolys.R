@@ -20,7 +20,7 @@ mapPolys <- function(
                            
   functionName <- as.character(sys.call()[[1]])
                            
-  #browser()  #n to enter the step through debugger, Q to exit
+  #browser()  
   
   #28/6/2013 refactoring
   new <- TRUE

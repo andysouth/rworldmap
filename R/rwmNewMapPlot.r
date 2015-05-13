@@ -1,5 +1,4 @@
-`rwmNewMapPlot`<-
-function(mapToPlot=getMap(),
+rwmNewMapPlot <- function(mapToPlot=getMap(),
          oceanCol=NA,
          mapRegion="world",
          xlim=NA,                  

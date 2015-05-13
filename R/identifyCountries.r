@@ -59,4 +59,4 @@ if (plotSelected & length(selectedCountryIndices)>0 )
 #return the indices, may be useful later
 invisible(selectedCountryIndices)
                            
-} #end of identifyCountries
+} 

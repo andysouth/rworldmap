@@ -53,7 +53,4 @@ function(device="dev.new"
 }
 
 
-#To Do:
-#A mapRegion argument would be helpful
-#change the order of plotting on plots with both rows and columns over 2.
 

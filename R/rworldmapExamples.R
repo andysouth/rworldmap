@@ -1,5 +1,4 @@
-`rworldmapExamples` <-
-function()
+rworldmapExamples <- function()
    {  
     #displays examples - i should probably put somewhere else
     

@@ -1,5 +1,4 @@
-`setMapExtents` <-
-function(mapRegion='world')
+setMapExtents <- function(mapRegion='world')
    {  
     #sets map region from names passed to it
     #by returning a data frame containing wesn

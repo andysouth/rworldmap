@@ -23,8 +23,6 @@ mapGriddedData <- function(
 
     functionName <- as.character(sys.call()[[1]])
 
-    #require(maptools)
-    #require(sp)
     
     ## filename or nothing ##
     if (class(dataset)=='character')
@@ -139,8 +137,8 @@ mapGriddedData <- function(
       #12/10/10 moved into non-categorical loop from below
       sGDF$indexToPlot <- as.numeric( as.character( dataCategorised )) 
       #cut : labels for the levels of the resulting category.  By default,
-      #    labels are constructed using ‘"(a,b]"’ interval notation.
-      #    If ‘labels = FALSE’, simple integer codes are returned instead of a factor.
+      #    labels are constructed using ?"(a,b]"? interval notation.
+      #    If ?labels = FALSE?, simple integer codes are returned instead of a factor.
       
       #13/11/10 fixing breaks difference between categorical and non-categorical
       breaks <- c(0:(length(cutVector)-1) )
@@ -188,9 +186,6 @@ mapGriddedData <- function(
        plot( getMap(resolution='coarse'), add=TRUE, border=borderCol, lwd=lwd )
        } else
     if (addBorders=='coasts'){
-       #30/9/2012 replacing use of maps library
-       #library(maps) 
-       #map(interior=FALSE,add=TRUE, col=borderCol )
        data(coastsCoarse,envir=environment(),package="rworldmap")
        coastsCoarse <- get("coastsCoarse")
        plot(coastsCoarse, add=TRUE, col=borderCol, lwd=lwd ) 

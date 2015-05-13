@@ -1,24 +1,4 @@
-#joinData2Map.r
-#andy south 29/7/2010
-
-#to create a flexible function for joining column data to polygons
-#it can have a companion function : mapPolys()
-#it should accept :
-## nameMap
-# either
-# 1 named internal options, e.g. countries, EEZs, highSeasAreas, china
-# 2 the filename of an esri polygons shapefile
-# 3 a spatialPolygonsDataFrame 
-## nameJoinColumnData
-## nameNameColumnData
-## nameJoinIDMap
-
-#(joinData2Map could then be called by joinCountryData2Map, specifying nameJoinIDMap=joinCode)
-
-#add new maps to the getMap() function
-
-`joinData2Map` <-
-function( dF = ""
+`joinData2Map` <- function( dF = ""
         , nameMap = ""
         , nameJoinIDMap = "ISO3"
         #, joinCode = "ISO3" #options "ISO2","ISO3","FIPS","NAME","UN"

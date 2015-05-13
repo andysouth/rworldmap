@@ -1,9 +1,7 @@
 
-#to gets ISO3 code from synonyms of a country name
+#gets ISO3 code from synonyms of a country name
 
-`rwmGetISO3` <-
-
-function( oddName ){
+`rwmGetISO3` <- function( oddName ){
   
   oddName <- as.character( oddName )
   
