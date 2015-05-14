@@ -21,7 +21,7 @@ setMapExtents <- function(mapRegion='world')
     if ( mapRegion == 'eurasia' | mapRegion == 'Eurasia' )#1
        {we=-20;   ea=110;   so=20;   no=70} else 
     if ( mapRegion == 'africa' | mapRegion == 'Africa' )#2
-       {we=-20;   ea=80;    so=-30;   no=30} else 
+       {we=-20;   ea=55;    so=-35;   no=38} else 
     if ( mapRegion == 'latin america' | mapRegion == 'Latin America' )#3
        {we=-118;   ea=-35;    so=-58;   no=30} else 
     if ( mapRegion == 'north america' | mapRegion == 'North America' )#3
