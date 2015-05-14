@@ -167,62 +167,62 @@ NULL
 #' constraints and limitations in methodology make this a work in progress.
 #' Further refinements will be undertaken over the next few years.  Comments,
 #' suggestions, feedback, and referrals to better data sources are welcome at:
-#' http://epi.yale.edu or epi@yale.edu.
+#' http://epi.yale.edu or epi@@yale.edu.
 #' 
 #' @name countryExData
 #' @docType data
 #' @format A data frame with 149 observations on the following 80 variables.
-#' \describe{ \item{list("ISO3V10")}{a character vector}
-#' \item{list("Country")}{a character vector} \item{list("EPI_regions")}{a
-#' character vector} \item{list("GEO_subregion")}{a character vector}
-#' \item{list("Population2005")}{a numeric vector}
-#' \item{list("GDP_capita.MRYA")}{a numeric vector} \item{list("landlock")}{a
-#' numeric vector} \item{list("landarea")}{a numeric vector}
-#' \item{list("density")}{a numeric vector} \item{list("EPI")}{a numeric
-#' vector} \item{list("ENVHEALTH")}{a numeric vector}
-#' \item{list("ECOSYSTEM")}{a numeric vector} \item{list("ENVHEALTH.1")}{a
-#' numeric vector} \item{list("AIR_E")}{a numeric vector}
-#' \item{list("WATER_E")}{a numeric vector} \item{list("BIODIVERSITY")}{a
-#' numeric vector} \item{list("PRODUCTIVE_NATURAL_RESOURCES")}{a numeric
-#' vector} \item{list("CLIMATE")}{a numeric vector} \item{list("DALY_SC")}{a
-#' numeric vector} \item{list("WATER_H")}{a numeric vector}
-#' \item{list("AIR_H")}{a numeric vector} \item{list("AIR_E.1")}{a numeric
-#' vector} \item{list("WATER_E.1")}{a numeric vector}
-#' \item{list("BIODIVERSITY.1")}{a numeric vector} \item{list("FOREST")}{a
-#' numeric vector} \item{list("FISH")}{a numeric vector}
-#' \item{list("AGRICULTURE")}{a numeric vector} \item{list("CLIMATE.1")}{a
-#' numeric vector} \item{list("ACSAT_pt")}{a numeric vector}
-#' \item{list("WATSUP_pt")}{a numeric vector} \item{list("DALY_pt")}{a numeric
-#' vector} \item{list("INDOOR_pt")}{a numeric vector} \item{list("PM10_pt")}{a
-#' numeric vector} \item{list("OZONE_H_pt")}{a numeric vector}
-#' \item{list("SO2_pt")}{a numeric vector} \item{list("OZONE_E_pt")}{a numeric
-#' vector} \item{list("WATQI_pt")}{a numeric vector} \item{list("WATSTR_pt")}{a
-#' numeric vector} \item{list("WATQI_GEMS.station.data")}{a numeric vector}
-#' \item{list("FORGRO_pt")}{a numeric vector} \item{list("CRI_pt")}{a numeric
-#' vector} \item{list("EFFCON_pt")}{a numeric vector} \item{list("AZE_pt")}{a
-#' numeric vector} \item{list("MPAEEZ_pt")}{a numeric vector}
-#' \item{list("EEZTD_pt")}{a numeric vector} \item{list("MTI_pt")}{a numeric
-#' vector} \item{list("IRRSTR_pt")}{a numeric vector} \item{list("AGINT_pt")}{a
-#' numeric vector} \item{list("AGSUB_pt")}{a numeric vector}
-#' \item{list("BURNED_pt")}{a numeric vector} \item{list("PEST_pt")}{a numeric
-#' vector} \item{list("GHGCAP_pt")}{a numeric vector}
-#' \item{list("CO2IND_pt")}{a numeric vector} \item{list("CO2KWH_pt")}{a
-#' numeric vector} \item{list("ACSAT")}{a numeric vector}
-#' \item{list("WATSUP")}{a numeric vector} \item{list("DALY")}{a numeric
-#' vector} \item{list("INDOOR")}{a numeric vector} \item{list("PM10")}{a
-#' numeric vector} \item{list("OZONE_H")}{a numeric vector}
-#' \item{list("SO2")}{a numeric vector} \item{list("OZONE_E")}{a numeric
-#' vector} \item{list("WATQI")}{a numeric vector}
-#' \item{list("WATQI_GEMS.station.data.1")}{a numeric vector}
-#' \item{list("WATSTR")}{a numeric vector} \item{list("FORGRO")}{a numeric
-#' vector} \item{list("CRI")}{a numeric vector} \item{list("EFFCON")}{a numeric
-#' vector} \item{list("AZE")}{a numeric vector} \item{list("MPAEEZ")}{a numeric
-#' vector} \item{list("EEZTD")}{a numeric vector} \item{list("MTI")}{a numeric
-#' vector} \item{list("IRRSTR")}{a numeric vector} \item{list("AGINT")}{a
-#' numeric vector} \item{list("AGSUB")}{a numeric vector}
-#' \item{list("BURNED")}{a numeric vector} \item{list("PEST")}{a numeric
-#' vector} \item{list("GHGCAP")}{a numeric vector} \item{list("CO2IND")}{a
-#' numeric vector} \item{list("CO2KWH")}{a numeric vector} }
+#' \describe{ \item{ISO3V10}{a character vector}
+#' \item{Country}{a character vector} \item{EPI_regions}{a
+#' character vector} \item{GEO_subregion}{a character vector}
+#' \item{Population2005}{a numeric vector}
+#' \item{GDP_capita.MRYA}{a numeric vector} \item{landlock}{a
+#' numeric vector} \item{landarea}{a numeric vector}
+#' \item{density}{a numeric vector} \item{EPI}{a numeric
+#' vector} \item{ENVHEALTH}{a numeric vector}
+#' \item{ECOSYSTEM}{a numeric vector} \item{ENVHEALTH.1}{a
+#' numeric vector} \item{AIR_E}{a numeric vector}
+#' \item{WATER_E}{a numeric vector} \item{BIODIVERSITY}{a
+#' numeric vector} \item{PRODUCTIVE_NATURAL_RESOURCES}{a numeric
+#' vector} \item{CLIMATE}{a numeric vector} \item{DALY_SC}{a
+#' numeric vector} \item{WATER_H}{a numeric vector}
+#' \item{AIR_H}{a numeric vector} \item{AIR_E.1}{a numeric
+#' vector} \item{WATER_E.1}{a numeric vector}
+#' \item{BIODIVERSITY.1}{a numeric vector} \item{FOREST}{a
+#' numeric vector} \item{FISH}{a numeric vector}
+#' \item{AGRICULTURE}{a numeric vector} \item{CLIMATE.1}{a
+#' numeric vector} \item{ACSAT_pt}{a numeric vector}
+#' \item{WATSUP_pt}{a numeric vector} \item{DALY_pt}{a numeric
+#' vector} \item{INDOOR_pt}{a numeric vector} \item{PM10_pt}{a
+#' numeric vector} \item{OZONE_H_pt}{a numeric vector}
+#' \item{SO2_pt}{a numeric vector} \item{OZONE_E_pt}{a numeric
+#' vector} \item{WATQI_pt}{a numeric vector} \item{WATSTR_pt}{a
+#' numeric vector} \item{WATQI_GEMS.station.data}{a numeric vector}
+#' \item{FORGRO_pt}{a numeric vector} \item{CRI_pt}{a numeric
+#' vector} \item{EFFCON_pt}{a numeric vector} \item{AZE_pt}{a
+#' numeric vector} \item{MPAEEZ_pt}{a numeric vector}
+#' \item{EEZTD_pt}{a numeric vector} \item{MTI_pt}{a numeric
+#' vector} \item{IRRSTR_pt}{a numeric vector} \item{AGINT_pt}{a
+#' numeric vector} \item{AGSUB_pt}{a numeric vector}
+#' \item{BURNED_pt}{a numeric vector} \item{PEST_pt}{a numeric
+#' vector} \item{GHGCAP_pt}{a numeric vector}
+#' \item{CO2IND_pt}{a numeric vector} \item{CO2KWH_pt}{a
+#' numeric vector} \item{ACSAT}{a numeric vector}
+#' \item{WATSUP}{a numeric vector} \item{DALY}{a numeric
+#' vector} \item{INDOOR}{a numeric vector} \item{PM10}{a
+#' numeric vector} \item{OZONE_H}{a numeric vector}
+#' \item{SO2}{a numeric vector} \item{OZONE_E}{a numeric
+#' vector} \item{WATQI}{a numeric vector}
+#' \item{WATQI_GEMS.station.data.1}{a numeric vector}
+#' \item{WATSTR}{a numeric vector} \item{FORGRO}{a numeric
+#' vector} \item{CRI}{a numeric vector} \item{EFFCON}{a numeric
+#' vector} \item{AZE}{a numeric vector} \item{MPAEEZ}{a numeric
+#' vector} \item{EEZTD}{a numeric vector} \item{MTI}{a numeric
+#' vector} \item{IRRSTR}{a numeric vector} \item{AGINT}{a
+#' numeric vector} \item{AGSUB}{a numeric vector}
+#' \item{BURNED}{a numeric vector} \item{PEST}{a numeric
+#' vector} \item{GHGCAP}{a numeric vector} \item{CO2IND}{a
+#' numeric vector} \item{CO2KWH}{a numeric vector} }
 #' @references Esty, Daniel C., M.A. Levy, C.H. Kim, A. de Sherbinin, T.
 #' Srebotnjak, and V. Mara. 2008.  2008 Environmental Performance Index. New
 #' Haven: Yale Center for Environmental Law and Policy.
@@ -251,19 +251,19 @@ NULL
 #' @name countryRegions
 #' @docType data
 #' @format A data frame with the following variables.  \describe{
-#' \item{list("ISO3")}{ISO 3 letter country code} \item{list("ADMIN")}{country
-#' name} \item{list("REGION")}{7 region continent classification}
-#' \item{list("continent")}{6 continents classification}
-#' \item{list("GEO3major")}{Global Environment Outlook GEO3 major region names}
-#' \item{list("GEO3")}{Global Environment Outlook GEO3 major region names}
-#' \item{list("IMAGE24")}{Image24 region names} \item{list("GLOCAF")}{GLOCAF
-#' region names} \item{list("Stern")}{Stern report region names}
-#' \item{list("SRESmajor")}{SRES major region names} \item{list("SRES")}{SRES
-#' region names} \item{list("GBD")}{Global Burden of Disease GBD region names}
-#' \item{list("AVOIDnumeric")}{numeric codes for AVOID regions}
-#' \item{list("AVOIDname")}{AVOID regions} \item{list("LDC")}{UN Least
-#' Developed Countries} \item{list("SID")}{UN Small Island Developing states}
-#' \item{list("LLDC")}{UN Landlocked Developing Countries} }
+#' \item{ISO3}{ISO 3 letter country code} \item{ADMIN}{country
+#' name} \item{REGION}{7 region continent classification}
+#' \item{continent}{6 continents classification}
+#' \item{GEO3major}{Global Environment Outlook GEO3 major region names}
+#' \item{GEO3}{Global Environment Outlook GEO3 major region names}
+#' \item{IMAGE24}{Image24 region names} \item{GLOCAF}{GLOCAF
+#' region names} \item{Stern}{Stern report region names}
+#' \item{SRESmajor}{SRES major region names} \item{SRES}{SRES
+#' region names} \item{GBD}{Global Burden of Disease GBD region names}
+#' \item{AVOIDnumeric}{numeric codes for AVOID regions}
+#' \item{AVOIDname}{AVOID regions} \item{LDC}{UN Least
+#' Developed Countries} \item{SID}{UN Small Island Developing states}
+#' \item{LLDC}{UN Landlocked Developing Countries} }
 #' @keywords datasets
 #' @examples
 #' 
@@ -296,15 +296,15 @@ NULL
 #' @name countrySynonyms
 #' @docType data
 #' @format A data frame with 281 observations on the following 10 variables.
-#' \describe{ \item{list("ID")}{a numeric vector} \item{list("ISO3")}{ISO 3
-#' letter country code} \item{list("name1")}{country name - most common}
-#' \item{list("name2")}{country name - alternative}
-#' \item{list("name3")}{country name - alternative}
-#' \item{list("name4")}{country name - alternative}
-#' \item{list("name5")}{country name - alternative}
-#' \item{list("name6")}{country name - alternative}
-#' \item{list("name7")}{country name - alternative}
-#' \item{list("name8")}{country name - alternative} }
+#' \describe{ \item{ID}{a numeric vector} \item{ISO3}{ISO 3
+#' letter country code} \item{name1}{country name - most common}
+#' \item{name2}{country name - alternative}
+#' \item{name3}{country name - alternative}
+#' \item{name4}{country name - alternative}
+#' \item{name5}{country name - alternative}
+#' \item{name6}{country name - alternative}
+#' \item{name7}{country name - alternative}
+#' \item{name8}{country name - alternative} }
 #' @source This was derived and used with permission from the Perl Locale
 #' package. \cr Locale::Codes::Country_Codes.\cr Thanks to Sullivan Beck for
 #' pulling this together.\cr Data sources are acknowledged here :\cr
@@ -333,17 +333,17 @@ NULL
 #' @name gridCountriesDegreesHalf
 #' @docType data
 #' @format The format is: \preformatted{ Formal class 'SpatialGridDataFrame'
-#' [package "sp"] with 6 slots ..@ data :'data.frame': 259200 obs. of 1
+#' [package "sp"] with 6 slots ..@@ data :'data.frame': 259200 obs. of 1
 #' variable: .. ..$ country.asc: num [1:259200] NA NA NA NA NA NA NA NA NA NA
-#' ...  ..@ grid :Formal class 'GridTopology' [package "sp"] with 3 slots .. ..
-#' ..@ cellcentre.offset: num [1:2] -179.8 -89.8 .. .. ..@ cellsize : num [1:2]
-#' 0.5 0.5 .. .. ..@ cells.dim : int [1:2] 720 360 ..@ grid.index : int(0) ..@
+#' ...  ..@@ grid :Formal class 'GridTopology' [package "sp"] with 3 slots .. ..
+#' ..@@ cellcentre.offset: num [1:2] -179.8 -89.8 .. .. ..@@ cellsize : num [1:2]
+#' 0.5 0.5 .. .. ..@@ cells.dim : int [1:2] 720 360 ..@@ grid.index : int(0) ..@@
 #' coords : num [1:2, 1:2] -179.8 179.8 -89.8 89.8 .. ..- attr(*,
 #' "dimnames")=List of 2 .. .. ..$ : NULL .. .. ..$ : chr [1:2] "coords.x1"
-#' "coords.x2" ..@ bbox : num [1:2, 1:2] -180 -90 180 90 .. ..- attr(*,
+#' "coords.x2" ..@@ bbox : num [1:2, 1:2] -180 -90 180 90 .. ..- attr(*,
 #' "dimnames")=List of 2 .. .. ..$ : chr [1:2] "coords.x1" "coords.x2" .. ..
-#' ..$ : chr [1:2] "min" "max" ..@ proj4string:Formal class 'CRS' [package
-#' "sp"] with 1 slots .. .. ..@ projargs: chr " +proj=longlat +datum=WGS84
+#' ..$ : chr [1:2] "min" "max" ..@@ proj4string:Formal class 'CRS' [package
+#' "sp"] with 1 slots .. .. ..@@ projargs: chr " +proj=longlat +datum=WGS84
 #' +ellps=WGS84 +towgs84=0,0,0" }
 #' @source created from getMap(resolution='low')
 #' @keywords datasets
@@ -369,17 +369,17 @@ NULL
 #' @name gridCountriesNumeric
 #' @docType data
 #' @format The format is: \preformatted{ Formal class 'SpatialGridDataFrame'
-#' [package "sp"] with 6 slots ..@ data :'data.frame': 259200 obs. of 1
+#' [package "sp"] with 6 slots ..@@ data :'data.frame': 259200 obs. of 1
 #' variable: .. ..$ country.asc: num [1:259200] NA NA NA NA NA NA NA NA NA NA
-#' ...  ..@ grid :Formal class 'GridTopology' [package "sp"] with 3 slots .. ..
-#' ..@ cellcentre.offset: num [1:2] -179.8 -89.8 .. .. ..@ cellsize : num [1:2]
-#' 0.5 0.5 .. .. ..@ cells.dim : int [1:2] 720 360 ..@ grid.index : int(0) ..@
+#' ...  ..@@ grid :Formal class 'GridTopology' [package "sp"] with 3 slots .. ..
+#' ..@@ cellcentre.offset: num [1:2] -179.8 -89.8 .. .. ..@@ cellsize : num [1:2]
+#' 0.5 0.5 .. .. ..@@ cells.dim : int [1:2] 720 360 ..@@ grid.index : int(0) ..@@
 #' coords : num [1:2, 1:2] -179.8 179.8 -89.8 89.8 .. ..- attr(*,
 #' "dimnames")=List of 2 .. .. ..$ : NULL .. .. ..$ : chr [1:2] "coords.x1"
-#' "coords.x2" ..@ bbox : num [1:2, 1:2] -180 -90 180 90 .. ..- attr(*,
+#' "coords.x2" ..@@ bbox : num [1:2, 1:2] -180 -90 180 90 .. ..- attr(*,
 #' "dimnames")=List of 2 .. .. ..$ : chr [1:2] "coords.x1" "coords.x2" .. ..
-#' ..$ : chr [1:2] "min" "max" ..@ proj4string:Formal class 'CRS' [package
-#' "sp"] with 1 slots .. .. ..@ projargs: chr " +proj=longlat +datum=WGS84
+#' ..$ : chr [1:2] "min" "max" ..@@ proj4string:Formal class 'CRS' [package
+#' "sp"] with 1 slots .. .. ..@@ projargs: chr " +proj=longlat +datum=WGS84
 #' +ellps=WGS84 +towgs84=0,0,0" }
 #' @references http://www.iiasa.ac.at/Research/GGI/DB/
 #' @source IIASA
@@ -413,17 +413,17 @@ NULL
 #' @name gridExData
 #' @docType data
 #' @format The format is: \preformatted{ Formal class 'SpatialGridDataFrame'
-#' [package "sp"] with 6 slots ..@ data :'data.frame': 259200 obs. of 1
+#' [package "sp"] with 6 slots ..@@ data :'data.frame': 259200 obs. of 1
 #' variable: .. ..$ pa2000.asc: num [1:259200] NA NA NA NA NA NA NA NA NA NA
-#' ...  ..@ grid :Formal class 'GridTopology' [package "sp"] with 3 slots .. ..
-#' ..@ cellcentre.offset: num [1:2] -179.8 -89.8 .. .. ..@ cellsize : num [1:2]
-#' 0.5 0.5 .. .. ..@ cells.dim : int [1:2] 720 360 ..@ grid.index : int(0) ..@
+#' ...  ..@@ grid :Formal class 'GridTopology' [package "sp"] with 3 slots .. ..
+#' ..@@ cellcentre.offset: num [1:2] -179.8 -89.8 .. .. ..@@ cellsize : num [1:2]
+#' 0.5 0.5 .. .. ..@@ cells.dim : int [1:2] 720 360 ..@@ grid.index : int(0) ..@@
 #' coords : num [1:2, 1:2] -179.8 179.8 -89.8 89.8 .. ..- attr(*,
 #' "dimnames")=List of 2 .. .. ..$ : NULL .. .. ..$ : chr [1:2] "coords.x1"
-#' "coords.x2" ..@ bbox : num [1:2, 1:2] -180 -90 180 90 .. ..- attr(*,
+#' "coords.x2" ..@@ bbox : num [1:2, 1:2] -180 -90 180 90 .. ..- attr(*,
 #' "dimnames")=List of 2 .. .. ..$ : chr [1:2] "coords.x1" "coords.x2" .. ..
-#' ..$ : chr [1:2] "min" "max" ..@ proj4string:Formal class 'CRS' [package
-#' "sp"] with 1 slots .. .. ..@ projargs: chr " +proj=longlat +datum=WGS84
+#' ..$ : chr [1:2] "min" "max" ..@@ proj4string:Formal class 'CRS' [package
+#' "sp"] with 1 slots .. .. ..@@ projargs: chr " +proj=longlat +datum=WGS84
 #' +ellps=WGS84 +towgs84=0,0,0" }
 #' @references Grubler, A., O'Neill, B., Riahi, K., Chirkov, V., Goujon, A.,
 #' Kolp, P., Prommer, I., Scherbov, S. & Slentoe, E. (2006) Regional, national
@@ -495,6 +495,7 @@ NULL
 #' 
 #' Discussion group : http://groups.google.com/group/rworldmap
 #' @keywords package
+#' @import sp
 #' @examples
 #' 
 #' 

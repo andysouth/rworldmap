@@ -48,7 +48,7 @@ function(resolution="coarse",projection=NA){
     data("countriesCoarseLessIslands", envir = environment(),package = "rworldmap")
     mapWithData <- get("countriesCoarseLessIslands", envir = environment(), inherits=FALSE)   
     
-  }  else if (resolution == "high" && !require(rworldxtra, quietly=TRUE)) {
+  }  else if (resolution == "high" && !requireNamespace(rworldxtra, quietly=TRUE)) {
     warning("for resolution='high' option you need to install package rworldxtra, using low resolution version for now")
     data("countriesLow", envir = environment(), package = "rworldmap")
     mapWithData <- get("countriesLow", envir = environment(), inherits=FALSE)

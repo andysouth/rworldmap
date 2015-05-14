@@ -8,8 +8,8 @@
 #' interpolated to make the number fit.
 #' 
 #' @param colourPalette string describing the colour palette to use, choice of:
-#' \enumerate{ \item"palette" for the current palette \itema vector of valid
-#' colours, e.g. =c('red','white','blue') or output from RColourBrewer \itemone
+#' \enumerate{ \item "palette" for the current palette \item a vector of valid
+#' colours, e.g. =c('red','white','blue') or output from RColourBrewer \item one
 #' of "heat", "diverging", "white2Black", "black2White", "topo", "rainbow",
 #' "terrain", "negpos8", "negpos9" }
 #' @param numColours the number of colour categories desired

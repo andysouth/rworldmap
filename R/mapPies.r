@@ -41,7 +41,7 @@
 #' 
 #' 
 #' #getting example data
-#' dF <- getMap()@data  
+#' dF <- getMap()@@data  
 #' 
 #' ## these examples repeat the same column in 'nameZs' 
 #' ## to show that equal sized pies are created  

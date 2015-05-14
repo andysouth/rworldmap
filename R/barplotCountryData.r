@@ -1,31 +1,9 @@
-#barplotCountryData1
-#andy south 16/11/09
-
-#to develop a function to plot country data as a series of barplots in columns or rows
-#one bar per country and to be able to read country names
-#ranking countries
-#to fit all countries on a single page
-#to be able to assess whether catMethod and numCats are sensible for the data
-
-#initial needs :
-#same inputs as rworldmap functions
-#ability apply same categorisation & colouration
-#option for scale to be the same between columns
-
-#later
-#vertical
-#offer portrait & landscape options with pre-defined settings
-#option whether to add rank
-#option for different ordering, e.g. by continent
-
-
-
-
-
 #' Barplot country-level data.
 #' 
 #' Draw a barplot of country-level data, ranking the countries to allow easy
-#' comparison. This is useful for comparing with maps created by
+#' comparison. 
+#' One bar per country and to be able to read country names.
+#' This is useful for comparing with maps created by
 #' \code{\link{mapCountryData}} and accepts many of the same arguments for
 #' categorising and colouring.
 #' 
@@ -48,9 +26,9 @@
 #' "diverging", "logFixedWidth","quantiles","categorical", or a numeric vector
 #' defining breaks
 #' @param colourPalette a string describing the colour palette to use, choice
-#' of : \enumerate{ \item="palette" for the current palette \itema vector of
+#' of : \enumerate{ \item= "palette" for the current palette \item a vector of
 #' valid colours, e.g. =c('red','white','blue') or output from RColourBrewer
-#' \item= one of "heat", "diverging", "white2Black", "black2White", "topo",
+#' \item = one of "heat", "diverging", "white2Black", "black2White", "topo",
 #' "rainbow", "terrain", "negpos8", "negpos9" }
 #' @param addLegend NOT YET WORKING whether to add a legend or not, TRUE/FALSE
 #' @param toPDF whether to output the plot to a pdf rather than the screen,

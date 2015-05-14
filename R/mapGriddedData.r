@@ -19,9 +19,9 @@
 #' "fixedWidth","diverging", "logFixedWidth","quantiles","categorical", or a
 #' numeric vector defining breaks
 #' @param colourPalette a string describing the colour palette to use, choice
-#' of : \enumerate{ \item"palette" for the current palette \itema vector of
+#' of : \enumerate{ \item "palette" for the current palette \item a vector of
 #' valid colours, e.g. =c('red','white','blue') or output from RColourBrewer
-#' \itemone of "heat", "diverging", "white2Black", "black2White", "topo",
+#' \item one of "heat", "diverging", "white2Black", "black2White", "topo",
 #' "rainbow", "terrain", "negpos8", "negpos9" }
 #' @param xlim map extents c(west,east), can be overidden by mapRegion
 #' @param ylim map extents c(south,north), can be overidden by mapRegion
@@ -43,7 +43,8 @@
 #' @return invisibly returns a list containing the data and main options used
 #' for the map, the list can be passed to \code{\link{addMapLegend}} along with
 #' additional options to allow greater flexibility in legend creation.
-#' @author andy south and matthew staines
+#' @author andy south
+#' @importFrom maptools readAsciiGrid
 #' @seealso classInt, RColorBrewer
 #' @keywords hplot
 #' @examples
@@ -56,12 +57,12 @@
 #' ## reclassing continuous data to categorical & mapping
 #' data(gridExData,envir=environment(),package="rworldmap")
 #' #find quartile breaks
-#' cutVector <- quantile(gridExData@data[,1],na.rm=TRUE)
+#' cutVector <- quantile(gridExData@@data[,1],na.rm=TRUE)
 #' #classify the data to a factor
-#' gridExData@data$categories <- cut( gridExData@data[,1]
+#' gridExData@@data$categories <- cut( gridExData@@data[,1]
 #'                                       , cutVector, include.lowest=TRUE)
 #' #rename the categories
-#' levels(gridExData@data$categories) <- c('low', 'med', 'high', 'vhigh')
+#' levels(gridExData@@data$categories) <- c('low', 'med', 'high', 'vhigh')
 #' #mapping
 #' mapGriddedData( gridExData, nameColumnToPlot= 'categories'
 #'               , catMethod='categorical')

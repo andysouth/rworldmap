@@ -1,9 +1,9 @@
 #' Returns the country name corresponding to the passed iso code (3 letter, 2
 #' letter or numeric).
 #' 
-#' Searches getMap()@data to find the iso code. By default it returns the
+#' Searches \code{getMap()@@data} to find the iso code. By default it returns the
 #' string in the ADMIN column. By modifying nameColumn you can also get it to
-#' return values from any other columns in getMap()@data - see the examples.
+#' return values from any other columns in \code{getMap()@@data} - see the examples.
 #' Thus it can also be used to convert between ISO codes.
 #' 
 #' You could optionally provide a dataframe containing alternate iso

@@ -30,9 +30,9 @@
 #' "diverging", "logFixedWidth", "quantiles", "categorical", or a numeric
 #' vector defining breaks
 #' @param colourPalette a string describing the colour palette to use, choice
-#' of : \enumerate{ \item="palette" for the current palette \itema vector of
+#' of : \enumerate{ \item ="palette" for the current palette \item a vector of
 #' valid colours, e.g. =c('red','white','blue') or output from RColourBrewer
-#' \item= one of "heat", "diverging", "white2Black", "black2White", "topo",
+#' \item = one of "heat", "diverging", "white2Black", "black2White", "topo",
 #' "rainbow", "terrain", "negpos8", "negpos9" }
 #' @param xlim map extents c(west,east), can be overidden by mapRegion
 #' @param ylim map extents c(south,north), can be overidden by mapRegion

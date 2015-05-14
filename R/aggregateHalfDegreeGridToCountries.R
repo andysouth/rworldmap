@@ -14,6 +14,7 @@
 #' @return a dataframe with 2 columns : numeric country codes and the
 #' aggregated value for each country
 #' @author andy south
+#' @importFrom maptools readAsciiGrid
 #' @seealso \code{\link{mapHalfDegreeGridToCountries}}
 #' @keywords dplot
 #' @examples

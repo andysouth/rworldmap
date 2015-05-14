@@ -24,14 +24,14 @@
 #' 'world','africa','oceania','eurasia','uk' sets map extents, overrides
 #' xlim,ylim
 #' @param catMethod method for categorisation of data : \enumerate{
-#' \item"categorical" - each unique value is treated as a separate category
-#' \itemfor numeric data : "pretty", "fixedWidth", "diverging",
-#' "logFixedWidth", "quantiles" \itema numeric vector defining breaks e.g.
+#' \item "categorical" - each unique value is treated as a separate category
+#' \item for numeric data : "pretty", "fixedWidth", "diverging",
+#' "logFixedWidth", "quantiles" \item a numeric vector defining breaks e.g.
 #' c(0:5), note that a value of 2 goes into 1-2 not 2-3, uses
 #' cut(include.lowest=TRUE) }
 #' @param colourPalette string describing the colour palette to use, choice of:
-#' \enumerate{ \item"palette" for the current palette \itema vector of valid
-#' colours, e.g. =c('red','white','blue') or output from RColourBrewer \itemone
+#' \enumerate{ \item "palette" for the current palette \item a vector of valid
+#' colours, e.g. =c('red','white','blue') or output from RColourBrewer \item one
 #' of "heat", "diverging", "white2Black", "black2White", "topo", "rainbow",
 #' "terrain", "negpos8", "negpos9" }
 #' @param addLegend whether to add a legend or not

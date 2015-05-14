@@ -47,7 +47,6 @@
 #' 
 #' #inFile <- 'tl_2009_us_stateec.shp'
 #' #sPDF <- readShapePoly(inFile)
-#' #str(sPDF@data)
 #' 
 #' ##################
 #' ## use mapPolys to map the sPDF

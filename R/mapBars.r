@@ -47,25 +47,13 @@
 #' 
 #' 
 #' #getting example data
-#' #dF <- getMap()@data  
-#' sPDF <- getMap()
-#'   
-#' ## these examples repeat the same column in 'nameZs' to show that equal sized bars are created 
+#' dF <- getMap()@@data 
+#'    
+#' mapBars( dF,nameX="LON", nameY="LAT",nameZs=c('POP_EST','GDP_MD_EST') )
+#' mapBars( dF,nameX="LON", nameY="LAT",nameZs=c('POP_EST','GDP_MD_EST'), mapRegion='africa' )
+#' mapBars( dF,nameX="LON", nameY="LAT",nameZs=c('POP_EST','GDP_MD_EST'), mapRegion='africa', symbolSize=20 )
+#' mapBars( dF,nameX="LON", nameY="LAT",nameZs=c('POP_EST','GDP_MD_EST'), mapRegion='africa', symbolSize=20, barOrient = 'horiz' )
 #' 
-#' #mapBars( dF,nameX="LON", nameY="LAT",nameZs=c('POP_EST','POP_EST') )
-#' 
-#' #mapBars( dF,nameX="LON", nameY="LAT",nameZs=c('POP_EST','POP_EST'),mapRegion='africa' )
-#' 
-#' #mapBars( dF,nameX="LON", nameY="LAT"
-#' #       , nameZs=c('POP_EST','POP_EST','POP_EST','POP_EST'),mapRegion='africa' )
-#' 
-#' #mapBars( dF,nameX="LON", nameY="LAT"
-#' #       , nameZs=c('POP_EST','POP_EST','POP_EST','POP_EST'),mapRegion='africa',symbolSize=2 )
-#' 
-#' mapBars( sPDF, 
-#'        , nameZs=c('POP_EST','GDP_MD_EST')
-#'        , mapRegion='africa'
-#'        , symbolSize=4 )
 #' 
 #' # this does work too
 #' #mapBars( dF,nameX="LON", nameY="LAT" 
@@ -290,15 +278,7 @@
     
     } # end of mapBars
 
-
-
-#######################
-#testing the function
     
-#dF <- getMap()@data    
-#mapBars( dF,nameX="LON", nameY="LAT",nameZs=c('POP_EST','GDP_MD_EST') )
-#mapBars( dF,nameX="LON", nameY="LAT",nameZs=c('POP_EST','GDP_MD_EST'), mapRegion='africa' )
-#mapBars( dF,nameX="LON", nameY="LAT",nameZs=c('POP_EST','GDP_MD_EST'), mapRegion='africa', symbolSize=20 )
-#mapBars( dF,nameX="LON", nameY="LAT",nameZs=c('POP_EST','GDP_MD_EST'), mapRegion='africa', symbolSize=20, barOrient = 'horiz' )
+
 
   

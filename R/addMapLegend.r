@@ -52,7 +52,8 @@
 #' @return Adds a legend to a plot.
 #' @note Can have the unintentional effect of modifying graphical parameters,
 #' e.g. mfcol reverts to mfrow.
-#' @author Andy South & Matthew Staines
+#' @author Andy South
+#' @importFrom fields image.plot
 #' @seealso mapCountryData, mapGriddedData, image.plot
 #' @keywords aplot
 #' @examples
