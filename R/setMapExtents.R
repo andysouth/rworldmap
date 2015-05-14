@@ -1,3 +1,23 @@
+#' Internal function allowing map extents to be set from area names
+#' 
+#' Allows map extents to be set from country or area names (e.g. India, Africa
+#' )
+#' 
+#' Can be called by \code{\link{mapCountryData}} and
+#' \code{\link{mapGriddedData}}
+#' 
+#' @param mapRegion a country name from getMap()[['NAME']] or one of
+#' 'eurasia','africa','latin america','uk','oceania','asia'
+#' @return a dataframe containing we,ea,so,no values in degrees between -180 &
+#' +180
+#' @author andy south
+#' @keywords dplot
+#' @examples
+#' 
+#' mapCountryData( mapRegion='Africa' )
+#' mapCountryData( mapRegion='India' )
+#' 
+#' @export setMapExtents
 setMapExtents <- function(mapRegion='world')
    {  
     #sets map region from names passed to it

@@ -1,3 +1,52 @@
+#' Creates a plot device set up for maps
+#' 
+#' Creates a plot device suited for rworldmap plotting functions.
+#' 
+#' 
+#' @param device Character string which controls the type of plot default.  The
+#' default uses your standard plot device. Giving the name of a plotting device
+#' function will use that instead. e.g. "pdf", "png", etc.
+#' @param rows The number of rows. Default 1
+#' @param columns The number of columns. Default 1
+#' @param plotOrder Option of 'rows' or 'columns'. For multiple plots whether
+#' to plot in row or column order. However, note that addMapLegend can have the
+#' effect of reverting order to rows.
+#' @param width The width of a single plot. This includes the margins. If you
+#' do not specify both width and height, suitable values will be calculated
+#' @param height The height of a single plot. This includes the margins. If you
+#' do not specify both width and height, suitable values will be calculated
+#' @param titleSpace The height in inches of the gap at the plot.
+#' @param mai The margin sizes in inches. If titleSpace is given this overrides
+#' mai[3].
+#' @param mgp As per par(mgp) in the graphics package
+#' @param xaxs As per par(xaxs) in the graphics package
+#' @param yaxs As per par(yaxs) in the graphics package
+#' @param \dots Further arguments to the device function
+#' @return Used for the side effect of creating a plot device, and setting
+#' graphical parameters for the device.
+#' @seealso mapCountryData,mapGridAscii
+#' @keywords device
+#' @examples
+#' 
+#' \dontrun{
+#' #Basic Usage
+#' mapDevice()
+#' mapCountryData()
+#' 
+#' #2 by 2 plot
+#' mapDevice(rows=2,columns=2)
+#' columns<-c("BIODIVERSITY","EPI","ENVHEALTH","Population2005")
+#' for(i in columns){
+#'  mapCountryData(nameColumnToPlot=i)
+#' }
+#' #Creating a pdf that is 5 inches wide
+#' mapDevice(device="pdf",width=5,file=tempfile())
+#' mapCountryData()
+#' dev.off()
+#' 
+#' }
+#' 
+#' @export mapDevice
 `mapDevice`<-
 function(device="dev.new"
                    ,rows=1

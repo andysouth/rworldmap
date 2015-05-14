@@ -1,3 +1,82 @@
+#' function to produce bar plots on a map
+#' 
+#' The function will produce a map with bars centred on country centroids (or
+#' other chosen points). The length of the bars is determined by the sum of the
+#' attribute columns and each section is coloured.
+#' 
+#' Horizontal or vertical bars can be achieved by using the barOrient argument
+#' 'horiz' or 'vert'.
+#' 
+#' @param dF data frame or SpatialPolygonsDataFrame
+#' @param nameX name of column containing the X variable (longitude), not
+#' needed if dF is a SpatialPolygonsDataFrame
+#' @param nameY name of column containing the Y variable (lattitude), not
+#' needed if dF is a SpatialPolygonsDataFrame
+#' @param nameZs name of columns containing numeric variables to determine bar
+#' sections
+#' @param zColours colours to apply to the bar section for each attribute
+#' column
+#' @param barWidth multiple for the width of bar symbols, relative to barOrient
+#' see below
+#' @param barOrient orientation of bars, options 'horiz' and 'vert'
+#' @param barRelative default is TRUE, each variable (column) is scaled to it's
+#' maximum value
+#' @param ratio the ratio of Y to N in the output map, set to 1 as default
+#' @param addCatLegend whether to add a legend for categories
+#' @param addSizeLegend whether to add a legend for symbol size
+#' @param symbolSize multiplier of default symbol size
+#' @param maxZVal the attribute value corresponding to the maximum symbol size,
+#' this can be used to set the scaling the same between multiple plots
+#' @param xlim map extents c(west,east), can be overidden by mapRegion
+#' @param ylim map extents c(south,north), can be overidden by mapRegion
+#' @param mapRegion a country name from getMap()[['NAME']] or
+#' 'world','africa','oceania','eurasia','uk' sets map extents, overrides
+#' xlim,ylim
+#' @param borderCol the colour for country borders
+#' @param oceanCol a colour for the ocean
+#' @param landCol a colour to fill countries
+#' @param add whether to add the symbols to an existing map, TRUE/FALSE
+#' @param main title for the map
+#' @param lwd line width for country borders
+#' @param lwdSymbols line width for symbols
+#' @param \dots any extra arguments to points()
+#' @return currently doesn't return anything
+#' @author andy south
+#' @keywords aplot
+#' @examples
+#' 
+#' 
+#' #getting example data
+#' #dF <- getMap()@data  
+#' sPDF <- getMap()
+#'   
+#' ## these examples repeat the same column in 'nameZs' to show that equal sized bars are created 
+#' 
+#' #mapBars( dF,nameX="LON", nameY="LAT",nameZs=c('POP_EST','POP_EST') )
+#' 
+#' #mapBars( dF,nameX="LON", nameY="LAT",nameZs=c('POP_EST','POP_EST'),mapRegion='africa' )
+#' 
+#' #mapBars( dF,nameX="LON", nameY="LAT"
+#' #       , nameZs=c('POP_EST','POP_EST','POP_EST','POP_EST'),mapRegion='africa' )
+#' 
+#' #mapBars( dF,nameX="LON", nameY="LAT"
+#' #       , nameZs=c('POP_EST','POP_EST','POP_EST','POP_EST'),mapRegion='africa',symbolSize=2 )
+#' 
+#' mapBars( sPDF, 
+#'        , nameZs=c('POP_EST','GDP_MD_EST')
+#'        , mapRegion='africa'
+#'        , symbolSize=4 )
+#' 
+#' # this does work too
+#' #mapBars( dF,nameX="LON", nameY="LAT" 
+#' #       , nameZs=c('POP_EST','GDP_MD_EST')
+#' #       , mapRegion='africa'
+#' #       , symbolSize=4 )       
+#' 
+#'   
+#' 
+#' 
+#' @export mapBars
 `mapBars` <- function( dF = ""
                       , nameX="longitude", nameY="latitude" 
                       , nameZs=c(names(dF)[3],names(dF)[4])

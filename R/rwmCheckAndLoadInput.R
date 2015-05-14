@@ -18,6 +18,24 @@
 #then maybe later put nameColumnToPlot checking in here
 #BUT PROB better to put in another function
 
+
+
+#' internal function to check and load input data to mapping functions
+#' 
+#' Internal function checking and loading dFs or sPDFs to
+#' \code{\link{mapCountryData}}, \code{\link{mapPolys}}, \code{\link{mapPies}},
+#' \code{\link{mapBubbles}}, \code{\link{mapBars}}.
+#' 
+#' a rworldmap internal function, unlikely to be of use to users
+#' 
+#' @param inputData a dF, sPDF or "", for latter an internal example data is
+#' used
+#' @param inputNeeded "sPDF", "sPDF or dF", "dF"
+#' @param callingFunction optional : name of the calling function
+#' @return invisibly returns a dF or sPDF
+#' @author andy south
+#' @keywords aplot
+#' @export rwmCheckAndLoadInput
 rwmCheckAndLoadInput <- function(
     inputData =         ""
   #, nameColumnToPlot =  ""

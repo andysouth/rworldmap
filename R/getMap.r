@@ -1,3 +1,20 @@
+#' A simple way to access maps stored in the package.
+#' 
+#' A simple way to access maps stored in the package.
+#' 
+#' 
+#' @param resolution options "coarse","low","less islands","li","high". For
+#' "high" you need to install the package rworldxtra
+#' @param projection DEPRECATED OCTOBER 2012 to reproject maps see spTransform
+#' in rgdal
+#' @return A SpatialPolygonsDataFrame object.
+#' @author Barry Rowlingson & Andy South
+#' @keywords misc
+#' @examples
+#' 
+#' plot(getMap())
+#' 
+#' @export getMap
 `getMap` <-
 
 function(resolution="coarse",projection=NA){

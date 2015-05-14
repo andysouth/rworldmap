@@ -1,6 +1,29 @@
-
 #gets ISO3 code from synonyms of a country name
 
+
+
+#' Internal function for getting the ISO3 country code for a country name
+#' synonymn.
+#' 
+#' Searches countrySynonyms to get the ISO3 code. If the name is not found NA
+#' is returned. Allows joining of imperfect names to other country data in
+#' joinCountryData2Map( joinCode='NAME' )
+#' 
+#' 
+#' @param oddName country name that user wishes to find code for
+#' @return the ISO3 code (3 letters) corresponding to the country name passed,
+#' or NA if one is not found
+#' @author Andy South
+#' @references This was derived and used with permission from the Perl Locale
+#' package.  \cr Locale::Codes::Country_Codes.  \cr Thanks to Sullivan Beck for
+#' pulling this together.  \cr Data sources are acknowledged here : \cr
+#' http://search.cpan.org/~sbeck/Locale-Codes-3.23/lib/Locale/Codes/Country.pod
+#' @keywords manip
+#' @examples
+#' 
+#' rwmGetISO3("vietnam")
+#' 
+#' @export rwmGetISO3
 `rwmGetISO3` <- function( oddName ){
   
   oddName <- as.character( oddName )

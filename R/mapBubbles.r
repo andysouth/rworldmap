@@ -1,3 +1,88 @@
+#' function to produce bubble plots on a map, size and colour determined by
+#' attribute data
+#' 
+#' The function will produce a map with bubbles (circles) centred on country
+#' centroids (or other chosen points). Bubbles can be sized and coloured
+#' according to specified attribute values.
+#' 
+#' By default separate legends are added fro symbol size and colouring on
+#' either side of the plot, these can be modified by altering legend
+#' parameters.
+#' 
+#' @param dF data frame or SpatialPolygonsDataFrame
+#' @param nameX name of column containing the X variable (longitude), not
+#' needed if dF is a SpatialPolygonsDataFrame
+#' @param nameY name of column containing the Y variable (lattitude), not
+#' needed if dF is a SpatialPolygonsDataFrame
+#' @param nameZSize name of column containing numeric variable to set symbol
+#' size
+#' @param nameZColour name of column containing variable to set symbol colour
+#' @param fill whether or not to fill symbols TRUE/FALSE
+#' @param pch symbol type, default of 21 for circles, will work with other
+#' filled symbol types e.g. 22=square, 23=diamond, 24=triangle
+#' @param symbolSize multiplier of default symbol size
+#' @param maxZVal the attribute value corresponding to the maximum symbol size,
+#' this can be used to set the scaling the same between multiple plots
+#' @param main title for the map, set to nameZSize by default
+#' @param numCats number of categories to put the data in, may be modified if
+#' this number is incompatible with the catMethod chosen
+#' @param catMethod method for categorisation of data "pretty", "fixedWidth",
+#' "diverging", "logFixedWidth", "quantiles", "categorical", or a numeric
+#' vector defining breaks
+#' @param colourPalette a string describing the colour palette to use, choice
+#' of : \enumerate{ \item="palette" for the current palette \itema vector of
+#' valid colours, e.g. =c('red','white','blue') or output from RColourBrewer
+#' \item= one of "heat", "diverging", "white2Black", "black2White", "topo",
+#' "rainbow", "terrain", "negpos8", "negpos9" }
+#' @param xlim map extents c(west,east), can be overidden by mapRegion
+#' @param ylim map extents c(south,north), can be overidden by mapRegion
+#' @param mapRegion a country name from getMap()\$NAME or
+#' 'world','africa','oceania','eurasia','uk' sets map extents, overrides
+#' xlim,ylim
+#' @param borderCol the colour for country borders
+#' @param oceanCol a colour for the ocean
+#' @param landCol a colour to fill countries
+#' @param addLegend whether to add a legend for symbol sizes
+#' @param legendBg background colour for the legend, NA=transparent
+#' @param legendVals allows user to set values & hence symbol sizing in legend
+#' @param legendPos positioning of legend e.g. 'bottomleft', 'topright'
+#' @param legendHoriz whether to arrange legend elements horizontally
+#' TRUE/FALSE
+#' @param legendTitle title for the symbol size legend
+#' @param addColourLegend whether to add a legend for symbol colour
+#' @param colourLegendPos positioning of colour legend e.g. 'bottomleft',
+#' 'topright'
+#' @param colourLegendTitle title for the colour size legend
+#' @param add whether to add the symbols to an existing map, TRUE/FALSE
+#' @param plotZeroVals whether to plot zero values as a cross, TRUE/FALSE
+#' @param lwd line width for country borders
+#' @param lwdSymbols line width for symbols
+#' @param \dots any extra arguments to points()
+#' @return currently doesn't return anything
+#' @author andy south
+#' @keywords aplot
+#' @examples
+#' 
+#' mapBubbles()
+#' #square symbols
+#' mapBubbles(pch=22)
+#' 
+#' mapBubbles(dF=getMap(), nameZSize="POP_EST", nameZColour="GEO3")
+#' 
+#' #change colour
+#' mapBubbles(dF=getMap(), nameZSize="POP_EST", nameZColour="GEO3"
+#'           ,colourPalette='rainbow', oceanCol='lightblue', landCol='wheat') 
+#' 
+#' 
+#' data("countryExData",envir=environment(),package="rworldmap")
+#' sPDF <- joinCountryData2Map(countryExData,joinCode = "ISO3"
+#'                            ,nameJoinColumn = "ISO3V10")
+#'                            
+#' mapBubbles(sPDF, nameZSize="POP_EST",nameZColour="BIODIVERSITY"
+#'           ,colourPalette='topo',numCats=5,catMethod="quantiles")
+#' 
+#' 
+#' @export mapBubbles
 mapBubbles <- function( dF=""
                           ,nameX="longitude"
                           ,nameY="latitude"

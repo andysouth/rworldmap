@@ -1,3 +1,11 @@
+#' Example code for plot creation
+#' 
+#' Example code to demonstrate creation of a series of plots
+#' 
+#' 
+#' @author andy south
+#' @keywords aplot
+#' @export rworldmapExamples
 rworldmapExamples <- function()
    {  
     #displays examples - i should probably put somewhere else

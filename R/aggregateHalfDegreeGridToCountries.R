@@ -1,3 +1,35 @@
+#' Aggregates global half degree gridded data to countries
+#' 
+#' Aggregates global half degree gridded data to countries (options for sum,
+#' mean, min, max ). Uses a very simple grid map defining a single country
+#' identity for each half degree cell.  (other more sophisticated approaches
+#' dividing cells between multiple countries will be investigated in future).
+#' The country identity at each cell is specified in
+#' data(gridCountriesDegreesHalf).
+#' 
+#' 
+#' @param inFile either a gridascii filename or an sp SpatialGridDataFrame
+#' object specifying a global half degree grid dataset
+#' @param aggregateOption how to aggregate the data ('sum','mean','min','max')
+#' @return a dataframe with 2 columns : numeric country codes and the
+#' aggregated value for each country
+#' @author andy south
+#' @seealso \code{\link{mapHalfDegreeGridToCountries}}
+#' @keywords dplot
+#' @examples
+#' 
+#' 
+#' data(gridExData,envir=environment(),package="rworldmap")
+#' gridExData <- get("gridExData")
+#' #aggregating the gridded data to countries
+#' dF <- aggregateHalfDegreeGridToCountries(gridExData)
+#' #joining the aggregated data to a country map
+#' sPDF <- joinCountryData2Map(dF, nameJoinColumn='UN', joinCode='UN')
+#' #plotting the map
+#' mapCountryData(sPDF,nameColumnToPlot='sum_pa2000.asc')
+#' 
+#' 
+#' @export aggregateHalfDegreeGridToCountries
 `aggregateHalfDegreeGridToCountries` <-
 function( inFile=""
                          ,aggregateOption="sum"  #"mean","max","min"

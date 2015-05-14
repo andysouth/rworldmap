@@ -1,3 +1,62 @@
+#' function to produce pie charts on a map
+#' 
+#' The function will produce a map with pie charts centred on country centroids
+#' (or other chosen points). The size of the circles is determined by the sum
+#' of the attribute columns and each section is coloured.
+#' 
+#' Beware of creating plots that are difficult for the reader to interpret.
+#' More than 3 or 4 categories may be too many.
+#' 
+#' @param dF data frame or SpatialPolygonsDataFrame
+#' @param nameX name of column containing the X variable (longitude), not
+#' needed if dF is a SpatialPolygonsDataFrame
+#' @param nameY name of column containing the Y variable (latitude), not needed
+#' if dF is a SpatialPolygonsDataFrame
+#' @param nameZs name of columns containing numeric variables to determine pie
+#' sections
+#' @param zColours colours to apply to the pie section for each attribute
+#' column
+#' @param ratio the ratio of Y to N in the output map, set to 1 as default
+#' @param addCatLegend whether to add a legend for categories
+#' @param addSizeLegend whether to add a legend for symbol size
+#' @param symbolSize multiplier of default symbol size
+#' @param maxZVal the attribute value corresponding to the maximum symbol size,
+#' this can be used to set the scaling the same between multiple plots
+#' @param xlim map extents c(west,east), can be overidden by mapRegion
+#' @param ylim map extents c(south,north), can be overidden by mapRegion
+#' @param mapRegion a country name from getMap()[['NAME']] or
+#' 'world','africa','oceania','eurasia','uk' sets map extents, overrides
+#' xlim,ylim
+#' @param borderCol the colour for country borders
+#' @param oceanCol a colour for the ocean
+#' @param landCol a colour to fill countries
+#' @param add whether to add the symbols to an existing map, TRUE/FALSE
+#' @param main title for the map
+#' @param lwd line width for country borders
+#' @param \dots any extra arguments to points()
+#' @return currently doesn't return anything
+#' @author andy south
+#' @keywords aplot
+#' @examples
+#' 
+#' 
+#' #getting example data
+#' dF <- getMap()@data  
+#' 
+#' ## these examples repeat the same column in 'nameZs' 
+#' ## to show that equal sized pies are created  
+#' 
+#' #mapPies( dF,nameX="LON", nameY="LAT",nameZs=c('AREA','AREA') )
+#' 
+#' #mapPies( dF,nameX="LON", nameY="LAT",nameZs=c('AREA','AREA')
+#' #       , mapRegion='africa' )
+#' 
+#' mapPies( dF,nameX="LON", nameY="LAT"
+#'        , nameZs=c('POP_EST','POP_EST','POP_EST','POP_EST'),mapRegion='africa' )
+#'   
+#' 
+#' 
+#' @export mapPies
 `mapPies` <- function( dF
                         ,nameX="LON", nameY="LAT" 
                         ,nameZs=c(names(dF)[3],names(dF)[4])
