@@ -44,11 +44,10 @@
 #' @param legendIntervals "page" or "data". Controls the division of the colour
 #' bar, "page" sets the intervals equal on the page, "data" sets them to be
 #' equal in the units of the data.
-#' @param plottedData Numeric vector. The data which was plotted
-#' @param catMethod Controls the classification scheme. Usual options of
-#' "pretty", "quantiles", "fixedWidth", "logFixedWidth" or a vector of breaks.
-#' @param colourPalette Controls the colour scheme. Usual options of "palette",
-#' "heat", "topo", ...
+#' @param plottedData unused but are passed with mapParams
+#' @param catMethod unused but are passed with mapParams
+#' @param colourPalette unused but are passed with mapParams
+#' 
 #' @return Adds a legend to a plot.
 #' @note Can have the unintentional effect of modifying graphical parameters,
 #' e.g. mfcol reverts to mfrow.
@@ -82,8 +81,7 @@
 #' 
 #' 
 #' @export addMapLegend
-`addMapLegend`<-
-function(            
+addMapLegend <- function(            
                      colourVector=""
                     ,cutVector=""
                     

@@ -49,13 +49,11 @@ between labels and the axis. Useful when labelFontSize is changed.}
 bar, "page" sets the intervals equal on the page, "data" sets them to be
 equal in the units of the data.}
 
-\item{plottedData}{Numeric vector. The data which was plotted}
+\item{plottedData}{unused but are passed with mapParams}
 
-\item{catMethod}{Controls the classification scheme. Usual options of
-"pretty", "quantiles", "fixedWidth", "logFixedWidth" or a vector of breaks.}
+\item{catMethod}{unused but are passed with mapParams}
 
-\item{colourPalette}{Controls the colour scheme. Usual options of "palette",
-"heat", "topo", ...}
+\item{colourPalette}{unused but are passed with mapParams}
 }
 \value{
 Adds a legend to a plot.
