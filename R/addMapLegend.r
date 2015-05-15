@@ -98,7 +98,7 @@ function(
                     ,mgp=c(3,1,0)                       #as per par(mgp=) margin position par default= c(3,1,0)
                     ,sigFigs=4                    #controls how numbers get rounded
                     ,digits=3                           #controls how numbers get formatted into neater numbers.
-                    ,legendIntervals='page'       #page" or "data"."page"=intervals equal on page, "data"= equal in data units
+                    ,legendIntervals='data'       #page" or "data"."page"=intervals equal on page, "data"= equal in data units
                     
                     ,plottedData=""               #not used yet but maybe in future
                     ,catMethod="pretty"           #not used yet but maybe in future
@@ -111,8 +111,6 @@ function(
 #seemingly not possible to stop this, e.g. can't query whether mfrow or mfcol
 #oldPar <- par(no.readonly = TRUE)
 
-#i could allow a version of this for categorical data
-#where it just creates equal page breaks & puts the cat names in the middle
 
 #this checks that length of colour vector is one less than length of cutVector
 #if it isn't could be because a missingCountryCol has been added by mapCountryData

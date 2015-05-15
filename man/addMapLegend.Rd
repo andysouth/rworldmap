@@ -7,7 +7,7 @@
 addMapLegend(colourVector = "", cutVector = "", legendLabels = "limits",
   labelFontSize = 1, legendWidth = 1.2, legendShrink = 0.9,
   legendMar = 3, horizontal = TRUE, legendArgs = NULL, tcl = -0.5,
-  mgp = c(3, 1, 0), sigFigs = 4, digits = 3, legendIntervals = "page",
+  mgp = c(3, 1, 0), sigFigs = 4, digits = 3, legendIntervals = "data",
   plottedData = "", catMethod = "pretty", colourPalette = "heat")
 }
 \arguments{
