@@ -278,7 +278,7 @@ mapGriddedData <- function(
          
       }else{
         #colour bar legend based on fields package
-        addMapLegend(colourVector=colourVector,cutVector=cutVector,plottedData=sGDF[[attrName]],catMethod=catMethod,colourPalette=colourPalette)   
+        addMapLegend(colourVector=colourVector,cutVector=cutVector) #,plottedData=sGDF[[attrName]],catMethod=catMethod,colourPalette=colourPalette)   
         }
       }
 

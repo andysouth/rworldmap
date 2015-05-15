@@ -237,7 +237,7 @@ mapPolys <- function(
       
       }else{
         #colour bar legend based on fields package
-        addMapLegend(cutVector=cutVector,colourVector=colourVector,catMethod=catMethod) # ,plottedData=mapToPlot@data[[nameColumnToPlot]],catMethod=catMethod,colourPalette=colourPalette)
+        addMapLegend(cutVector=cutVector,colourVector=colourVector) #,catMethod=catMethod) # ,plottedData=mapToPlot@data[[nameColumnToPlot]],catMethod=catMethod,colourPalette=colourPalette)
       }  
   
   } #end of addLegend
