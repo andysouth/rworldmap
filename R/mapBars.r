@@ -51,8 +51,10 @@
 #'    
 #' mapBars( dF,nameX="LON", nameY="LAT",nameZs=c('POP_EST','GDP_MD_EST') )
 #' mapBars( dF,nameX="LON", nameY="LAT",nameZs=c('POP_EST','GDP_MD_EST'), mapRegion='africa' )
-#' mapBars( dF,nameX="LON", nameY="LAT",nameZs=c('POP_EST','GDP_MD_EST'), mapRegion='africa', symbolSize=20 )
-#' mapBars( dF,nameX="LON", nameY="LAT",nameZs=c('POP_EST','GDP_MD_EST'), mapRegion='africa', symbolSize=20, barOrient = 'horiz' )
+#' mapBars( dF,nameX="LON", nameY="LAT",nameZs=c('POP_EST','GDP_MD_EST'), 
+#'  mapRegion='africa', symbolSize=20 )
+#' mapBars( dF,nameX="LON", nameY="LAT",nameZs=c('POP_EST','GDP_MD_EST'), mapRegion='africa', 
+#'  symbolSize=20, barOrient = 'horiz' )
 #' 
 #' 
 #' # this does work too
