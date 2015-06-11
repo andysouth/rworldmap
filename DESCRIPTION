@@ -10,4 +10,5 @@ License: GPL (>= 2)
 Depends: R (>= 2.10.0), sp 
 Imports: maptools, fields
 Suggests: rgdal, rworldxtra, RColorBrewer, classInt, cshapes, ncdf, raster
-URL: http://groups.google.com/group/rworldmap, https://r-forge.r-project.org/R/?group_id=1497, http://andysouth.co.uk/
+URL: https://github.com/AndySouth/rworldmap/, http://groups.google.com/group/rworldmap, http://andysouth.co.uk/
+BugReports: https://github.com/AndySouth/rworldmap/issues
