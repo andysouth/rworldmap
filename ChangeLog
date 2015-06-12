@@ -3,7 +3,7 @@ rworldmap changelog
 7/5/15 (1.3-5) temporary development version
 *migrated to Github (at last!)
 *in countriesCoarse changed borders Western Sahara to comply with the UN standard, update Somalia and remove Somaliland, which lacks international recognition. Thanks to Jean-Baka Domelevo Entfellner.
-
+* changed default axis legend breaks to be displayed in data units (see addMapLegend(legendIntervals))
 
 19/3/14 (1.3-2) 
 *mapBars corrected longstanding bug allowing xlim,ylim to be set
