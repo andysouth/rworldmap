@@ -505,11 +505,11 @@ sPDF <- joinCountryData2Map( countryExData
                            )
 
 #getting class intervals using a 'jenks' classification in classInt package
-classInt <- classIntervals( sPDF[["EPI"]], n=5, style="jenks")
+classInt <- classInt::classIntervals( sPDF[["EPI"]], n=5, style="jenks")
 catMethod = classInt[["brks"]]
 
 #getting a colour scheme from the RColorBrewer package
-colourPalette <- brewer.pal(5,'RdPu')
+colourPalette <- RColorBrewer::brewer.pal(5,'RdPu')
 
 #calling mapCountryData with the parameters from classInt and RColorBrewer
 mapParams <- mapCountryData( sPDF
