@@ -1,7 +1,5 @@
 #' Internal function to choose map colours for classified data
 #' 
-#' Internal function to choose map colours for classified data.
-#' 
 #' Returns a vector of colours based upon the palette specified and number of
 #' colours specified.  If colourPalette specifies a number of colours and this
 #' is different from numColours, numColours takes precedence and colours are
@@ -14,18 +12,13 @@
 #' "terrain", "negpos8", "negpos9" }
 #' @param numColours the number of colour categories desired
 #' @return A vector specifiying a number of colours.
-#' @author andy south and matthew staines
 #' @seealso RColorBrewer
 #' @keywords dplot
 #' @examples
-#' 
-#' #rwmGetColours(colourPalette='topo', numColours=10)
-#' 
+#' rwmGetColours(colourPalette='topo', numColours=10)
 #' @export rwmGetColours
-`rwmGetColours` <-
-function(colourPalette, numColours)
+rwmGetColours <- function(colourPalette, numColours)
 {
-#browser()
 
 #if invalid option is chosen it's set to palette at end
 paletteList <- c("white2Black","black2White","palette","heat","topo","terrain","rainbow","negpos8","negpos9")
