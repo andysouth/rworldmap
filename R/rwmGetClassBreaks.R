@@ -93,8 +93,6 @@ if(catMethod=="quantiles")
 		{
 			#Categorising the data, using Quantiles.
 
-    #03/04/2009 12:04:35 Matthew (whole catMethod=="quantiles" section)
-
    #Using Quantiles will crash if the data contains too many repeats and numCats is high.
    #The break points must be unique. The algorithm below will use numCats if it can.
    #If numCats does not produce unique breakpoints,
@@ -122,13 +120,12 @@ if(catMethod=="quantiles")
     
 if(catMethod=="pretty")
 		{
-			#Compute a sequence of about n+1 equally spaced ‘round’ values
+			#Compute a sequence of about n+1 equally spaced values
       #which cover the range of the values in x.
       #The values are chosen so that they are 1, 2 or 5 times a power of 10.
 
 			cutVector <- pretty(dataColumn, n=numCats)
 
-			#03/04/2009 12:04:08   Matthew  ( pretty() warning)
 			#Pretty will choose a number of categories similar to the number of categories asked for.
 			#The following code warns when pretty has used a different number of breaks to that which was asked for.
 
@@ -172,12 +169,6 @@ if ( catMethod=="logFixedWidth")
 
       #to correct potential rounding problem, make sure upper val is equal to max value
       cutVector[length(cutVector)] <- maxValNotLogged
-
-      #earlier version
-      #change to a log index with num categories defined by numCats
-      #sGDF$indexToPlot <- as.integer( numCats * ((log(addTo0ForLog+sGDF[[attrName]]) - minAtt) / rangeAtt ))
-      #16/3/09 changed as.integer to round
-      #sGDF$indexToPlot <- round( numCats * ((log(addTo0ForLog+sGDF[[attrName]]) - minAtt) / rangeAtt ))
       
     }
 
