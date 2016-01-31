@@ -18,7 +18,8 @@
 #' column
 #' @param ratio the ratio of Y to N in the output map, set to 1 as default
 #' @param addCatLegend whether to add a legend for categories
-#' @param addSizeLegend whether to add a legend for symbol size
+# removed hasn't worked for a while
+# @param addSizeLegend whether to add a legend for symbol size
 #' @param symbolSize multiplier of default symbol size
 #' @param maxZVal the attribute value corresponding to the maximum symbol size,
 #' this can be used to set the scaling the same between multiple plots

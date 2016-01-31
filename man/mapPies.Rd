@@ -30,8 +30,6 @@ column}
 
 \item{addCatLegend}{whether to add a legend for categories}
 
-\item{addSizeLegend}{whether to add a legend for symbol size}
-
 \item{symbolSize}{multiplier of default symbol size}
 
 \item{maxZVal}{the attribute value corresponding to the maximum symbol size,
