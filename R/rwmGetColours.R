@@ -1,4 +1,4 @@
-#' Internal function to choose map colours for classified data
+#' to choose map colours for classified data
 #' 
 #' Returns a vector of colours based upon the palette specified and number of
 #' colours specified.  If colourPalette specifies a number of colours and this
@@ -12,23 +12,16 @@
 #' "terrain", "negpos8", "negpos9" }
 #' @param numColours the number of colour categories desired
 #' @return A vector specifiying a number of colours.
-#' @seealso RColorBrewer
-#' @keywords dplot
-#' @examples
-#' rwmGetColours(colourPalette='topo', numColours=10)
-#' @export rwmGetColours
+#' @export
 rwmGetColours <- function(colourPalette, numColours)
 {
 
 #if invalid option is chosen it's set to palette at end
 paletteList <- c("white2Black","black2White","palette","heat","topo","terrain","rainbow","negpos8","negpos9")
 
-#!next add some of these neg pos options work out how to make them flexible to numCats  
-#'negpos9zero': begin
-#  names=['dblue','blue','lblue','lgreen','lgrey','yellow','orange','red','purple']
 
 #to allow user specified colours
-#! this could test whether colours are valid
+#this could test whether colours are valid
 if( length(colourPalette) > 1 ) #only if the colourPalette passed is a vector of length > 1
 	{
 		#coloursToUse <- colourPalette
@@ -45,7 +38,7 @@ if( length(colourPalette) > 1 ) #only if the colourPalette passed is a vector of
 	} else
 if(colourPalette=="negpos9")
 	{
-	  #! later add that these can cope with diff num cats too
+	  #later add that these can cope with diff num cats too
 		coloursToUse <- c('darkblue','blue','lightblue','lightgreen','grey','yellow','orange','red','darkred')#'purple')
 	} else		
 if(colourPalette=="negpos8")
