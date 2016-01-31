@@ -17,9 +17,7 @@ Suggests:
     rgdal,
     rworldxtra,
     RColorBrewer,
-    classInt,
-    cshapes,
-    raster
+    classInt
 LazyData: true
 URL: https://github.com/AndySouth/rworldmap/, http://groups.google.com/group/
     rworldmap, http://andysouth.co.uk/
