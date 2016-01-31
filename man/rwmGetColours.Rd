@@ -2,7 +2,7 @@
 % Please edit documentation in R/rwmGetColours.R
 \name{rwmGetColours}
 \alias{rwmGetColours}
-\title{Internal function to choose map colours for classified data}
+\title{to choose map colours for classified data}
 \usage{
 rwmGetColours(colourPalette, numColours)
 }
@@ -24,11 +24,4 @@ colours specified.  If colourPalette specifies a number of colours and this
 is different from numColours, numColours takes precedence and colours are
 interpolated to make the number fit.
 }
-\examples{
-rwmGetColours(colourPalette='topo', numColours=10)
-}
-\seealso{
-RColorBrewer
-}
-\keyword{dplot}
 

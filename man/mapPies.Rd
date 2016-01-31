@@ -6,10 +6,9 @@
 \usage{
 mapPies(dF, nameX = "LON", nameY = "LAT", nameZs = c(names(dF)[3],
   names(dF)[4]), zColours = c(1:length(nameZs)), ratio = 1,
-  addCatLegend = TRUE, addSizeLegend = TRUE, symbolSize = 1,
-  maxZVal = NA, xlim = NA, ylim = NA, mapRegion = "world",
-  borderCol = "grey", oceanCol = NA, landCol = NA, add = FALSE,
-  main = "", lwd = 0.5, ...)
+  addCatLegend = TRUE, symbolSize = 1, maxZVal = NA, xlim = NA,
+  ylim = NA, mapRegion = "world", borderCol = "grey", oceanCol = NA,
+  landCol = NA, add = FALSE, main = "", lwd = 0.5, ...)
 }
 \arguments{
 \item{dF}{data frame or SpatialPolygonsDataFrame}

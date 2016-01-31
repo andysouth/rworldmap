@@ -12,7 +12,8 @@ Depends:
     sp
 Imports:
     maptools,
-    fields
+    fields,
+    methods
 Suggests:
     rgdal,
     rworldxtra,
