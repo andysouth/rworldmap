@@ -66,7 +66,7 @@
                         ,ratio = 1
                         #,we=0, ea=0, so=0, no=0
                         ,addCatLegend = TRUE
-                        ,addSizeLegend = TRUE
+                        #,addSizeLegend = TRUE
                         #,plotRectangles = FALSE
                         #,addTickLabels = FALSE
                         
