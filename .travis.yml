@@ -10,6 +10,5 @@ warnings_are_errors: false
 
 r_binary_packages:
  - rgdal
- - ncdf
 
   

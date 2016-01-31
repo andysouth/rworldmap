@@ -3,14 +3,25 @@ Type: Package
 Title: Mapping global data, vector and raster
 Version: 1.3-5
 Date: 2015-05-07
-Author: Andy South 
+Author: Andy South
 Maintainer: Andy South <southandy@gmail.com>
-Description: Enables mapping of country level and gridded user datasets. 
+Description: Enables mapping of country level and gridded user datasets.
 License: GPL (>= 2)
-Depends: R (>= 2.10.0), sp 
-Imports: maptools, fields
-Suggests: rgdal, rworldxtra, RColorBrewer, classInt, cshapes, ncdf, raster
+Depends:
+    R (>= 2.10.0),
+    sp
+Imports:
+    maptools,
+    fields
+Suggests:
+    rgdal,
+    rworldxtra,
+    RColorBrewer,
+    classInt,
+    cshapes,
+    raster
 LazyData: true
-URL: https://github.com/AndySouth/rworldmap/, http://groups.google.com/group/rworldmap, http://andysouth.co.uk/
+URL: https://github.com/AndySouth/rworldmap/, http://groups.google.com/group/
+    rworldmap, http://andysouth.co.uk/
 BugReports: https://github.com/AndySouth/rworldmap/issues
-
+RoxygenNote: 5.0.1
