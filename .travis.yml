@@ -4,6 +4,8 @@ language: r
 
 before_install:
   - sudo apt-get install libv8-dev
+# to avoid cyclic dependency warning
+  - echo "options(repos = c(CRAN='http://cran.rstudio.com'))" > ~/.Rprofile
 
 #to skip warning about compression
 warnings_are_errors: false
