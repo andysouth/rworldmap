@@ -192,7 +192,7 @@ if (nameZColour == "") nameZColour <- 'red' #setting colour to red as default
 if ( is.na(match(nameZColour, names(dF)) ))
 {  
   #now test whether it is a colour
-  if ( is.na(match(nameZColour, colours()) ))
+  if ( !tryCatch(is.matrix(col2rgb(nameZColour)), error = function(e) FALSE) )
      {  
       stop("your chosen nameZColour :'",nameZColour,"' is not a colour and seems not to exist in your data, columns = ",paste(names(dF),""))
       return(FALSE)
