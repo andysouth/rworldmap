@@ -132,6 +132,10 @@ sPDF <- joinCountryData2Map(countryExData,joinCode = "ISO3"
 mapBubbles(sPDF, nameZSize="POP_EST",nameZColour="BIODIVERSITY"
           ,colourPalette='topo',numCats=5,catMethod="quantiles")
 
+#filled bubbles with set transparency
+mapBubbles(fill=TRUE,colourPalette=adjustcolor(palette(), alpha.f = 0.5))
+#add bubble edge of a single colour (also with option to set transparency
+mapBubbles(nameZColour = adjustcolor('black', alpha.f = 0.7), fill=FALSE, add=TRUE)
 
 }
 \author{
