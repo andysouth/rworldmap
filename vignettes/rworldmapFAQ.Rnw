@@ -11,7 +11,7 @@ Science (Cefas), Lowestoft, NR33 OHT, UK. {\tt southandy at gmail.com}}}
 
 %trying these SweaveOpts from raster to make vignette smaller - works
 \SweaveOpts{png=TRUE}
-\SweaveOpts{resolution=200}
+\SweaveOpts{resolution=100}
 \SweaveOpts{keep.source=TRUE}
 
 \usepackage{Sweave}

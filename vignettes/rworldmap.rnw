@@ -25,8 +25,9 @@
 \SweaveOpts{echo=TRUE,print=FALSE, width=7, height=3.7, eps=FALSE} %default width and height for figures
 
 %trying these SweaveOpts from raster to make vignette smaller - works
+%2016 reduced from res from 200 to 100
 \SweaveOpts{png=TRUE}
-\SweaveOpts{resolution=200}
+\SweaveOpts{resolution=100}
 \SweaveOpts{keep.source=TRUE}
 
 \usepackage{Sweave}
@@ -43,7 +44,7 @@ referenced by country codes or gridded at half degree resolution.}\newline
 \vspace{1 cm}
 
 %including quest and cefas logos
-Funded by : 
+Initially funded by : 
 %\scaledbox{.5}{\includegraphics{questLogo}}
 \vspace{1 cm}
 %\includegraphics{questLogo}
