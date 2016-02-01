@@ -3,6 +3,7 @@
 # 01/02/2016 (rworldmap 1.3-6) CRAN submission
 * in countriesCoarse changed borders Western Sahara to comply with the UN standard, update Somalia and remove Somaliland, which lacks international recognition. Thanks to Jean-Baka Domelevo Entfellner.
 * changed default legend breaks to be displayed in data units (see addMapLegend(legendIntervals)). This means that if quantiles are used the colour ribbon is divided into portions sized in data units rather than an equal block for each quantile.
+* improved transparency options
 * documentation migrated to roxygen
 * migrated code to Github 
 * various trivial changes to pass CRAN checks
