@@ -1,13 +1,17 @@
-# rworldmap 1.3-5 temporary development version
-* migrated to Github (at last!)
+# Github development version (rworldmap 1.3-7) 
+
+# 01/02/2016 (rworldmap 1.3-6) CRAN submission
 * in countriesCoarse changed borders Western Sahara to comply with the UN standard, update Somalia and remove Somaliland, which lacks international recognition. Thanks to Jean-Baka Domelevo Entfellner.
-* changed default axis legend breaks to be displayed in data units (see addMapLegend(legendIntervals))
+* changed default legend breaks to be displayed in data units (see addMapLegend(legendIntervals)). This means that if quantiles are used the colour ribbon is divided into portions sized in data units rather than an equal block for each quantile.
+* documentation migrated to roxygen
+* migrated code to Github 
+* various trivial changes to pass CRAN checks
 
 # 19/3/14 (rworldmap 1.3-2) 
 * mapBars corrected longstanding bug allowing xlim,ylim to be set
 * mapPies NAs are converted to zero to avoid errors
 
-# 22/8/13 (rworldmap 1.3-1) current CRAN version
+# 22/8/13 (rworldmap 1.3-1) 
 * added links to Google discussion group : http://groups.google.com/group/rworldmap
 
 # 20/8/13 (rworldmap 1.02-6) 
