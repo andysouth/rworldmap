@@ -1,15 +1,26 @@
 ## Test environments
 * local x86_64-w64-mingw32, R Under development (unstable) (2016-01-30 r70052)
-* ubuntu (on travis-ci)
+* travis-ci x86_64-pc-linux-gnu, R version 3.2.3 (2015-12-10)
 
 
 ## R CMD check results
-There were no ERRORs or WARNINGs. 
+Local : no ERRORs or WARNINGs. 
 
-There were 2 NOTEs on travis :
-* checking package dependencies ... NOTE
-  No repository set, so cyclic dependency check skipped
-  
+Travis : 1 Warning, 1 Note
+Warning : 
+checking sizes of PDF files under ‘inst/doc’ ... WARNING
+  ‘gs+qpdf’ made some significant size reductions:
+     compacted ‘rworldmapFAQ.pdf’ from 1059Kb to 395Kb
+     compacted ‘rworldmap.pdf’ from 1294Kb to 457Kb
+  consider running tools::compactPDF(gs_quality = "ebook") on these files
+
+The local version built using this to solve the pdf size issue :
+devtools::build(args = c('--resave-data','--compact-vignettes="gs+qpdf"'))
+
+Note :
+checking CRAN incoming feasibility
+Maintainer: ‘Andy South <southandy@gmail.com>’
+Checking URLs requires 'libcurl' support in the R build
 
 ## Downstream dependencies
 I ran devtools::revdep_check() to check reverse dependencies.
