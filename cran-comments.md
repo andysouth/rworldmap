@@ -2,6 +2,7 @@
 * local x86_64-w64-mingw32, R Under development (unstable) (2016-01-30 r70052)
 * travis-ci x86_64-pc-linux-gnu, R version 3.2.3 (2015-12-10)
 
+3/2/16 Fixed invalid url : http://groups.google.com/group/ to https://groups.google.com/forum/#!forum/rworldmap
 
 ## R CMD check results
 Local : no ERRORs or WARNINGs. 
