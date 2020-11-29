@@ -4,11 +4,24 @@
 \alias{addMapLegendBoxes}
 \title{Add a legend of coloured boxes to a map}
 \usage{
-addMapLegendBoxes(cutVector = "", colourVector = "", x = "bottomleft",
-  horiz = FALSE, title = "category", cex = 1, pt.cex = 2,
-  col = "gray", bg = "white", legendText = "",
-  catMethod = "categorical", plottedData = "", colourPalette = "heat",
-  sigFigs = 2, missingCountryCol = "white", ...)
+addMapLegendBoxes(
+  cutVector = "",
+  colourVector = "",
+  x = "bottomleft",
+  horiz = FALSE,
+  title = "category",
+  cex = 1,
+  pt.cex = 2,
+  col = "gray",
+  bg = "white",
+  legendText = "",
+  catMethod = "categorical",
+  plottedData = "",
+  colourPalette = "heat",
+  sigFigs = 2,
+  missingCountryCol = "white",
+  ...
+)
 }
 \arguments{
 \item{cutVector}{the categories or breaks used in the map}
@@ -100,11 +113,10 @@ do.call( addMapLegendBoxes, c(mapParams,x='bottom',title="Region",horiz=TRUE))
 
 
 }
-\author{
-Andy South
-}
 \seealso{
 addMapLegend, mapCountryData, mapGriddedData
 }
+\author{
+Andy South
+}
 \keyword{aplot}
-

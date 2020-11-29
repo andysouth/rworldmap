@@ -4,8 +4,14 @@
 \alias{rwmNewMapPlot}
 \title{Internal function to set up an existing device for plotting maps}
 \usage{
-rwmNewMapPlot(mapToPlot = getMap(), oceanCol = NA, mapRegion = "world",
-  xlim = NA, ylim = NA, aspect = 1)
+rwmNewMapPlot(
+  mapToPlot = getMap(),
+  oceanCol = NA,
+  mapRegion = "world",
+  xlim = NA,
+  ylim = NA,
+  aspect = 1
+)
 }
 \arguments{
 \item{mapToPlot}{the worldmap to be plotted}
@@ -34,4 +40,3 @@ Called by mapCountryData() and mapGriddedData()
 andy south
 }
 \keyword{misc}
-

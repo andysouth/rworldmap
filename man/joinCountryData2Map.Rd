@@ -4,9 +4,16 @@
 \alias{joinCountryData2Map}
 \title{Joins user country referenced data to a map}
 \usage{
-joinCountryData2Map(dF, joinCode = "ISO3", nameJoinColumn = "ISO3V10",
-  nameCountryColumn = "Country", suggestForFailedCodes = FALSE,
-  mapResolution = "coarse", projection = NA, verbose = FALSE)
+joinCountryData2Map(
+  dF,
+  joinCode = "ISO3",
+  nameJoinColumn = "ISO3V10",
+  nameCountryColumn = "Country",
+  suggestForFailedCodes = FALSE,
+  mapResolution = "coarse",
+  projection = NA,
+  verbose = FALSE
+)
 }
 \arguments{
 \item{dF}{R data frame with at least one column for country reference and
@@ -31,7 +38,7 @@ projection='none' : options 'low', 'medium'}
 \item{verbose}{if set to FALSE it doesn't print progress messages to console}
 }
 \value{
-An R 'SpatialPolygonsDataFrame' [package "sp"] object with the
+An R 'SpatialPolygonsDataFrame' \link{package "sp"} object with the
 passed data joined to it
 }
 \description{
@@ -53,7 +60,7 @@ joinCode='NAME' alternative country names are matched using
 The projection argument has now been deprecated, you can project maps using
 package rgdal as shown below and in the FAQ. \cr library(rgdal) \cr #first
 get countries excluding Antarctica which crashes spTransform \cr sPDF <-
-getMap()[-which(getMap()$ADMIN=='Antarctica'),] \cr #transform to robin for
+getMap()\link{-which(getMap()$ADMIN=='Antarctica'),} \cr #transform to robin for
 the Robinson projection \cr sPDF <- spTransform(sPDF, CRS=CRS("+proj=robin
 +ellps=WGS84")) \cr mapCountryData( sPDF, nameColumnToPlot="REGION")
 }
@@ -71,11 +78,10 @@ mapCountryData( sPDF
 
 
 }
-\author{
-andy south
-}
 \seealso{
 \code{\link{mapCountryData}}, \code{\link{getMap}}
 }
+\author{
+andy south
+}
 \keyword{dplot}
-

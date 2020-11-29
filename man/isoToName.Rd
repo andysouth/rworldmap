@@ -47,4 +47,3 @@ isoToName('gbr',nameColumn='continent') #returns continent for this iso3
 Andy South
 }
 \keyword{manip}
-

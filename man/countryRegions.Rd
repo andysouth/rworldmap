@@ -4,7 +4,8 @@
 \name{countryRegions}
 \alias{countryRegions}
 \title{Regional Classification Table}
-\format{A data frame with the following variables.  \describe{
+\format{
+A data frame with the following variables.  \describe{
 \item{ISO3}{ISO 3 letter country code} \item{ADMIN}{country
 name} \item{REGION}{7 region continent classification}
 \item{continent}{6 continents classification}
@@ -17,7 +18,8 @@ region names} \item{GBD}{Global Burden of Disease GBD region names}
 \item{AVOIDnumeric}{numeric codes for AVOID regions}
 \item{AVOIDname}{AVOID regions} \item{LDC}{UN Least
 Developed Countries} \item{SID}{UN Small Island Developing states}
-\item{LLDC}{UN Landlocked Developing Countries} }}
+\item{LLDC}{UN Landlocked Developing Countries} }
+}
 \description{
 A number of regional classifications exist, e.g. SRES, Stern, etc. This
 table can be used to find which grouping a country belongs to, given its
@@ -42,4 +44,3 @@ dF <- merge(countryExData,countryRegions,by.x='ISO3V10',by.y='ISO3')
 
 }
 \keyword{datasets}
-

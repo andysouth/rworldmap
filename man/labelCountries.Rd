@@ -4,8 +4,16 @@
 \alias{labelCountries}
 \title{to print country labels on a world map}
 \usage{
-labelCountries(dF = "", nameCountryColumn = "NAME", nameX = "LON",
-  nameY = "LAT", nameColumnToPlot = "", col = "grey", cex = 0.8, ...)
+labelCountries(
+  dF = "",
+  nameCountryColumn = "NAME",
+  nameX = "LON",
+  nameY = "LAT",
+  nameColumnToPlot = "",
+  col = "grey",
+  cex = 0.8,
+  ...
+)
 }
 \arguments{
 \item{dF}{dataframe or SpatialPolygonsDataFrame}
@@ -52,11 +60,10 @@ labelCountries(nameColumnToPlot = "POP_EST")
 
 
 }
-\author{
-andy south
-}
 \seealso{
 \code{\link{identifyCountries}}
 }
+\author{
+andy south
+}
 \keyword{dplot}
-

@@ -5,13 +5,15 @@
 \alias{countriesLow}
 \title{a low resolution world map, a vector map of 244 country boundaries, suitable
 for zooming in on regions or large global maps}
-\format{The format is: Formal class 'SpatialPolygonsDataFrame' [package
-"sp"] with 5 slots}
+\format{
+The format is: Formal class 'SpatialPolygonsDataFrame' \link[=package
+"sp"]{package "sp"} with 5 slots
+}
 \source{
 http://www.naturalearthdata.com/downloads/50m-cultural-vectors/
 }
 \description{
-A 'SpatialPolygonsDataFrame' [package "sp"] object containing country
+A 'SpatialPolygonsDataFrame' \link{package "sp"} object containing country
 boundaries derived from Natural Earth data.  Polygons are attributed with
 country codes. Derived from version 1.4.0 of Natural Earth data 1:50 m data.
 }
@@ -38,4 +40,3 @@ data(countriesLow)
 
 }
 \keyword{datasets}
-

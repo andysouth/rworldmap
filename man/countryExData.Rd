@@ -5,7 +5,8 @@
 \alias{countryExData}
 \title{Example dataset for country level data (2008 Environmental Performance
 Index)}
-\format{A data frame with 149 observations on the following 80 variables.
+\format{
+A data frame with 149 observations on the following 80 variables.
 \describe{ \item{ISO3V10}{a character vector}
 \item{Country}{a character vector} \item{EPI_regions}{a
 character vector} \item{GEO_subregion}{a character vector}
@@ -56,7 +57,8 @@ vector} \item{IRRSTR}{a numeric vector} \item{AGINT}{a
 numeric vector} \item{AGSUB}{a numeric vector}
 \item{BURNED}{a numeric vector} \item{PEST}{a numeric
 vector} \item{GHGCAP}{a numeric vector} \item{CO2IND}{a
-numeric vector} \item{CO2KWH}{a numeric vector} }}
+numeric vector} \item{CO2KWH}{a numeric vector} }
+}
 \source{
 http://epi.yale.edu/Downloads
 }
@@ -91,4 +93,3 @@ Srebotnjak, and V. Mara. 2008.  2008 Environmental Performance Index. New
 Haven: Yale Center for Environmental Law and Policy.
 }
 \keyword{datasets}
-

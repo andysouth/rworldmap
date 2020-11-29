@@ -4,8 +4,15 @@
 \alias{country2Region}
 \title{Produce regional data from country level data}
 \usage{
-country2Region(regionType = "", inFile = "", nameDataColumn = "",
-  joinCode = "", nameJoinColumn = "", FUN = mean, ...)
+country2Region(
+  regionType = "",
+  inFile = "",
+  nameDataColumn = "",
+  joinCode = "",
+  nameJoinColumn = "",
+  FUN = mean,
+  ...
+)
 }
 \arguments{
 \item{regionType}{Must be one of: "GEO3", "GEO3major", "IMAGE24", "GLOCAF",
@@ -93,4 +100,3 @@ For producing maps of regional data from aggregated country level
 data, see \code{\link{mapByRegion}}
 }
 \keyword{manip}
-

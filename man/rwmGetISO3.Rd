@@ -24,14 +24,13 @@ joinCountryData2Map( joinCode='NAME' )
 rwmGetISO3("vietnam")
 
 }
-\author{
-Andy South
-}
 \references{
 This was derived and used with permission from the Perl Locale
 package.  \cr Locale::Codes::Country_Codes.  \cr Thanks to Sullivan Beck for
 pulling this together.  \cr Data sources are acknowledged here : \cr
 http://search.cpan.org/~sbeck/Locale-Codes-3.23/lib/Locale/Codes/Country.pod
 }
+\author{
+Andy South
+}
 \keyword{manip}
-

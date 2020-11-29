@@ -4,11 +4,22 @@
 \alias{mapHalfDegreeGridToCountries}
 \title{Maps user half degree gridded data at country level by first aggregating.}
 \usage{
-mapHalfDegreeGridToCountries(inFile = "", aggregateOption = "sum",
-  nameCountryColumn = "", suggestForFailedCodes = FALSE, projection = NA,
-  mapResolution = "low", numCats = 7, xlim = c(-160, 160), ylim = c(-80,
-  90), mapRegion = "world", catMethod = "quantiles",
-  colourPalette = "heat", addLegend = TRUE, lwd = 0.5)
+mapHalfDegreeGridToCountries(
+  inFile = "",
+  aggregateOption = "sum",
+  nameCountryColumn = "",
+  suggestForFailedCodes = FALSE,
+  projection = NA,
+  mapResolution = "low",
+  numCats = 7,
+  xlim = c(-160, 160),
+  ylim = c(-80, 90),
+  mapRegion = "world",
+  catMethod = "quantiles",
+  colourPalette = "heat",
+  addLegend = TRUE,
+  lwd = 0.5
+)
 }
 \arguments{
 \item{inFile}{either a gridascii filename or an sp SpatialGridDataFrame
@@ -71,11 +82,10 @@ mapHalfDegreeGridToCountries( gridExData, aggregateOption="mean" )
 
 
 }
-\author{
-andy south
-}
 \seealso{
 \code{\link{aggregateHalfDegreeGridToCountries}}
 }
+\author{
+andy south
+}
 \keyword{aplot}
-

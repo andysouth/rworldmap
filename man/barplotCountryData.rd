@@ -4,11 +4,24 @@
 \alias{barplotCountryData}
 \title{Barplot country-level data.}
 \usage{
-barplotCountryData(dF = "", nameColumnToPlot = "",
-  nameCountryColumn = "NAME", numPanels = 4, scaleSameInPanels = FALSE,
-  main = nameColumnToPlot, numCats = 5, catMethod = "quantiles",
-  colourPalette = "heat", addLegend = TRUE, toPDF = FALSE, outFile = "",
-  decreasing = TRUE, na.last = TRUE, cex = 0.7, ...)
+barplotCountryData(
+  dF = "",
+  nameColumnToPlot = "",
+  nameCountryColumn = "NAME",
+  numPanels = 4,
+  scaleSameInPanels = FALSE,
+  main = nameColumnToPlot,
+  numCats = 5,
+  catMethod = "quantiles",
+  colourPalette = "heat",
+  addLegend = TRUE,
+  toPDF = FALSE,
+  outFile = "",
+  decreasing = TRUE,
+  na.last = TRUE,
+  cex = 0.7,
+  ...
+)
 }
 \arguments{
 \item{dF}{a dataframe containing at least one column with numeric data and
@@ -66,7 +79,7 @@ greater flexibility in legend creation.
 }
 \description{
 Draw a barplot of country-level data, ranking the countries to allow easy
-comparison. 
+comparison.
 One bar per country and to be able to read country names.
 This is useful for comparing with maps created by
 \code{\link{mapCountryData}} and accepts many of the same arguments for
@@ -80,6 +93,7 @@ Finer control can be achieved by \code{\link{addMapLegend}}.
 inappropriate options are chosen, e.g. with catMethod:Quantiles if numCats
 too high so that unique breaks cannot be defined.
 }
+
 \examples{
 
 #default uses popn data in the default map
@@ -97,11 +111,10 @@ barplotCountryData( countryExData
               
 
 }
-\author{
-andy south
-}
 \seealso{
 classInt, RColorBrewer
 }
+\author{
+andy south
+}
 \keyword{aplot}
-

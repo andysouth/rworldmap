@@ -4,13 +4,32 @@
 \alias{mapBars}
 \title{function to produce bar plots on a map}
 \usage{
-mapBars(dF = "", nameX = "longitude", nameY = "latitude",
-  nameZs = c(names(dF)[3], names(dF)[4]), zColours = c(1:length(nameZs)),
-  barWidth = 1, barOrient = "vert", barRelative = TRUE, ratio = 1,
-  addCatLegend = TRUE, addSizeLegend = TRUE, symbolSize = 1,
-  maxZVal = NA, xlim = NA, ylim = NA, mapRegion = "world",
-  borderCol = "grey", oceanCol = NA, landCol = NA, add = FALSE,
-  main = "", lwd = 0.5, lwdSymbols = 1, ...)
+mapBars(
+  dF = "",
+  nameX = "longitude",
+  nameY = "latitude",
+  nameZs = c(names(dF)[3], names(dF)[4]),
+  zColours = c(1:length(nameZs)),
+  barWidth = 1,
+  barOrient = "vert",
+  barRelative = TRUE,
+  ratio = 1,
+  addCatLegend = TRUE,
+  addSizeLegend = TRUE,
+  symbolSize = 1,
+  maxZVal = NA,
+  xlim = NA,
+  ylim = NA,
+  mapRegion = "world",
+  borderCol = "grey",
+  oceanCol = NA,
+  landCol = NA,
+  add = FALSE,
+  main = "",
+  lwd = 0.5,
+  lwdSymbols = 1,
+  ...
+)
 }
 \arguments{
 \item{dF}{data frame or SpatialPolygonsDataFrame}
@@ -50,7 +69,7 @@ this can be used to set the scaling the same between multiple plots}
 
 \item{ylim}{map extents c(south,north), can be overidden by mapRegion}
 
-\item{mapRegion}{a country name from getMap()[['NAME']] or
+\item{mapRegion}{a country name from getMap()[\link{'NAME'}] or
 'world','africa','oceania','eurasia','uk' sets map extents, overrides
 xlim,ylim}
 
@@ -110,4 +129,3 @@ mapBars( dF,nameX="LON", nameY="LAT",nameZs=c('POP_EST','GDP_MD_EST'), mapRegion
 andy south
 }
 \keyword{aplot}
-

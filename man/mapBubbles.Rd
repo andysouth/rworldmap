@@ -5,16 +5,41 @@
 \title{function to produce bubble plots on a map, size and colour determined by
 attribute data}
 \usage{
-mapBubbles(dF = "", nameX = "longitude", nameY = "latitude",
-  nameZSize = "", nameZColour = "", fill = TRUE, pch = 21,
-  symbolSize = 1, maxZVal = NA, main = nameZSize, numCats = 5,
-  catMethod = "categorical", colourPalette = "heat", xlim = NA,
-  ylim = NA, mapRegion = "world", borderCol = "grey", oceanCol = NA,
-  landCol = NA, addLegend = TRUE, legendBg = "white", legendVals = "",
-  legendPos = "bottomright", legendHoriz = FALSE, legendTitle = nameZSize,
-  addColourLegend = TRUE, colourLegendPos = "bottomleft",
-  colourLegendTitle = nameZColour, add = FALSE, plotZeroVals = TRUE,
-  lwd = 0.5, lwdSymbols = 1, ...)
+mapBubbles(
+  dF = "",
+  nameX = "longitude",
+  nameY = "latitude",
+  nameZSize = "",
+  nameZColour = "",
+  fill = TRUE,
+  pch = 21,
+  symbolSize = 1,
+  maxZVal = NA,
+  main = nameZSize,
+  numCats = 5,
+  catMethod = "categorical",
+  colourPalette = "heat",
+  xlim = NA,
+  ylim = NA,
+  mapRegion = "world",
+  borderCol = "grey",
+  oceanCol = NA,
+  landCol = NA,
+  addLegend = TRUE,
+  legendBg = "white",
+  legendVals = "",
+  legendPos = "bottomright",
+  legendHoriz = FALSE,
+  legendTitle = nameZSize,
+  addColourLegend = TRUE,
+  colourLegendPos = "bottomleft",
+  colourLegendTitle = nameZColour,
+  add = FALSE,
+  plotZeroVals = TRUE,
+  lwd = 0.5,
+  lwdSymbols = 1,
+  ...
+)
 }
 \arguments{
 \item{dF}{data frame or SpatialPolygonsDataFrame}
@@ -142,4 +167,3 @@ mapBubbles(nameZColour = adjustcolor('black', alpha.f = 0.7), fill=FALSE, add=TR
 andy south
 }
 \keyword{aplot}
-

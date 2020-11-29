@@ -4,8 +4,11 @@
 \alias{rwmCheckAndLoadInput}
 \title{internal function to check and load input data to mapping functions}
 \usage{
-rwmCheckAndLoadInput(inputData = "", inputNeeded = "sPDF",
-  callingFunction = "")
+rwmCheckAndLoadInput(
+  inputData = "",
+  inputNeeded = "sPDF",
+  callingFunction = ""
+)
 }
 \arguments{
 \item{inputData}{a dF, sPDF or "", for latter an internal example data is
@@ -30,4 +33,3 @@ a rworldmap internal function, unlikely to be of use to users
 andy south
 }
 \keyword{aplot}
-

@@ -4,11 +4,25 @@
 \alias{addMapLegend}
 \title{Add a legend to a map}
 \usage{
-addMapLegend(colourVector = "", cutVector = "", legendLabels = "limits",
-  labelFontSize = 1, legendWidth = 1.2, legendShrink = 0.9,
-  legendMar = 3, horizontal = TRUE, legendArgs = NULL, tcl = -0.5,
-  mgp = c(3, 1, 0), sigFigs = 4, digits = 3, legendIntervals = "data",
-  plottedData = "", catMethod = "pretty", colourPalette = "heat")
+addMapLegend(
+  colourVector = "",
+  cutVector = "",
+  legendLabels = "limits",
+  labelFontSize = 1,
+  legendWidth = 1.2,
+  legendShrink = 0.9,
+  legendMar = 3,
+  horizontal = TRUE,
+  legendArgs = NULL,
+  tcl = -0.5,
+  mgp = c(3, 1, 0),
+  sigFigs = 4,
+  digits = 3,
+  legendIntervals = "data",
+  plottedData = "",
+  catMethod = "pretty",
+  colourPalette = "heat"
+)
 }
 \arguments{
 \item{colourVector}{colours used in the map}
@@ -110,11 +124,10 @@ do.call( addMapLegend, c( mapParams
 
 
 }
-\author{
-Andy South
-}
 \seealso{
 mapCountryData, mapGriddedData, image.plot
 }
+\author{
+Andy South
+}
 \keyword{aplot}
-

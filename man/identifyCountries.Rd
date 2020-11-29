@@ -5,8 +5,15 @@
 \title{a function that will print country name and attribute values when a user
 clicks on the map}
 \usage{
-identifyCountries(dF = "", nameCountryColumn = "NAME", nameX = "LON",
-  nameY = "LAT", nameColumnToPlot = "", plotSelected = FALSE, ...)
+identifyCountries(
+  dF = "",
+  nameCountryColumn = "NAME",
+  nameX = "LON",
+  nameY = "LAT",
+  nameColumnToPlot = "",
+  plotSelected = FALSE,
+  ...
+)
 }
 \arguments{
 \item{dF}{data frame or SpatialPolygonsDataFrame}
@@ -55,11 +62,10 @@ It uses country centroids, and will give a warning if one is too far away
 #identifyCountries(nameColumnToPlot = "POP_EST", plotSelected = TRUE)
 
 }
-\author{
-andy south
-}
 \seealso{
 identify() \code{\link{labelCountries}}
 }
+\author{
+andy south
+}
 \keyword{dplot}
-

@@ -5,13 +5,15 @@
 \alias{countriesCoarseLessIslands}
 \title{a coarse resolution world map, a vector map of 177 country boundaries,
 suitable for global maps}
-\format{The format is: Formal class 'SpatialPolygonsDataFrame' [package
-"sp"] with 5 slots}
+\format{
+The format is: Formal class 'SpatialPolygonsDataFrame' \link[=package
+"sp"]{package "sp"} with 5 slots
+}
 \source{
 http://www.naturalearthdata.com/downloads/110m-cultural-vectors/110m-admin-0-countries/
 }
 \description{
-A 'SpatialPolygonsDataFrame' [package "sp"] object containing a simplified
+A 'SpatialPolygonsDataFrame' \link{package "sp"} object containing a simplified
 world map.  Polygons are attributed with country codes. 177 countries.
 Derived fronm version 1.4.0 of Natural Earth data 1:110 m data.
 }
@@ -38,4 +40,3 @@ data(countriesCoarseLessIslands)
 
 }
 \keyword{datasets}
-

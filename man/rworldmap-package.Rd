@@ -2,8 +2,8 @@
 % Please edit documentation in R/datasets.R, R/rworldmap-package.R
 \docType{package}
 \name{rworldmap-package}
-\alias{rworldmap}
 \alias{rworldmap-package}
+\alias{rworldmap}
 \title{For mapping global data.}
 \description{
 Enables mapping of country level and gridded user datasets by facilitating
@@ -92,21 +92,6 @@ mapHalfDegreeGridToCountries()
 
 
 }
-\author{
-Andy South
-
-with contributions from Joe Scutt-Phillips, Barry Rowlingson, Roger Bivand
-and Pru Foster
-
-Maintainer: <southandy@gmail.com>
-
-Andy South
-
-with contributions from Joe Scutt-Phillips, Barry Rowlingson, Roger Bivand
-and Pru Foster
-
-Maintainer: <southandy@gmail.com>
-}
 \references{
 Stable version :
 http://cran.r-project.org/web/packages/rworldmap \cr Development version :
@@ -115,10 +100,24 @@ https://r-forge.r-project.org/projects/rworldmap/
 Discussion group : http://groups.google.com/group/rworldmap
 
 Stable version :
-http://cran.r-project.org/web/packages/rworldmap 
+http://cran.r-project.org/web/packages/rworldmap
 \cr Development version :https://github.com/AndySouth/rworldmap
 
 Discussion group : http://groups.google.com/group/rworldmap
 }
-\keyword{package}
+\author{
+Andy South
 
+with contributions from Joe Scutt-Phillips, Barry Rowlingson, Roger Bivand
+and Pru Foster
+
+Maintainer: \href{mailto:southandy@gmail.com}{southandy@gmail.com}
+
+Andy South
+
+with contributions from Joe Scutt-Phillips, Barry Rowlingson, Roger Bivand
+and Pru Foster
+
+Maintainer: \href{mailto:southandy@gmail.com}{southandy@gmail.com}
+}
+\keyword{package}

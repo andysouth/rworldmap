@@ -5,8 +5,7 @@
 \title{Internal function to set the numeric values for the breaks between data
 categories}
 \usage{
-rwmGetClassBreaks(dataColumn, catMethod, numCats, verbose = TRUE,
-  midpoint = 0)
+rwmGetClassBreaks(dataColumn, catMethod, numCats, verbose = TRUE, midpoint = 0)
 }
 \arguments{
 \item{dataColumn}{the data vector to be classified, must be numeric}
@@ -30,11 +29,10 @@ A vector specifying the numeric breaks between data categories.
 Sets the values that determine how a vector of continuous data is classified
 into categories. Called by mapCountryData() and mapGriddedData()
 }
-\author{
-andy south and matthew staines
-}
 \seealso{
 The classInt package
 }
+\author{
+andy south and matthew staines
+}
 \keyword{dplot}
-

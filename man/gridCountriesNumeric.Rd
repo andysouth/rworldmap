@@ -4,7 +4,8 @@
 \name{gridCountriesNumeric}
 \alias{gridCountriesNumeric}
 \title{A gloabl half degree grid specifying the country at each cell}
-\format{The format is: \preformatted{ Formal class 'SpatialGridDataFrame'
+\format{
+The format is: \preformatted{ Formal class 'SpatialGridDataFrame'
 [package "sp"] with 6 slots ..@ data :'data.frame': 259200 obs. of 1
 variable: .. ..$ country.asc: num [1:259200] NA NA NA NA NA NA NA NA NA NA
 ...  ..@ grid :Formal class 'GridTopology' [package "sp"] with 3 slots .. ..
@@ -16,7 +17,8 @@ coords : num [1:2, 1:2] -179.8 179.8 -89.8 89.8 .. ..- attr(*,
 "dimnames")=List of 2 .. .. ..$ : chr [1:2] "coords.x1" "coords.x2" .. ..
 ..$ : chr [1:2] "min" "max" ..@ proj4string:Formal class 'CRS' [package
 "sp"] with 1 slots .. .. ..@ projargs: chr " +proj=longlat +datum=WGS84
-+ellps=WGS84 +towgs84=0,0,0" }}
++ellps=WGS84 +towgs84=0,0,0" }
+}
 \source{
 IIASA
 }
@@ -38,4 +40,3 @@ data(gridCountriesNumeric)
 http://www.iiasa.ac.at/Research/GGI/DB/
 }
 \keyword{datasets}
-

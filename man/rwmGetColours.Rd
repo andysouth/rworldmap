@@ -24,4 +24,3 @@ colours specified.  If colourPalette specifies a number of colours and this
 is different from numColours, numColours takes precedence and colours are
 interpolated to make the number fit.
 }
-

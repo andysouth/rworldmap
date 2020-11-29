@@ -28,4 +28,3 @@ plot(getMap())
 Barry Rowlingson & Andy South
 }
 \keyword{misc}
-

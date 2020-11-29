@@ -4,7 +4,8 @@
 \name{gridExData}
 \alias{gridExData}
 \title{Example half degree grid data : population estimates for 2000 from IIASA}
-\format{The format is: \preformatted{ Formal class 'SpatialGridDataFrame'
+\format{
+The format is: \preformatted{ Formal class 'SpatialGridDataFrame'
 [package "sp"] with 6 slots ..@ data :'data.frame': 259200 obs. of 1
 variable: .. ..$ pa2000.asc: num [1:259200] NA NA NA NA NA NA NA NA NA NA
 ...  ..@ grid :Formal class 'GridTopology' [package "sp"] with 3 slots .. ..
@@ -16,7 +17,8 @@ coords : num [1:2, 1:2] -179.8 179.8 -89.8 89.8 .. ..- attr(*,
 "dimnames")=List of 2 .. .. ..$ : chr [1:2] "coords.x1" "coords.x2" .. ..
 ..$ : chr [1:2] "min" "max" ..@ proj4string:Formal class 'CRS' [package
 "sp"] with 1 slots .. .. ..@ projargs: chr " +proj=longlat +datum=WGS84
-+ellps=WGS84 +towgs84=0,0,0" }}
++ellps=WGS84 +towgs84=0,0,0" }
+}
 \source{
 http://www.iiasa.ac.at/web-apps/ggi/GgiDb/dsd?Action=htmlpage&page=about
 }
@@ -49,4 +51,3 @@ SRES. Technological Forecasting and Social Change
 doi:10.1016/j.techfore.2006.05.023
 }
 \keyword{datasets}
-

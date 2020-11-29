@@ -5,7 +5,8 @@
 \alias{countrySynonyms}
 \title{Synonyms of country names for each ISO 3 letter country code to enable
 conversion.}
-\format{A data frame with 281 observations on the following 10 variables.
+\format{
+A data frame with 281 observations on the following 10 variables.
 \describe{ \item{ID}{a numeric vector} \item{ISO3}{ISO 3
 letter country code} \item{name1}{country name - most common}
 \item{name2}{country name - alternative}
@@ -14,7 +15,8 @@ letter country code} \item{name1}{country name - most common}
 \item{name5}{country name - alternative}
 \item{name6}{country name - alternative}
 \item{name7}{country name - alternative}
-\item{name8}{country name - alternative} }}
+\item{name8}{country name - alternative} }
+}
 \source{
 This was derived and used with permission from the Perl Locale
 package. \cr Locale::Codes::Country_Codes.\cr Thanks to Sullivan Beck for
@@ -36,4 +38,3 @@ data(countrySynonyms)
 
 }
 \keyword{datasets}
-

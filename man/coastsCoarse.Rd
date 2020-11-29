@@ -4,8 +4,10 @@
 \name{coastsCoarse}
 \alias{coastsCoarse}
 \title{A map of world coasts at coarse resolution.}
-\format{The format is: Formal class 'SpatialLinesDataFrame' [package "sp"]
-with 4 slots}
+\format{
+The format is: Formal class 'SpatialLinesDataFrame' \link{package "sp"}
+with 4 slots
+}
 \source{
 http://www.naturalearthdata.com/downloads/110m-physical-vectors/
 }
@@ -24,4 +26,3 @@ plot(coastsCoarse,add=TRUE,col='blue')
 
 }
 \keyword{datasets}
-

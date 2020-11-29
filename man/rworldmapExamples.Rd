@@ -13,4 +13,3 @@ Example code to demonstrate creation of a series of plots
 andy south
 }
 \keyword{aplot}
-

@@ -4,8 +4,18 @@
 \alias{mapByRegion}
 \title{Produce maps of regional level data from country level data}
 \usage{
-mapByRegion(inFile, nameDataColumn, joinCode, nameJoinColumn, regionType = "",
-  FUN = "mean", na.rm = TRUE, mapTitle = "", lwd = 0.5, ...)
+mapByRegion(
+  inFile,
+  nameDataColumn,
+  joinCode,
+  nameJoinColumn,
+  regionType = "",
+  FUN = "mean",
+  na.rm = TRUE,
+  mapTitle = "",
+  lwd = 0.5,
+  ...
+)
 }
 \arguments{
 \item{inFile}{a data frame}
@@ -73,4 +83,3 @@ An alternative tool to \code{\link{country2Region}}. The plotting
 is done by \code{\link{mapCountryData}}
 }
 \keyword{hplot}
-
