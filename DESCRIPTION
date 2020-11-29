@@ -1,10 +1,14 @@
 Package: rworldmap
 Type: Package
 Title: Mapping Global Data
-Version: 1.3-7
-Date: 2016-02-03
-Author: Andy South
-Maintainer: Andy South <southandy@gmail.com>
+Version: 1.3-8
+Date: 2020-11-29
+Authors@R: 
+    person(given = "Andy",
+           family = "South",
+           role = c("aut", "cre"),
+           email = "southandy@gmail.com",
+           comment = c(ORCID = "0000-0003-4051-6135"))
 Description: Enables mapping of country level and gridded user datasets.
 License: GPL (>= 2)
 Depends:
@@ -22,4 +26,6 @@ Suggests:
 LazyData: true
 URL: https://github.com/AndySouth/rworldmap/, https://groups.google.com/forum/#!forum/rworldmap, http://andysouth.co.uk/
 BugReports: https://github.com/AndySouth/rworldmap/issues
-RoxygenNote: 5.0.1
+RoxygenNote: 7.1.1
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
