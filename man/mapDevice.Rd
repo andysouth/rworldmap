@@ -41,7 +41,7 @@ do not specify both width and height, suitable values will be calculated}
 \item{titleSpace}{The height in inches of the gap at the plot.}
 
 \item{mai}{The margin sizes in inches. If titleSpace is given this overrides
-mai\link{3}.}
+mai[3].}
 
 \item{mgp}{As per par(mgp) in the graphics package}
 

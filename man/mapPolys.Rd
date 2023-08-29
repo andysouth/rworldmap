@@ -37,7 +37,7 @@ this number is incompatible with the catMethod chosen}
 
 \item{ylim}{map extents c(south,north), can be overidden by mapRegion}
 
-\item{mapRegion}{a country name from getMap()[\link{'NAME'}] or
+\item{mapRegion}{a country name from getMap()[['NAME']] or
 'world','africa','oceania','eurasia','uk' sets map extents, overrides
 xlim,ylim}
 

@@ -5,7 +5,7 @@
 \alias{coastsCoarse}
 \title{A map of world coasts at coarse resolution.}
 \format{
-The format is: Formal class 'SpatialLinesDataFrame' \link{package "sp"}
+The format is: Formal class 'SpatialLinesDataFrame' [package "sp"]
 with 4 slots
 }
 \source{

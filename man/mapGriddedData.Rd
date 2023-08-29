@@ -48,7 +48,7 @@ valid colours, e.g. =c('red','white','blue') or output from RColourBrewer
 
 \item{ylim}{map extents c(south,north), can be overidden by mapRegion}
 
-\item{mapRegion}{a country name from getMap()[\link{'NAME'}] or
+\item{mapRegion}{a country name from getMap()[['NAME']] or
 'world','africa','oceania','eurasia','uk' sets map extents, overrides
 xlim,ylim}
 
@@ -115,5 +115,6 @@ classInt, RColorBrewer
 }
 \author{
 andy south
+#@importFrom maptools readAsciiGrid
 }
 \keyword{hplot}

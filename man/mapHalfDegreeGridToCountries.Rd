@@ -87,5 +87,6 @@ mapHalfDegreeGridToCountries( gridExData, aggregateOption="mean" )
 }
 \author{
 andy south
+#@importFrom maptools readAsciiGrid
 }
 \keyword{aplot}

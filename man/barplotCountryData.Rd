@@ -79,7 +79,7 @@ greater flexibility in legend creation.
 }
 \description{
 Draw a barplot of country-level data, ranking the countries to allow easy
-comparison.
+comparison. 
 One bar per country and to be able to read country names.
 This is useful for comparing with maps created by
 \code{\link{mapCountryData}} and accepts many of the same arguments for
