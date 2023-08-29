@@ -100,7 +100,7 @@ https://r-forge.r-project.org/projects/rworldmap/
 Discussion group : http://groups.google.com/group/rworldmap
 
 Stable version :
-http://cran.r-project.org/web/packages/rworldmap
+http://cran.r-project.org/web/packages/rworldmap 
 \cr Development version :https://github.com/AndySouth/rworldmap
 
 Discussion group : http://groups.google.com/group/rworldmap
@@ -111,13 +111,6 @@ Andy South
 with contributions from Joe Scutt-Phillips, Barry Rowlingson, Roger Bivand
 and Pru Foster
 
-Maintainer: \href{mailto:southandy@gmail.com}{southandy@gmail.com}
-
-Andy South
-
-with contributions from Joe Scutt-Phillips, Barry Rowlingson, Roger Bivand
-and Pru Foster
-
-Maintainer: \href{mailto:southandy@gmail.com}{southandy@gmail.com}
+Maintainer: <southandy@gmail.com>
 }
 \keyword{package}

@@ -38,7 +38,7 @@ projection='none' : options 'low', 'medium'}
 \item{verbose}{if set to FALSE it doesn't print progress messages to console}
 }
 \value{
-An R 'SpatialPolygonsDataFrame' \link{package "sp"} object with the
+An R 'SpatialPolygonsDataFrame' [package "sp"] object with the
 passed data joined to it
 }
 \description{
@@ -60,7 +60,7 @@ joinCode='NAME' alternative country names are matched using
 The projection argument has now been deprecated, you can project maps using
 package rgdal as shown below and in the FAQ. \cr library(rgdal) \cr #first
 get countries excluding Antarctica which crashes spTransform \cr sPDF <-
-getMap()\link{-which(getMap()$ADMIN=='Antarctica'),} \cr #transform to robin for
+getMap()[-which(getMap()$ADMIN=='Antarctica'),] \cr #transform to robin for
 the Robinson projection \cr sPDF <- spTransform(sPDF, CRS=CRS("+proj=robin
 +ellps=WGS84")) \cr mapCountryData( sPDF, nameColumnToPlot="REGION")
 }

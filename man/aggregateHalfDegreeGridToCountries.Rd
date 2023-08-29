@@ -43,5 +43,6 @@ mapCountryData(sPDF,nameColumnToPlot='sum_pa2000.asc')
 }
 \author{
 andy south
+#@importFrom maptools readAsciiGrid
 }
 \keyword{dplot}

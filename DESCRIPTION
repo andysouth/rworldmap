@@ -15,16 +15,15 @@ Depends:
     R (>= 2.10.0),
     sp
 Imports:
-    maptools,
     fields,
     methods
 Suggests:
-    rgdal,
     rworldxtra,
     RColorBrewer,
-    classInt
+    classInt,
+    sf
 LazyData: true
 URL: https://github.com/AndySouth/rworldmap/, https://groups.google.com/forum/#!forum/rworldmap, http://andysouth.co.uk/
 BugReports: https://github.com/AndySouth/rworldmap/issues
-RoxygenNote: 7.1.1
+RoxygenNote: 7.2.3
 Encoding: UTF-8

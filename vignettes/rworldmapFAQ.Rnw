@@ -5,7 +5,6 @@
 Science (Cefas), Lowestoft, NR33 OHT, UK. {\tt southandy at gmail.com}}}
 
 %\VignetteIndexEntry{rworldmap FAQ}
-%\VignetteDepends{rgdal}
 
 \SweaveOpts{echo=TRUE,print=FALSE, width=7, height=3.7, eps=FALSE} %\default width and height for figures
 
@@ -400,16 +399,17 @@ mtext("Source: Andy South, The R Journal Vol. 3/1, June 2011",side=1,line=-1)
 
 \section{plot other map projections}                
 
-To project a map you will need the rgdal package and use spTransform()
+To project a map you will need the sf package and use spTransform()
 
   \begin{center}
 
 <<projection,fig=TRUE,echo=TRUE,results=hide>>=
 <<plotSetup>>
 
-library(rgdal)
+#library(rgdal)
 #first get countries excluding Antarctica which crashes spTransform
 sPDF <- getMap()[-which(getMap()$ADMIN=='Antarctica'),]
+spDF <- as(sf::st_make_valid(sf::st_as_sf(sPDF)), "Spatial")
 #transform to robin for the Robinson projection
 sPDF <- spTransform(sPDF, CRS=CRS("+proj=robin +ellps=WGS84")) 
        

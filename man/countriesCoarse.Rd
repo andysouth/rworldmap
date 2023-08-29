@@ -6,14 +6,14 @@
 \title{a coarse resolution world map, a vector map of 244 country
 boundaries,suitable for global maps}
 \format{
-The format is: Formal class 'SpatialPolygonsDataFrame' \link[=package
-"sp"]{package "sp"} with 5 slots
+The format is: Formal class 'SpatialPolygonsDataFrame' [package
+"sp"] with 5 slots
 }
 \source{
 http://www.naturalearthdata.com/downloads/110m-cultural-vectors/110m-admin-0-countries/
 }
 \description{
-A 'SpatialPolygonsDataFrame' \link{package "sp"} object containing a simplified
+A 'SpatialPolygonsDataFrame' [package "sp"] object containing a simplified
 world map.  Polygons are attributed with country codes. 244 countries. Based
 on Natural Earth data.
 }
