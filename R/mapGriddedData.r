@@ -301,9 +301,10 @@ mapGriddedData <- function(
 
 #' @importFrom raster raster
 #' @importFrom terra rast
+#' @importFrom methods as
 
 readAsciiGrid <- function(fname="") {
-as(raster::raster(terra::rast(fname)), "SpatialGridDataFrame")
+  as(raster::raster(terra::rast(fname)), "SpatialGridDataFrame")
 }
 
 

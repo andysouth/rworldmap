@@ -2,7 +2,7 @@ Package: rworldmap
 Type: Package
 Title: Mapping Global Data
 Version: 1.3-8
-Date: 2020-11-29
+Date: 2023-08-30
 Authors@R: 
     person(given = "Andy",
            family = "South",
@@ -16,7 +16,9 @@ Depends:
     sp
 Imports:
     fields,
-    methods
+    methods,
+    raster, 
+    terra
 Suggests:
     rworldxtra,
     RColorBrewer,

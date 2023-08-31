@@ -84,7 +84,7 @@ valid colours, e.g. =c('red','white','blue') or output from RColourBrewer
 
 \item{ylim}{map extents c(south,north), can be overidden by mapRegion}
 
-\item{mapRegion}{a country name from getMap()\$NAME or
+\item{mapRegion}{a country name from getMap()$NAME or
 'world','africa','oceania','eurasia','uk' sets map extents, overrides
 xlim,ylim}
 
@@ -98,7 +98,7 @@ xlim,ylim}
 
 \item{legendBg}{background colour for the legend, NA=transparent}
 
-\item{legendVals}{allows user to set values & hence symbol sizing in legend}
+\item{legendVals}{allows user to set values and hence symbol sizing in legend}
 
 \item{legendPos}{positioning of legend e.g. 'bottomleft', 'topright'}
 
