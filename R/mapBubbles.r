@@ -135,7 +135,7 @@ mapBubbles <- function( dF=""
 functionName <- as.character(sys.call()[[1]])
 
 #use example data if no file specified
-if ( class(dF)=="character" && dF=="" )
+if ( inherits(dF, "character") && dF=="" )
    {
     message(paste("using example data because no file specified in",functionName))   
     dF=getMap()@data
@@ -146,7 +146,7 @@ if ( class(dF)=="character" && dF=="" )
    }
 
 #allows just a sPDF to be passed and it will get the label points, so doesn't need nameX & nameY to be specified
-if (class(dF)=="SpatialPolygonsDataFrame")
+if (inherits(dF, "SpatialPolygonsDataFrame"))
    {
     #10/10/12 moved plotting to after getting & setting centroids
   

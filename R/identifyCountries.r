@@ -49,7 +49,7 @@ identifyCountries <- function(dF=""
 
 
 #also possible to get centroids from a sPDF
-if (class(dF)=="SpatialPolygonsDataFrame")
+if (inherits(dF, "SpatialPolygonsDataFrame"))
    {
     #get coords from sPDF if it is passed
     centroidCoords <- coordinates(dF)    
@@ -62,7 +62,7 @@ if (class(dF)=="SpatialPolygonsDataFrame")
     nameY <- 'nameY'    
    } else
 #this assumes that the dF already has columns for lat & lon
-if (class(dF)=="data.frame")
+if (inherits(dF, "data.frame"))
    {
     #this assumes that nameX, nameY & nameCountryColumn columns have been passed correctly
     dF2 <- dF
@@ -87,7 +87,7 @@ selectedCountryIndices <- identify(x=dF2[[nameX]], y=dF2[[nameY]], labels=labels
 #!the plots only appear after the locator is stopped
 if (plotSelected & length(selectedCountryIndices)>0 ) 
    {
-    if (class(dF)=="SpatialPolygonsDataFrame")
+    if (inherits(dF, "SpatialPolygonsDataFrame"))
        {
         plot(dF[selectedCountryIndices,],border='blue',add=TRUE)
        } else

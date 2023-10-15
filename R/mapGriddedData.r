@@ -97,7 +97,7 @@ mapGriddedData <- function(
 
     
     ## filename or nothing ##
-    if (class(dataset)=='character')
+    if (inherits(dataset, 'character'))
        {
         if (dataset=="") #if no dataset passed
            {
@@ -107,7 +107,7 @@ mapGriddedData <- function(
            } else
             sGDF <- readAsciiGrid(dataset)
     ## matrix or array ##        
-       } else if (class(dataset)=='matrix' || class(dataset)=='array')   
+       } else if (inherits(dataset, 'matrix') || inherits(dataset, 'array'))   
        {
         if ( length(dim(dataset)) == 2 )
            {
@@ -126,13 +126,13 @@ mapGriddedData <- function(
             return(FALSE)
            }           
     ## SGDF passed ##           
-       } else if (class(dataset)=='SpatialGridDataFrame')
+       } else if (inherits(dataset, 'SpatialGridDataFrame'))
        {   
         sGDF <- dataset
        } else
        {
     ## !! I could add option here for dataFrame with nameX & nameY columns   
-        stop("the first argument to ",functionName," should be a file name, 2D array or matrix, or SpatialGridDataFrame, yours is, ", class(dataset)) 
+        stop("the first argument to ",functionName," should be a file name, 2D array or matrix, or SpatialGridDataFrame, yours is, ", class(dataset)[1]) 
         return(FALSE)
        } 
 

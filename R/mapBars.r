@@ -126,7 +126,7 @@
     
     
     #if rwmCheckAndLoadInput returns a sPDF get the dF bit add columns for centroid coords & set nameX & nameY
-    if ( class(dF)=="SpatialPolygonsDataFrame" ) #################################
+    if ( inherits(dF, "SpatialPolygonsDataFrame" )) #################################
     {
       #copying map to sPDF to use later
       sPDF <- dF
@@ -140,7 +140,7 @@
       #dF bit to be used for bars
       dF <- dF@data
       
-    } else if( class(dF)=="data.frame"  ) #######################################
+    } else if( inherits(dF, "data.frame"  )) #######################################
     {   
       #to be used for background map if !add
       sPDF <- getMap()

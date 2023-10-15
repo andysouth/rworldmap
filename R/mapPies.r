@@ -107,7 +107,7 @@
     #15/10/12 copying code in here from mapBubbles() to cope with sPDF
     
     #allows just a sPDF to be passed and it will get the label points, so doesn't need nameX & nameY to be specified
-    if (class(dF)=="SpatialPolygonsDataFrame")
+    if (inherits(dF, "SpatialPolygonsDataFrame"))
     {
       #10/10/12 moved plotting to after getting & setting centroids
       

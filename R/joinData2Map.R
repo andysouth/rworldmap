@@ -94,7 +94,7 @@
 
     #browser()
 
-    if ( dF=="" || ( class(nameMap)=='character' && nameMap=="" ) )
+    if ( dF=="" || ( inherits(nameMap, 'character') && nameMap=="" ) )
        {
         stop("you haven't specfied data (dF) and/or a map to join it to (nameMap)") 
         return(FALSE)
@@ -106,10 +106,10 @@
     #   }       
 
     #getting the map polygons to join the data to
-    if ( class(nameMap)=='SpatialPolygonsDataFrame' )
+    if ( inherits(nameMap, 'SpatialPolygonsDataFrame' ))
        {
         mapWithData <- nameMap
-       } else if ( nameMap != "" && class(nameMap)=="character" )
+       } else if ( nameMap != "" && inherits(nameMap, "character" ))
        {
         mapWithData <- eval(parse(text=nameMap))
        } else

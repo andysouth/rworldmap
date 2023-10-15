@@ -135,7 +135,7 @@ mapPolys <- function(
     mapToPlot <- rwmCheckAndLoadInput( mapToPlot, inputNeeded="sPDF", callingFunction=functionName )    
   } else
   {
-     if ( class(mapToPlot)=="SpatialPolygonsDataFrame" ) {
+     if ( inherits(mapToPlot, "SpatialPolygonsDataFrame" )) {
         ## checking if there is any data in the dataFrame
         if ( length(mapToPlot@data[,1]) < 1 ){
           stop("seems to be no data in your chosen file or dataframe in ",functionName) 
