@@ -53,7 +53,7 @@ rwmCheckAndLoadInput <- function(
   #if (requireSPDF)
   if (inputNeeded == "sPDF")
   {
-    if ( class(inputData)=="SpatialPolygonsDataFrame" ) 
+    if ( inherits(inputData, "SpatialPolygonsDataFrame" )) 
     {
       ## checking if there is any data in the dataFrame
       if ( length(inputData@data[,1]) < 1 ){
@@ -90,14 +90,14 @@ rwmCheckAndLoadInput <- function(
       ## also setting a default nameColumnToPlot if it isn't set
       #can't have this here because not passed
       #if ( nameColumnToPlot == "" ) nameColumnToPlot <- "POP_EST" #
-    } else if ( class(inputData)=="SpatialPolygonsDataFrame" ) 
+    } else if ( inherits(inputData, "SpatialPolygonsDataFrame" )) 
     {
       ## checking if there is any data in the dataFrame
       if ( length(inputData@data[,1]) < 1 ){
         stop("seems to be no data in your chosen input in ",functionName, "from", callingFunction) 
         return(FALSE)
       } 
-    } else if ( class(inputData)=="data.frame" ) 
+    } else if ( inherits(inputData, "data.frame" )) 
     {
       ## checking if there is any data in the dataFrame
       if ( length(inputData[,1]) < 1 ){

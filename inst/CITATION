@@ -1,19 +1,14 @@
 citHeader("To cite rworldmap in publications, please use:")
 
+bibentry(bibtype="Article",
+         title="rworldmap: A New {R} package for Mapping Global Data",
+         author=c(person(c("Andy"), "South")),
+         journal="The R Journal",
+         year="2011",
+         volume="3",
+         number="1",
+	 pages="35-43",
+         url="https://journal.r-project.org/articles/RJ-2011-006/",
+         doi="10.32614/RJ-2011-006"
+)
 
-citEntry(entry = "article",
-  
-author = "Andy South",
-  
-title = "rworldmap: A New R package for Mapping Global Data",
-  
-journal      = "The R Journal",
-year         = "2011",
-volume       = "3",
-number       = "1",
-pages        = "35-43",
-month        = "June",
-issn = "2073-4859",  
-url = "http://journal.r-project.org/archive/2011-1/RJournal_2011-1_South.pdf",
-  
-textVersion = "South, Andy 2011 rworldmap: A New R package for Mapping Global Data. The R Journal Vol. 3/1 : 35-43." )

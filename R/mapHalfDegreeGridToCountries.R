@@ -69,7 +69,7 @@
                        
     #map global half degree gridded data 
     #will work on a gridascii file or a SpatialGridDataFrame or use the example data if none specified
-    if ( class(inFile)=="SpatialGridDataFrame" ) 
+    if ( inherits(inFile, "SpatialGridDataFrame" ))
     {
        sGDF <- inFile           
     }

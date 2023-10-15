@@ -52,7 +52,7 @@ labelCountries <- function( dF=""
   #^^!! start of bit initially copied from identifyCountries()
   
   #also possible to get centroids from a sPDF
-  if (class(dF)=="SpatialPolygonsDataFrame")
+  if (inherits(dF, "SpatialPolygonsDataFrame"))
   {
     #!9/10/12 BUG correction, don't get coords from internal map if an sPDF is passed
     #centroidCoords <- coordinates(getMap())
@@ -66,7 +66,7 @@ labelCountries <- function( dF=""
     nameY <- 'nameY'    
   } else
     #this assumes that the dF already has columns for lat & lon
-    if (class(dF)=="data.frame")
+    if (inherits(dF, "data.frame"))
     {
       #this assumes that nameX, nameY & nameCountryColumn columns have been passed correctly
       dF2 <- dF
